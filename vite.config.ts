@@ -2,13 +2,16 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  // Ensure this matches your GitHub repository name exactly
+  // This base is only needed for GitHub Pages deployment
   base: "/Experience-Anbarasasn-Portfolio/", 
   server: {
     host: "0.0.0.0",
     port: 8080,
+    // Add this to help with strict dependency resolution
+    fs: {
+      strict: false
+    }
   },
   plugins: [react()],
   resolve: {
