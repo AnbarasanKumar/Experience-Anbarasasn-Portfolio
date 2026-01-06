@@ -97,31 +97,49 @@ const Footer: React.FC = () => {
 
           {/* Location */}
           <div>
-            <h3 className="text-lg font-semibold mb-3">Location</h3>
-            <p className="flex items-center gap-2 text-gray-300 justify-center md:justify-start">
-              <FaMapMarkerAlt className="w-4 h-4 flex-shrink-0" />
-              <span>Parangipettai</span>
-            </p>
-            <p className="flex items-center gap-2 text-gray-300 justify-center md:justify-start">
-              <FaPhoneAlt className="w-4 h-4 flex-shrink-0" />
-              <a href="tel:+919787638123" className="hover:text-white">+91 9787638123</a>
-            </p>
-            <p className="flex items-center gap-2 text-gray-300 justify-center md:justify-start">
-              <FaEnvelope className="w-4 h-4 flex-shrink-0" />
-              <a href="mailto:anbarasanpno18@gmail.com" className="hover:text-white text-sm">anbarasanpno18@gmail.com</a>
-            </p>
-          </div>
+  <h3 className="text-lg font-semibold mb-3">Location</h3>
+  
+  {/* Location */}
+  <div className="flex items-center gap-2 text-gray-300 justify-center md:justify-start mb-2">
+    <FaMapMarkerAlt className="w-4 h-4 flex-shrink-0" />
+    <span>Parangipettai</span>
+  </div>
+
+  {/* Phone - Optimized for mobile tap */}
+  <div className="flex items-center gap-2 text-gray-300 justify-center md:justify-start mb-2">
+    <FaPhoneAlt className="w-4 h-4 flex-shrink-0" />
+    <a 
+      href="tel:+919787638123" 
+      className="hover:text-white transition-colors duration-200"
+    >
+      +91 9787638123
+    </a>
+  </div>
+
+  {/* Email - Fixed to prevent auto-launch warnings */}
+  <div className="flex items-center gap-2 text-gray-300 justify-center md:justify-start">
+    <FaEnvelope className="w-4 h-4 flex-shrink-0" />
+    <a 
+      href="mailto:anbarasanpno18@gmail.com" 
+      className="hover:text-white text-sm transition-colors duration-200"
+      /* We use div instead of p to avoid browser parsing conflicts with nested links */
+    >
+      anbarasanpno18@gmail.com
+    </a>
+  </div>
+</div>
 
           {/* QR Code */}
           <div className="flex flex-col items-center md:items-end mt-4 md:mt-0">
             <p className="font-semibold mb-2 text-center md:text-right">Scan to WhatsApp</p>
             <div className="bg-white p-2 rounded-lg">
               <QRCode
-                value="https://wa.me/919787638123"
-                size={120}
-                bgColor="#ffffff"
-                fgColor="#000000"
-              />
+  value="https://wa.me/919787638123"
+  size={120}
+  bgColor="#ffffff"
+  fgColor="#000000"
+  level="H" // 'H' (High) helps the QR code scan even if slightly damaged
+/>
             </div>
           </div>
         </div>

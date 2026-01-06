@@ -104,7 +104,7 @@ const HeroSection: React.FC = () => {
             <span className="border-r-2 border-gray-300 animate-pulse ml-1"></span>
           </p>
           <p className="text-xl md:text-xl text-gray-200 leading-relaxed max-w-lg mt-2">
-            I am a passionate Java / Full Stack Developer skilled in Java, Spring Boot, MySQL, HTML, CSS, and JavaScript. I enjoy problem-solving and developing secure, scalable applications.
+            I am a passionate Java / Full Stack Developer skilled in Java, Spring Boot, MySQL, HTML, CSS, and JavaScript. I have hands-on experience building real-world applications like an E-Commerce Website and a Course Registration System, with a strong focus on backend development, RESTful APIs, and database integration. I enjoy problem-solving, learning new technologies, and developing secure, scalable, and user-friendly applications.
           </p>
           <div className="flex flex-wrap gap-4 mt-4">
             <a href="#projects" className="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg text-white">Projects</a>
