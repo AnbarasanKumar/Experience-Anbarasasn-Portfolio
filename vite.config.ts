@@ -3,14 +3,12 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 
 export default defineConfig({
-  // This base is only needed for GitHub Pages deployment
-  base: "/Experience-Anbarasasn-Portfolio/", 
+  // CHANGED THIS: Removed the folder name for Render
+  base: "/", 
   server: {
     host: "0.0.0.0",
     port: 8080,
-    // --- ADDED THIS LINE BELOW ---
     allowedHosts: true, 
-    // ----------------------------
     fs: {
       strict: false
     }
