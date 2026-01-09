@@ -8,7 +8,9 @@ export default defineConfig({
   server: {
     host: "0.0.0.0",
     port: 8080,
-    // Add this to help with strict dependency resolution
+    // --- ADDED THIS LINE BELOW ---
+    allowedHosts: true, 
+    // ----------------------------
     fs: {
       strict: false
     }
