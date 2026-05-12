@@ -39,7 +39,7 @@ const AboutSection: React.FC = () => {
   };
 
   return (
-    <section id="about" className="py-24 bg-[#1a1a1a] relative overflow-hidden flex items-center justify-center">
+    <section id="about" className="py-24 bg-[#f8fafc] relative overflow-hidden flex items-center justify-center">
       {/* Background decoration */}
       <div className="absolute inset-0 pointer-events-none">
         <motion.div 
@@ -70,12 +70,12 @@ const AboutSection: React.FC = () => {
                 hidden: { opacity: 0, y: 30 },
                 visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100 } }
               }}
-              className="bg-white/5 backdrop-blur-xl p-8 rounded-3xl border border-white/10 text-center shadow-2xl group hover:border-teal-500/30 transition-all duration-500"
+              className="bg-white p-8 rounded-3xl border border-slate-200 text-center shadow-lg group hover:border-teal-500/30 transition-all duration-500"
             >
-              <h3 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-indigo-400 mb-2">
+              <h3 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-600 to-indigo-600 mb-2">
                 <CountUp end={parseInt(stat.value)} suffix={stat.value.replace(/\d+/g, "")} enableScrollSpy />
               </h3>
-              <p className="text-gray-400 font-medium tracking-wide uppercase text-xs">{stat.label}</p>
+              <p className="text-slate-500 font-medium tracking-wide uppercase text-xs">{stat.label}</p>
             </motion.div>
           ))}
         </motion.div>
@@ -90,15 +90,15 @@ const AboutSection: React.FC = () => {
             className="space-y-10"
           >
             <div className="space-y-4">
-              <h2 className="text-4xl md:text-5xl font-bold text-white">
-                Transforming <span className="text-teal-400">Vision</span> into Digital <span className="text-indigo-400">Reality</span>
+              <h2 className="text-4xl md:text-5xl font-bold text-slate-900">
+                Transforming <span className="text-teal-600">Vision</span> into Digital <span className="text-indigo-600">Reality</span>
               </h2>
               <div className="w-20 h-1.5 bg-teal-500 rounded-full" />
             </div>
 
-            <div className="space-y-6 text-gray-300 text-lg leading-relaxed">
+            <div className="space-y-6 text-slate-600 text-lg leading-relaxed">
               <p>
-                As a specialized Full Stack Engineer, I bridge the gap between complex backend architectures and intuitive user interfaces. My journey is defined by a passion for solving enterprise-scale challenges using <span className="text-white font-semibold">Java, Spring Boot, and React</span>.
+                As a specialized Full Stack Engineer, I bridge the gap between complex backend architectures and intuitive user interfaces. My journey is defined by a passion for solving enterprise-scale challenges using <span className="text-slate-900 font-semibold">Java, Spring Boot, and React</span>.
               </p>
               <p>
                 I don't just write code; I engineer systems that are built to scale, secure by design, and optimized for peak performance. Whether it's a high-concurrency E-commerce engine or an AI-driven monitoring tool, I deliver precision in every line.
@@ -111,9 +111,9 @@ const AboutSection: React.FC = () => {
                 target="_blank"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-3 bg-white/5 border border-white/10 hover:border-white/20 px-10 py-4 rounded-2xl font-bold text-white transition-all shadow-xl"
+                className="inline-flex items-center gap-3 bg-white border border-slate-200 hover:border-slate-300 px-10 py-4 rounded-2xl font-bold text-slate-900 transition-all shadow-md hover:shadow-lg"
               >
-                <FaEye className="text-teal-400" /> View Credentials
+                <FaEye className="text-teal-600" /> View Credentials
               </motion.a>
             </div>
           </motion.div>
@@ -137,18 +137,18 @@ const AboutSection: React.FC = () => {
                   visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } }
                 }}
                 whileHover={{ y: -8, scale: 1.02 }}
-                className="bg-white/5 backdrop-blur-xl p-8 rounded-[2rem] border border-white/10 space-y-6 shadow-2xl hover:border-teal-500/30 transition-all duration-500"
+                className="bg-white p-8 rounded-[2rem] border border-slate-200 space-y-6 shadow-xl hover:border-teal-500/30 transition-all duration-500"
               >
                 <div className="space-y-2">
-                  <h4 className="text-xl font-bold text-teal-400">{item.title}</h4>
-                  <p className="text-gray-400 text-sm leading-relaxed">{item.description}</p>
+                  <h4 className="text-xl font-bold text-teal-600">{item.title}</h4>
+                  <p className="text-slate-500 text-sm leading-relaxed">{item.description}</p>
                 </div>
                 <div className="grid grid-cols-3 gap-3">
                   {item.images.map((img, i) => (
                     <motion.div 
                       key={i}
                       whileHover={{ scale: 1.15, rotate: i % 2 === 0 ? 3 : -3, zIndex: 20 }}
-                      className="h-24 rounded-xl overflow-hidden shadow-lg border border-white/5 relative"
+                      className="h-24 rounded-xl overflow-hidden shadow-md border border-slate-100 relative"
                     >
                       <img src={img} alt="Detail" className="w-full h-full object-cover" />
                     </motion.div>

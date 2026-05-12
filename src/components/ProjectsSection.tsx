@@ -55,7 +55,7 @@ const ProjectsSection: React.FC = () => {
   };
 
   return (
-    <section id="projects" className="py-24 bg-[#1a1a1a] relative overflow-hidden">
+    <section id="projects" className="py-24 bg-[#f8fafc] relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500/5 blur-[120px] rounded-full pointer-events-none" />
       
@@ -66,9 +66,9 @@ const ProjectsSection: React.FC = () => {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <h2 id="projects-heading" className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-indigo-400 mb-6">Featured Engineering</h2>
+          <h2 id="projects-heading" className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-indigo-600 mb-6">Featured Engineering</h2>
           <div className="w-24 h-1.5 bg-gradient-to-r from-indigo-600 to-teal-500 mx-auto mb-8 rounded-full"></div>
-          <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+          <p className="text-slate-500 max-w-2xl mx-auto text-lg">
             A showcase of enterprise-grade applications demonstrating proficiency in full-stack architecture, backend efficiency, and modern user experiences.
           </p>
         </motion.div>
@@ -90,9 +90,9 @@ const ProjectsSection: React.FC = () => {
               whileHover={{ 
                 y: -15, 
                 scale: 1.02,
-                boxShadow: "0 40px 80px -15px rgba(79, 70, 229, 0.25)"
+                boxShadow: "0 40px 80px -15px rgba(79, 70, 229, 0.15)"
               }}
-              className="group relative bg-white/5 backdrop-blur-2xl rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl transition-all duration-500 hover:border-teal-500/30"
+              className="group relative bg-white rounded-[2.5rem] overflow-hidden border border-slate-200 shadow-xl transition-all duration-500 hover:border-teal-500/30"
             >
               <div className="relative h-72 overflow-hidden">
                 <img 
@@ -100,19 +100,19 @@ const ProjectsSection: React.FC = () => {
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a] via-transparent to-transparent opacity-80" />
+                <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent opacity-80" />
                 <div className="absolute bottom-6 left-8">
                   <motion.div 
                     initial={{ width: 0 }}
                     whileInView={{ width: "4rem" }}
-                    className="h-1.5 bg-teal-400 rounded-full mb-4"
+                    className="h-1.5 bg-teal-500 rounded-full mb-4"
                   />
                 </div>
               </div>
               
               <div className="p-10">
-                <h3 className="text-2xl font-extrabold text-white mb-4 group-hover:text-teal-400 transition-colors duration-300">{project.title}</h3>
-                <p className="text-gray-400 mb-8 leading-relaxed line-clamp-4 group-hover:text-gray-300 transition-colors duration-300 text-sm">
+                <h3 className="text-2xl font-extrabold text-slate-900 mb-4 group-hover:text-teal-600 transition-colors duration-300">{project.title}</h3>
+                <p className="text-slate-600 mb-8 leading-relaxed line-clamp-4 group-hover:text-slate-700 transition-colors duration-300 text-sm">
                   {project.description}
                 </p>
                 
@@ -120,7 +120,7 @@ const ProjectsSection: React.FC = () => {
                   {project.technologies.map((tech, techIndex) => (
                     <span
                       key={techIndex}
-                      className="px-4 py-1.5 bg-indigo-500/10 text-indigo-300 text-[10px] font-black rounded-full border border-indigo-500/20 uppercase tracking-[0.15em]"
+                      className="px-4 py-1.5 bg-indigo-50 text-indigo-600 text-[10px] font-black rounded-full border border-indigo-100 uppercase tracking-[0.15em] shadow-sm"
                     >
                       {tech}
                     </span>
@@ -132,9 +132,9 @@ const ProjectsSection: React.FC = () => {
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.1)" }}
+                    whileHover={{ scale: 1.05, backgroundColor: "rgba(0,0,0,0.02)" }}
                     whileTap={{ scale: 0.95 }}
-                    className="flex-grow text-center text-white bg-white/5 px-6 py-4 rounded-2xl font-bold border border-white/10 transition-all text-sm uppercase tracking-wider"
+                    className="flex-grow text-center text-slate-700 bg-slate-50 px-6 py-4 rounded-2xl font-bold border border-slate-200 transition-all text-sm uppercase tracking-wider"
                   >
                     Source Code
                   </motion.a>
@@ -143,9 +143,9 @@ const ProjectsSection: React.FC = () => {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(79, 70, 229, 0.4)" }}
+                      whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(79, 70, 229, 0.2)" }}
                       whileTap={{ scale: 0.95 }}
-                      className="flex-grow text-center text-white bg-gradient-to-r from-indigo-600 to-indigo-800 px-6 py-4 rounded-2xl font-bold shadow-lg text-sm uppercase tracking-wider"
+                      className="flex-grow text-center text-white bg-gradient-to-r from-indigo-600 to-teal-500 px-6 py-4 rounded-2xl font-bold transition-all text-sm uppercase tracking-wider shadow-lg shadow-indigo-600/20"
                     >
                       Live Demo
                     </motion.a>

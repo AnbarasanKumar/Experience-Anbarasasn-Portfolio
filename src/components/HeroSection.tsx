@@ -96,16 +96,16 @@ const HeroSection: React.FC = () => {
   };
 
   return (
-    <section id="hero" className="min-h-screen bg-[#1a1a1a] flex items-center justify-center px-6 relative overflow-hidden">
+    <section id="hero" className="min-h-screen bg-[#f8fafc] flex items-center justify-center px-6 relative overflow-hidden">
       {/* Animated Background Mesh */}
       <div className="absolute inset-0 z-0">
         <motion.div 
           style={{ y: y1 }}
           animate={{ 
             background: [
-              'radial-gradient(circle at 20% 20%, rgba(20, 184, 166, 0.1) 0%, transparent 50%)',
-              'radial-gradient(circle at 80% 80%, rgba(79, 70, 229, 0.1) 0%, transparent 50%)',
-              'radial-gradient(circle at 20% 20%, rgba(20, 184, 166, 0.1) 0%, transparent 50%)',
+              'radial-gradient(circle at 20% 20%, rgba(20, 184, 166, 0.05) 0%, transparent 50%)',
+              'radial-gradient(circle at 80% 80%, rgba(79, 70, 229, 0.05) 0%, transparent 50%)',
+              'radial-gradient(circle at 20% 20%, rgba(20, 184, 166, 0.05) 0%, transparent 50%)',
             ],
           }}
           transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}
@@ -126,24 +126,24 @@ const HeroSection: React.FC = () => {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="text-white space-y-10"
+          className="text-slate-900 space-y-10"
         >
           <div className="space-y-4">
             <motion.h1 
               variants={itemVariants}
               id="hero-heading" 
-              className="text-5xl md:text-8xl font-extrabold tracking-tight leading-tight"
+              className="text-5xl md:text-8xl font-extrabold tracking-tight leading-tight text-slate-900"
             >
-              Anbarasan <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-teal-400 to-indigo-400 bg-[length:200%_auto] animate-gradient-x">Kumar</span>
+              Anbarasan <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-teal-500 to-indigo-600 bg-[length:200%_auto] animate-gradient-x">Kumar</span>
             </motion.h1>
             
             <motion.div variants={itemVariants} className="h-12 flex items-center">
-              <p className="text-2xl md:text-4xl text-gray-300 font-medium">
+              <p className="text-2xl md:text-4xl text-slate-600 font-medium">
                 {displayText}
                 <motion.span 
                   animate={{ opacity: [1, 0] }}
                   transition={{ duration: 0.8, repeat: Infinity }}
-                  className="inline-block w-1 h-8 bg-teal-400 ml-2 align-middle shadow-[0_0_15px_#2dd4bf]"
+                  className="inline-block w-1 h-8 bg-teal-500 ml-2 align-middle shadow-[0_0_15px_rgba(20,184,166,0.3)]"
                 />
               </p>
             </motion.div>
@@ -151,9 +151,9 @@ const HeroSection: React.FC = () => {
 
           <motion.p 
             variants={itemVariants}
-            className="text-lg md:text-2xl text-gray-400 leading-relaxed max-w-2xl font-light"
+            className="text-lg md:text-2xl text-slate-500 leading-relaxed max-w-2xl font-light"
           >
-            Engineering enterprise-grade systems like <span className="text-white font-semibold">Hostel Management, Course Registration, and E-commerce platforms</span>. Specializing in scalable Java architectures and robust full-stack digital solutions.
+            Engineering enterprise-grade systems like <span className="text-slate-900 font-semibold">Hostel Management, Course Registration, and E-commerce platforms</span>. Specializing in scalable Java architectures and robust full-stack digital solutions.
           </motion.p>
 
           <motion.div variants={itemVariants} className="flex flex-wrap gap-6">
@@ -164,7 +164,7 @@ const HeroSection: React.FC = () => {
               }}
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.98 }}
-              className="bg-indigo-600 hover:bg-indigo-700 px-12 py-5 rounded-2xl font-bold text-lg transition-all shadow-xl shadow-indigo-500/20"
+              className="bg-indigo-600 hover:bg-indigo-700 px-12 py-5 rounded-2xl font-bold text-lg transition-all shadow-xl shadow-indigo-600/20 text-white"
             >
               View Projects
             </motion.button>
@@ -173,16 +173,16 @@ const HeroSection: React.FC = () => {
                 const el = document.getElementById('connect');
                 if (el) el.scrollIntoView({ behavior: 'smooth' });
               }}
-              whileHover={{ scale: 1.05, y: -2, backgroundColor: "rgba(45, 212, 191, 0.1)" }}
+              whileHover={{ scale: 1.05, y: -2, backgroundColor: "rgba(20, 184, 166, 0.05)" }}
               whileTap={{ scale: 0.98 }}
-              className="border-2 border-teal-500/30 text-teal-400 px-12 py-5 rounded-2xl font-bold text-lg transition-all backdrop-blur-sm"
+              className="border-2 border-teal-500/30 text-teal-600 px-12 py-5 rounded-2xl font-bold text-lg transition-all backdrop-blur-sm"
             >
               Get In Touch
             </motion.button>
           </motion.div>
 
           <motion.div variants={itemVariants} className="pt-12 space-y-6">
-            <p className="text-xs uppercase tracking-[0.3em] text-gray-500 font-bold">Tech Stack Expertise</p>
+            <p className="text-xs uppercase tracking-[0.3em] text-slate-400 font-bold">Tech Stack Expertise</p>
             <div className="overflow-hidden relative w-full h-24 group">
               <motion.div
                 className="absolute flex gap-4 md:gap-8"
@@ -192,8 +192,8 @@ const HeroSection: React.FC = () => {
                 {[...techIcons, ...techIcons].map((t, i) => (
                   <motion.div 
                     key={i} 
-                    whileHover={{ scale: 1.1, backgroundColor: "rgba(255,255,255,0.1)" }}
-                    className="text-3xl md:text-4xl text-gray-500 hover:text-white transition-all duration-300 bg-white/5 p-4 md:p-5 rounded-2xl backdrop-blur-md border border-white/5 cursor-pointer shadow-lg"
+                    whileHover={{ scale: 1.1, backgroundColor: "rgba(0,0,0,0.05)" }}
+                    className="text-3xl md:text-4xl text-slate-400 hover:text-slate-900 transition-all duration-300 bg-slate-100 p-4 md:p-5 rounded-2xl border border-slate-200 cursor-pointer shadow-sm"
                   >
                     <t.icon />
                   </motion.div>

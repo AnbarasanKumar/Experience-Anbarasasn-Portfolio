@@ -50,7 +50,7 @@ const SkillsSection: React.FC = () => {
   };
 
   return (
-    <section id="skills" className="py-24 bg-[#1a1a1a] relative overflow-hidden">
+    <section id="skills" className="py-24 bg-[#f8fafc] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -58,7 +58,7 @@ const SkillsSection: React.FC = () => {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <h2 id="skills-heading" className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-indigo-400 mb-6">
+          <h2 id="skills-heading" className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-600 to-indigo-600 mb-6">
             Technical Proficiency
           </h2>
           <div className="w-24 h-1.5 bg-gradient-to-r from-indigo-600 to-teal-500 mx-auto rounded-full"></div>
@@ -81,34 +81,34 @@ const SkillsSection: React.FC = () => {
               whileHover={{ 
                 y: -12, 
                 scale: 1.03,
-                boxShadow: "0 25px 50px -12px rgba(20, 184, 166, 0.25)"
+                boxShadow: "0 25px 50px -12px rgba(20, 184, 166, 0.15)"
               }}
-              className="bg-white/5 backdrop-blur-xl p-10 rounded-[3rem] border border-white/10 shadow-2xl hover:border-teal-500/40 transition-all duration-500 group relative overflow-hidden"
+              className="bg-white p-10 rounded-[3rem] border border-slate-200 shadow-xl hover:border-teal-500/40 transition-all duration-500 group relative overflow-hidden"
             >
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-teal-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-              <h3 className="text-xl font-extrabold text-white mb-10 group-hover:text-teal-400 transition-colors duration-300 tracking-[0.2em] uppercase text-xs">
+              <h3 className="text-xl font-extrabold text-slate-900 mb-10 group-hover:text-teal-600 transition-colors duration-300 tracking-[0.2em] uppercase text-xs">
                 {cat.category}
               </h3>
               <div className="space-y-10">
                 {cat.skills.map((skill, sIdx) => (
                   <div key={sIdx} className="space-y-4">
                     <div className="flex justify-between text-sm font-bold">
-                      <span className="text-gray-300 tracking-wide">{skill.name}</span>
+                      <span className="text-slate-600 tracking-wide">{skill.name}</span>
                       <motion.span 
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
-                        className="text-teal-400"
+                        className="text-teal-600"
                       >
                         {skill.level}%
                       </motion.span>
                     </div>
-                    <div className="w-full bg-white/5 rounded-full h-2.5 overflow-hidden border border-white/5 shadow-inner">
+                    <div className="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden border border-slate-200 shadow-inner">
                       <motion.div
                         initial={{ width: 0 }}
                         whileInView={{ width: `${skill.level}%` }}
                         viewport={{ once: true }}
                         transition={{ duration: 1.8, ease: [0.34, 1.56, 0.64, 1] }} // Spring-like ease
-                        className="h-full bg-gradient-to-r from-indigo-600 via-teal-500 to-indigo-400 rounded-full"
+                        className="h-full bg-gradient-to-r from-indigo-600 via-teal-500 to-indigo-400 rounded-full shadow-[0_0_15px_rgba(20,184,166,0.2)]"
                       />
                     </div>
                   </div>
@@ -128,4 +128,4 @@ const SkillsSection: React.FC = () => {
   );
 };
 
-export default SkillsSection;
+export default SkillsSection;

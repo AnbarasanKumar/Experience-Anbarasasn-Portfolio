@@ -39,7 +39,7 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="relative bg-[#1a1a1a] text-white py-24 overflow-hidden border-t border-white/5">
+    <footer className="relative bg-[#f8fafc] text-slate-900 py-24 overflow-hidden border-t border-slate-200">
       {/* Background decoration */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-indigo-500/5 blur-[120px] rounded-full" />
@@ -69,7 +69,7 @@ const Footer: React.FC = () => {
               whileHover={{ scale: 1.05, rotate: 2 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => scrollToSection("home")}
-              className="relative w-24 h-24 rounded-3xl overflow-hidden border-2 border-white/10 p-1 group shadow-2xl"
+              className="relative w-24 h-24 rounded-3xl overflow-hidden border-2 border-slate-200 p-1 group shadow-xl"
             >
               <div className="absolute inset-0 bg-gradient-to-tr from-indigo-600 to-teal-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <img
@@ -79,8 +79,8 @@ const Footer: React.FC = () => {
               />
             </motion.button>
             <div className="space-y-4">
-              <h3 className="text-2xl font-black tracking-tight text-white uppercase tracking-[0.2em]">Anbarasan <span className="text-teal-400">Kumar</span></h3>
-              <p className="text-gray-400 leading-relaxed max-w-sm text-sm">
+              <h3 className="text-2xl font-black tracking-tight text-slate-900 uppercase tracking-[0.2em]">Anbarasan <span className="text-teal-600">Kumar</span></h3>
+              <p className="text-slate-500 leading-relaxed max-w-sm text-sm">
                 Engineering sophisticated digital experiences with a focus on scalable backend architecture and intuitive full-stack solutions.
               </p>
             </div>
@@ -91,9 +91,9 @@ const Footer: React.FC = () => {
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  whileHover={{ y: -8, scale: 1.1, backgroundColor: "rgba(45, 212, 191, 0.1)" }}
+                  whileHover={{ y: -8, scale: 1.1, backgroundColor: "rgba(20, 184, 166, 0.05)" }}
                   whileTap={{ scale: 0.9 }}
-                  className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center text-gray-400 hover:text-white border border-white/5 hover:border-teal-500/30 transition-all duration-300"
+                  className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-slate-500 hover:text-slate-900 border border-slate-200 hover:border-teal-500/30 transition-all duration-300 shadow-sm"
                   aria-label={label}
                 >
                   <Icon size={20} />
@@ -110,13 +110,13 @@ const Footer: React.FC = () => {
             }}
             className="lg:col-span-2 space-y-8"
           >
-            <h4 className="text-xs font-black uppercase tracking-[0.3em] text-teal-400">Navigation</h4>
+            <h4 className="text-xs font-black uppercase tracking-[0.3em] text-teal-600">Navigation</h4>
             <ul className="space-y-4">
               {quickLinks.map((link) => (
                 <li key={link.id}>
                   <button
                     onClick={() => scrollToSection(link.id)}
-                    className="text-gray-400 hover:text-teal-400 transition-colors duration-300 font-bold text-sm tracking-wide"
+                    className="text-slate-500 hover:text-teal-600 transition-colors duration-300 font-bold text-sm tracking-wide"
                   >
                     {link.label}
                   </button>
@@ -133,26 +133,26 @@ const Footer: React.FC = () => {
             }}
             className="lg:col-span-3 space-y-8"
           >
-            <h4 className="text-xs font-black uppercase tracking-[0.3em] text-indigo-400">Contact Info</h4>
+            <h4 className="text-xs font-black uppercase tracking-[0.3em] text-indigo-600">Contact Info</h4>
             <div className="space-y-6">
-              <div className="flex items-start gap-4 text-gray-400 group cursor-pointer">
-                <FaMapMarkerAlt className="mt-1 text-indigo-500 group-hover:scale-125 transition-transform" />
+              <div className="flex items-start gap-4 text-slate-500 group cursor-pointer">
+                <FaMapMarkerAlt className="mt-1 text-indigo-600 group-hover:scale-125 transition-transform" />
                 <a 
                   href="https://www.google.com/maps/search/?api=1&query=Parangipettai%2C+Tamil+Nadu%2C+India"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group-hover:text-white transition-colors text-sm"
+                  className="group-hover:text-slate-900 transition-colors text-sm"
                 >
                   Parangipettai, Tamil Nadu, India
                 </a>
               </div>
-              <div className="flex items-start gap-4 text-gray-400 group cursor-pointer">
-                <FaPhoneAlt className="mt-1 text-indigo-500 group-hover:scale-125 transition-transform" />
-                <a href="tel:+919787638123" className="group-hover:text-white transition-colors text-sm">+91 9787638123</a>
+              <div className="flex items-start gap-4 text-slate-500 group cursor-pointer">
+                <FaPhoneAlt className="mt-1 text-indigo-600 group-hover:scale-125 transition-transform" />
+                <a href="tel:+919787638123" className="group-hover:text-slate-900 transition-colors text-sm">+91 9787638123</a>
               </div>
-              <div className="flex items-start gap-4 text-gray-400 group cursor-pointer">
-                <FaEnvelope className="mt-1 text-indigo-500 group-hover:scale-125 transition-transform" />
-                <a href="mailto:anbarasanpno18@gmail.com" className="group-hover:text-white transition-colors text-sm">anbarasanpno18@gmail.com</a>
+              <div className="flex items-start gap-4 text-slate-500 group cursor-pointer">
+                <FaEnvelope className="mt-1 text-indigo-600 group-hover:scale-125 transition-transform" />
+                <a href="mailto:anbarasanpno18@gmail.com" className="group-hover:text-slate-900 transition-colors text-sm">anbarasanpno18@gmail.com</a>
               </div>
             </div>
           </motion.div>
@@ -166,38 +166,39 @@ const Footer: React.FC = () => {
             }}
             className="lg:col-span-3 flex flex-col items-center lg:items-end space-y-8"
           >
-            <h4 className="text-xs font-black uppercase tracking-[0.2em] text-white">Digital Handshake</h4>
+            <h4 className="text-xs font-black uppercase tracking-[0.2em] text-slate-900">Digital Handshake</h4>
             <motion.div 
               whileHover={{ scale: 1.05, rotate: -2 }}
-              className="p-5 bg-white rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-4 border-white/10"
+              className="p-5 bg-white rounded-[2.5rem] shadow-2xl border-4 border-slate-50"
             >
               <QRCode
                 value="https://wa.me/919787638123"
                 size={140}
                 bgColor="#ffffff"
-                fgColor="#1a1a1a"
+                fgColor="#0f172a"
                 level="H"
               />
             </motion.div>
-            <p className="text-gray-500 text-[10px] text-center lg:text-right font-bold uppercase tracking-widest italic">
+            <p className="text-slate-400 text-[10px] text-center lg:text-right font-bold uppercase tracking-widest italic">
               Scan to connect directly via WhatsApp
             </p>
           </motion.div>
         </motion.div>
 
         {/* Bottom Bar */}
-        <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-gray-500 text-sm">
+        <div className="pt-10 border-t border-slate-200 flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-slate-400 text-sm">
             © {currentYear} Anbarasan K. Built with Passion & Precision.
           </p>
-          <div className="flex gap-8 text-xs font-bold uppercase tracking-widest text-gray-600">
-            <span className="hover:text-teal-400 cursor-default transition-colors">React</span>
-            <span className="hover:text-indigo-400 cursor-default transition-colors">Spring Boot</span>
-            <span className="hover:text-teal-400 cursor-default transition-colors">Tailwind CSS</span>
+          <div className="flex gap-8 text-xs font-bold uppercase tracking-widest text-slate-400">
+            <span className="hover:text-teal-600 cursor-default transition-colors">React</span>
+            <span className="hover:text-indigo-600 cursor-default transition-colors">Spring Boot</span>
+            <span className="hover:text-teal-600 cursor-default transition-colors">Tailwind CSS</span>
           </div>
         </div>
       </div>
-    </footer >
+    </footer>
+
   );
 };
 

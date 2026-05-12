@@ -86,7 +86,7 @@ const Navigation: React.FC = () => {
       <nav
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
           isScrolled 
-            ? "py-4 bg-[#1a1a1a]/80 backdrop-blur-xl border-b border-white/5 shadow-2xl" 
+            ? "py-4 bg-white/80 backdrop-blur-xl border-b border-slate-200 shadow-lg" 
             : "py-6 bg-transparent"
         }`}
       >
@@ -111,8 +111,8 @@ const Navigation: React.FC = () => {
                 className={`relative px-5 py-2.5 rounded-xl font-bold text-sm tracking-wide transition-all duration-300
                   ${
                     activeSection === item.id
-                      ? "text-teal-400 bg-white/5"
-                      : "text-gray-400 hover:text-white hover:bg-white/5"
+                      ? "text-teal-600 bg-slate-50 shadow-sm"
+                      : "text-slate-500 hover:text-slate-900 hover:bg-slate-50"
                   }
                 `}
               >
@@ -120,7 +120,7 @@ const Navigation: React.FC = () => {
                 {activeSection === item.id && (
                   <motion.div 
                     layoutId="navActive"
-                    className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-teal-400 rounded-full"
+                    className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1.5 h-1.5 bg-teal-500 rounded-full shadow-[0_0_8px_rgba(20,184,166,0.5)]"
                   />
                 )}
               </motion.button>
@@ -128,7 +128,7 @@ const Navigation: React.FC = () => {
           </motion.div>
 
           <button
-            className="md:hidden p-2 text-gray-400 hover:text-white transition-colors"
+            className="md:hidden p-2 text-slate-500 hover:text-slate-900 transition-colors"
             onClick={() => setIsMobileMenuOpen((prev) => !prev)}
           >
             <svg
@@ -158,7 +158,7 @@ const Navigation: React.FC = () => {
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
-              className="md:hidden bg-[#1a1a1a] border-b border-white/5 overflow-hidden"
+              className="md:hidden bg-white border-b border-slate-200 shadow-2xl overflow-hidden"
             >
               <div className="px-6 py-8 flex flex-col space-y-4">
                 {NAV_ITEMS.map((item, idx) => (
@@ -172,7 +172,7 @@ const Navigation: React.FC = () => {
                       ${
                         activeSection === item.id
                           ? "bg-indigo-600 text-white shadow-lg shadow-indigo-600/20"
-                          : "text-gray-400 bg-white/5 hover:text-white"
+                          : "text-slate-500 bg-slate-50 hover:text-slate-900"
                       }
                     `}
                   >
@@ -188,4 +188,4 @@ const Navigation: React.FC = () => {
   );
 };
 
-export default Navigation;
+export default Navigation;

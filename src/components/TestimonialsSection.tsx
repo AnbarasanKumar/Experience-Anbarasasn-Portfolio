@@ -48,7 +48,7 @@ const TestimonialsSection: React.FC = () => {
   };
 
   return (
-    <section id="testimonials" className="relative py-24 overflow-hidden bg-[#1a1a1a]">
+    <section id="testimonials" className="relative py-24 overflow-hidden bg-[#f8fafc]">
       {/* Background decoration */}
       <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-indigo-500/5 blur-[100px] rounded-full pointer-events-none" />
 
@@ -59,8 +59,8 @@ const TestimonialsSection: React.FC = () => {
           viewport={{ once: true }}
           className="text-center mb-20"
         >
-          <h2 id="testimonials-heading" className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-indigo-400 mb-6 drop-shadow-[0_0_30px_rgba(20,184,166,0.3)]">Peer Recognition</h2>
-          <div className="w-24 h-1.5 bg-gradient-to-r from-indigo-600 to-teal-500 mx-auto rounded-full shadow-[0_0_15px_rgba(79,70,229,0.5)]"></div>
+          <h2 id="testimonials-heading" className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-600 to-indigo-600 mb-6">Peer Recognition</h2>
+          <div className="w-24 h-1.5 bg-gradient-to-r from-indigo-600 to-teal-500 mx-auto rounded-full"></div>
         </motion.div>
 
         <div className="hidden md:grid md:grid-cols-3 gap-8">
@@ -72,21 +72,21 @@ const TestimonialsSection: React.FC = () => {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
               whileHover={{ y: -10 }}
-              className="bg-white/5 backdrop-blur-xl rounded-[2rem] p-8 border border-white/10 shadow-2xl hover:border-teal-500/30 transition-all duration-300 group"
+              className="bg-white rounded-[2rem] p-8 border border-slate-200 shadow-xl hover:border-teal-500/30 transition-all duration-300 group"
             >
               <div className="mb-6">
                 <StarRating rating={t.rating} />
               </div>
-              <blockquote className="text-gray-300 text-lg leading-relaxed mb-8 italic">
+              <blockquote className="text-slate-600 text-lg leading-relaxed mb-8 italic">
                 "{t.content}"
               </blockquote>
-              <div className="flex items-center gap-4 border-t border-white/10 pt-6">
-                <div className="w-12 h-12 bg-indigo-500/20 rounded-full flex items-center justify-center text-indigo-400 font-bold">
+              <div className="flex items-center gap-4 border-t border-slate-100 pt-6">
+                <div className="w-12 h-12 bg-indigo-50 rounded-full flex items-center justify-center text-indigo-600 font-bold border border-indigo-100">
                   {t.name.charAt(0)}
                 </div>
                 <div>
-                  <p className="font-bold text-white group-hover:text-teal-400 transition-colors">{t.name}</p>
-                  <p className="text-gray-400 text-sm">{t.position}</p>
+                  <p className="font-bold text-slate-900 group-hover:text-teal-600 transition-colors">{t.name}</p>
+                  <p className="text-slate-500 text-sm">{t.position}</p>
                 </div>
               </div>
             </motion.div>
@@ -97,18 +97,18 @@ const TestimonialsSection: React.FC = () => {
           <Slider {...settings}>
             {testimonials.map((t, i) => (
               <div key={i} className="px-2 pb-12">
-                <div className="bg-white/5 backdrop-blur-xl rounded-[2rem] p-8 border border-white/10 shadow-2xl">
+                <div className="bg-white rounded-[2rem] p-8 border border-slate-200 shadow-xl">
                   <StarRating rating={t.rating} />
-                  <blockquote className="text-gray-300 text-lg leading-relaxed mt-6 mb-8 italic">
+                  <blockquote className="text-slate-600 text-lg leading-relaxed mt-6 mb-8 italic">
                     "{t.content}"
                   </blockquote>
-                  <div className="flex items-center gap-4 border-t border-white/10 pt-6">
-                    <div className="w-12 h-12 bg-indigo-500/20 rounded-full flex items-center justify-center text-indigo-400 font-bold">
+                  <div className="flex items-center gap-4 border-t border-slate-100 pt-6">
+                    <div className="w-12 h-12 bg-indigo-50 rounded-full flex items-center justify-center text-indigo-600 font-bold border border-indigo-100">
                       {t.name.charAt(0)}
                     </div>
                     <div>
-                      <p className="font-bold text-white">{t.name}</p>
-                      <p className="text-gray-400 text-sm">{t.position}</p>
+                      <p className="font-bold text-slate-900">{t.name}</p>
+                      <p className="text-slate-500 text-sm">{t.position}</p>
                     </div>
                   </div>
                 </div>
@@ -121,4 +121,4 @@ const TestimonialsSection: React.FC = () => {
   );
 };
 
-export default TestimonialsSection;
+export default TestimonialsSection;

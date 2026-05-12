@@ -59,7 +59,7 @@ const ContactSection: React.FC = () => {
   return (
     <section
       id="contact"
-      className="relative py-24 min-h-[90vh] overflow-hidden bg-[#1a1a1a] flex items-center justify-center"
+      className="relative py-24 min-h-[90vh] overflow-hidden bg-[#f8fafc] flex items-center justify-center"
     >
       {/* Dynamic Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -83,13 +83,13 @@ const ContactSection: React.FC = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 id="contact-heading" className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-indigo-400 mb-6">
+          <h2 id="contact-heading" className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-600 to-indigo-600 mb-6">
             Let's Build Something Exceptional
           </h2>
-          <p className="max-w-2xl mx-auto text-gray-300 text-lg leading-relaxed">
+          <p className="max-w-2xl mx-auto text-slate-600 text-lg leading-relaxed">
             Ready to transform your ideas into scalable technical solutions? Reach out today for collaborations, project inquiries, or just a technical discussion.
           </p>
-          <div className="mt-4 text-teal-400 font-medium">
+          <div className="mt-4 text-teal-600 font-medium">
             <a href="mailto:anbarasanpno18@gmail.com" className="hover:underline">anbarasanpno18@gmail.com</a>
           </div>
         </motion.div>
@@ -101,18 +101,18 @@ const ContactSection: React.FC = () => {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              className="p-10 rounded-3xl border border-teal-500/30 bg-teal-500/5 backdrop-blur-2xl text-center shadow-[0_0_50px_-12px_rgba(20,184,166,0.25)]"
+              className="p-10 rounded-3xl border border-teal-500/20 bg-white shadow-2xl text-center"
             >
               <div className="w-20 h-20 bg-teal-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <svg className="w-10 h-10 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              <h3 className="text-3xl font-bold text-white mb-4">Message Received!</h3>
-              <p className="text-xl text-gray-300 mb-6 leading-relaxed">
+              <h3 className="text-3xl font-bold text-slate-900 mb-4">Message Received!</h3>
+              <p className="text-xl text-slate-600 mb-6 leading-relaxed">
                 Thank you for reaching out. Your message has been successfully transmitted. I will review it and get back to you within 24 hours.
               </p>
-              <div className="text-teal-400/60 text-sm italic">Returning to form shortly...</div>
+              <div className="text-teal-600/60 text-sm italic">Returning to form shortly...</div>
             </motion.div>
           ) : (
             <motion.form
@@ -122,11 +122,11 @@ const ContactSection: React.FC = () => {
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.6 }}
               onSubmit={onSubmit}
-              className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white/5 backdrop-blur-2xl p-8 md:p-12 rounded-[2rem] border border-white/10 shadow-2xl"
+              className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white p-8 md:p-12 rounded-[2rem] border border-slate-200 shadow-2xl"
             >
               <div className="space-y-6">
                 <div>
-                  <label className="block text-gray-400 font-medium mb-2 ml-1 text-sm uppercase tracking-wider">Full Name</label>
+                  <label className="block text-slate-500 font-medium mb-2 ml-1 text-sm uppercase tracking-wider">Full Name</label>
                   <motion.input
                     whileFocus={{ scale: 1.01 }}
                     type="text"
@@ -135,11 +135,11 @@ const ContactSection: React.FC = () => {
                     value={formValues.name}
                     onChange={(e) => handleChange("name", e.target.value)}
                     placeholder={placeholderValues.name}
-                    className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-2xl focus:ring-2 focus:ring-teal-500/50 outline-none text-white placeholder-gray-600 transition-all duration-300"
+                    className="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-teal-500/30 outline-none text-slate-900 placeholder-slate-400 transition-all duration-300"
                   />
                 </div>
                 <div>
-                  <label className="block text-gray-400 font-medium mb-2 ml-1 text-sm uppercase tracking-wider">Email Address</label>
+                  <label className="block text-slate-500 font-medium mb-2 ml-1 text-sm uppercase tracking-wider">Email Address</label>
                   <motion.input
                     whileFocus={{ scale: 1.01 }}
                     type="email"
@@ -148,11 +148,11 @@ const ContactSection: React.FC = () => {
                     value={formValues.email}
                     onChange={(e) => handleChange("email", e.target.value)}
                     placeholder={placeholderValues.email}
-                    className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-2xl focus:ring-2 focus:ring-teal-500/50 outline-none text-white placeholder-gray-600 transition-all duration-300"
+                    className="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-teal-500/30 outline-none text-slate-900 placeholder-slate-400 transition-all duration-300"
                   />
                 </div>
                 <div>
-                  <label className="block text-gray-400 font-medium mb-2 ml-1 text-sm uppercase tracking-wider">Phone Number</label>
+                  <label className="block text-slate-500 font-medium mb-2 ml-1 text-sm uppercase tracking-wider">Phone Number</label>
                   <motion.input
                     whileFocus={{ scale: 1.01 }}
                     type="tel"
@@ -161,14 +161,14 @@ const ContactSection: React.FC = () => {
                     value={formValues.phone}
                     onChange={(e) => handleChange("phone", e.target.value)}
                     placeholder={placeholderValues.phone}
-                    className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-2xl focus:ring-2 focus:ring-teal-500/50 outline-none text-white placeholder-gray-600 transition-all duration-300"
+                    className="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-teal-500/30 outline-none text-slate-900 placeholder-slate-400 transition-all duration-300"
                   />
                 </div>
               </div>
 
               <div className="space-y-6 flex flex-col">
                 <div className="flex-grow">
-                  <label className="block text-gray-400 font-medium mb-2 ml-1 text-sm uppercase tracking-wider">Subject</label>
+                  <label className="block text-slate-500 font-medium mb-2 ml-1 text-sm uppercase tracking-wider">Subject</label>
                   <motion.input
                     whileFocus={{ scale: 1.01 }}
                     type="text"
@@ -177,11 +177,11 @@ const ContactSection: React.FC = () => {
                     value={formValues.subject}
                     onChange={(e) => handleChange("subject", e.target.value)}
                     placeholder={placeholderValues.subject}
-                    className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-2xl focus:ring-2 focus:ring-teal-500/50 outline-none text-white placeholder-gray-600 transition-all duration-300"
+                    className="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-teal-500/30 outline-none text-slate-900 placeholder-slate-400 transition-all duration-300"
                   />
                 </div>
                 <div className="flex-grow">
-                  <label className="block text-gray-400 font-medium mb-2 ml-1 text-sm uppercase tracking-wider">Message</label>
+                  <label className="block text-slate-500 font-medium mb-2 ml-1 text-sm uppercase tracking-wider">Message</label>
                   <motion.textarea
                     whileFocus={{ scale: 1.01 }}
                     name="message"
@@ -190,14 +190,14 @@ const ContactSection: React.FC = () => {
                     value={formValues.message}
                     onChange={(e) => handleChange("message", e.target.value)}
                     placeholder={placeholderValues.message}
-                    className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-2xl focus:ring-2 focus:ring-teal-500/50 outline-none text-white placeholder-gray-600 resize-none h-[155px] transition-all duration-300"
+                    className="w-full px-5 py-4 bg-slate-50 border border-slate-200 rounded-2xl focus:ring-2 focus:ring-teal-500/30 outline-none text-slate-900 placeholder-slate-400 resize-none h-[155px] transition-all duration-300"
                   />
                 </div>
               </div>
 
               <div className="md:col-span-2 mt-4">
                 <motion.button
-                  whileHover={{ scale: 1.02, boxShadow: "0 0 30px rgba(79, 70, 229, 0.4)" }}
+                  whileHover={{ scale: 1.02, boxShadow: "0 20px 40px -10px rgba(79, 70, 229, 0.3)" }}
                   whileTap={{ scale: 0.98 }}
                   type="submit"
                   className="w-full bg-gradient-to-r from-indigo-600 to-teal-500 text-white font-bold py-5 rounded-2xl shadow-xl text-lg tracking-wide uppercase transition-all"
@@ -208,7 +208,7 @@ const ContactSection: React.FC = () => {
                   <motion.p 
                     initial={{ opacity: 0 }} 
                     animate={{ opacity: 1 }} 
-                    className="mt-4 text-red-400 text-center font-medium"
+                    className="mt-4 text-red-600 text-center font-medium"
                   >
                     {result}
                   </motion.p>

@@ -43,18 +43,18 @@ const CustomCursor: React.FC = () => {
   return (
     <>
       <motion.div
-        className="fixed top-0 left-0 w-8 h-8 rounded-full border-2 border-teal-500 pointer-events-none z-[9999] hidden md:block"
+        className="fixed top-0 left-0 w-8 h-8 rounded-full border-[3px] border-teal-600 pointer-events-none z-[9999] hidden md:block"
         style={{
           x: useSpring(cursorX, { damping: 20, stiffness: 250 }),
           y: useSpring(cursorY, { damping: 20, stiffness: 250 }),
           translateX: "-50%",
           translateY: "-50%",
           scale: isHovered ? 1.5 : 1,
-          backgroundColor: isHovered ? "rgba(45, 212, 191, 0.2)" : "transparent",
+          backgroundColor: isHovered ? "rgba(20, 184, 166, 0.1)" : "transparent",
         }}
       />
       <motion.div
-        className="fixed top-0 left-0 w-2 h-2 bg-indigo-500 rounded-full pointer-events-none z-[9999] hidden md:block"
+        className="fixed top-0 left-0 w-2.5 h-2.5 bg-indigo-600 rounded-full pointer-events-none z-[9999] hidden md:block shadow-sm"
         style={{
           x,
           y,
