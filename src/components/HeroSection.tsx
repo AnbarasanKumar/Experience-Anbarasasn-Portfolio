@@ -96,7 +96,7 @@ const HeroSection: React.FC = () => {
   };
 
   return (
-    <section id="hero" className="min-h-screen bg-white flex items-center justify-center px-6 relative overflow-hidden">
+    <section id="hero" className="min-h-screen bg-gradient-to-br from-white via-indigo-50/40 to-teal-50/30 flex items-center justify-center px-6 relative overflow-hidden">
       {/* Animated Background Mesh */}
       <div className="absolute inset-0 z-0">
         <motion.div 

@@ -48,7 +48,7 @@ const TestimonialsSection: React.FC = () => {
   };
 
   return (
-    <section id="testimonials" className="relative py-24 overflow-hidden bg-rose-50/30">
+    <section id="testimonials" className="relative py-24 overflow-hidden bg-gradient-to-br from-rose-50 via-pink-50/70 to-fuchsia-50/40">
       {/* Background decoration */}
       <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-indigo-500/5 blur-[100px] rounded-full pointer-events-none" />
 
@@ -70,9 +70,10 @@ const TestimonialsSection: React.FC = () => {
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
               animate={{ y: [0, -10, 0] }}
               transition={{
+                opacity: { delay: i * 0.1, duration: 0.5 },
+                scale: { delay: i * 0.1, duration: 0.5 },
                 y: {
                   duration: 3 + i * 1.3,
                   repeat: Infinity,

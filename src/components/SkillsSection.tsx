@@ -50,7 +50,7 @@ const SkillsSection: React.FC = () => {
   };
 
   return (
-    <section id="skills" className="py-24 bg-teal-50/50 relative overflow-hidden">
+    <section id="skills" className="py-24 bg-gradient-to-br from-teal-50 via-cyan-50/80 to-emerald-50/50 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}

@@ -59,7 +59,7 @@ const ContactSection: React.FC = () => {
   return (
     <section
       id="contact"
-      className="relative py-24 min-h-[90vh] overflow-hidden bg-amber-50/20 flex items-center justify-center"
+      className="relative py-24 min-h-[90vh] overflow-hidden bg-gradient-to-br from-emerald-50 via-green-50/70 to-teal-50/50 flex items-center justify-center"
     >
       {/* Dynamic Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
