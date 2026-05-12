@@ -47,16 +47,16 @@ const TestimonialsSection: React.FC = () => {
   };
 
   return (
-    <section className="relative py-24 overflow-hidden bg-gray-900">
+    <section id="testimonials" className="relative py-24 overflow-hidden bg-slate-900">
       <div className="max-w-6xl mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-100 mb-3">What Clients Say</h2>
+          <h2 id="testimonials-heading" className="text-4xl font-bold text-gray-100 mb-3">What Clients Say</h2>
           <div className="w-28 h-1 bg-gradient-to-r from-gray-700 to-gray-500 mx-auto mb-4 rounded-full"></div>
         </div>
 
         <div className="hidden md:grid md:grid-cols-3 gap-8">
           {testimonials.map((t, i) => (
-            <div key={i} className="bg-gray-800 rounded-2xl p-6 shadow-lg animate-float">
+            <div key={i} className="bg-slate-800 rounded-2xl p-6 shadow-lg animate-float">
               <StarRating rating={t.rating} />
               <blockquote className="text-gray-200 mt-4 mb-6 italic">"{t.content}"</blockquote>
               <div className="border-t border-gray-700 pt-4">
@@ -71,7 +71,7 @@ const TestimonialsSection: React.FC = () => {
           <Slider {...settings}>
             {testimonials.map((t, i) => (
               <div key={i} className="px-2">
-                <div className="bg-gray-800 rounded-2xl p-6 shadow-lg">
+                <div className="bg-slate-800 rounded-2xl p-6 shadow-lg">
                   <StarRating rating={t.rating} />
                   <blockquote className="text-gray-200 mt-4 mb-6 italic">"{t.content}"</blockquote>
                   <div className="pt-4">

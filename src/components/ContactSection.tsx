@@ -92,7 +92,7 @@ const ContactSection: React.FC = () => {
 
       <div className="max-w-3xl mx-auto px-4 relative z-10 -translate-y-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold animate-glow-text" style={{ color: "#0a3d91" }}>
+          <h2 id="contact-heading" className="text-3xl md:text-4xl font-bold animate-glow-text" style={{ color: "#0a3d91" }}>
             Get In Touch
           </h2>
           <p className="max-w-xl mx-auto text-sm md:text-base animate-glow-text" style={{ color: "#0f4bbd" }}>
@@ -102,17 +102,17 @@ const ContactSection: React.FC = () => {
 
         {result && result.includes("Successfully") ? (
           <div
-            className="p-6 rounded-2xl border border-blue-700 shadow-lg text-center animate-glow"
+            className="p-6 rounded-2xl border border-indigo-700 shadow-lg text-center animate-glow"
             style={{ background: "rgba(10, 61, 145, 0.15)", backdropFilter: "blur(8px)", color: "#1a5eff", fontWeight: 600 }}
           >
             <h3 className="text-2xl font-bold mb-3">🎉 Thank You!</h3>
             <p className="text-lg mb-4">{result}</p>
-            <p className="text-blue-200 text-sm">Form will reopen automatically...</p>
+            <p className="text-indigo-200 text-sm">Form will reopen automatically...</p>
           </div>
         ) : (
           <form
             onSubmit={onSubmit}
-            className="space-y-4 p-6 rounded-2xl border border-blue-700 shadow-lg relative transition-all duration-1000 animate-glow hover-glow"
+            className="space-y-4 p-6 rounded-2xl border border-indigo-700 shadow-lg relative transition-all duration-1000 animate-glow hover-glow"
             style={{
               background: "rgba(10, 61, 145, 0.08)",
               backdropFilter: "blur(8px)",
@@ -121,7 +121,7 @@ const ContactSection: React.FC = () => {
           >
             {/* Name field (single box) */}
             <div>
-              <label className="block text-blue-900 font-semibold mb-1 text-sm">Name</label>
+              <label className="block text-indigo-900 font-semibold mb-1 text-sm">Name</label>
               <input
                 type="text"
                 name="name"
@@ -129,7 +129,7 @@ const ContactSection: React.FC = () => {
                 value={formValues.name}
                 onChange={(e) => handleChange("name", e.target.value)}
                 placeholder={placeholderValues.name}
-                className="w-full px-3 py-2 border border-blue-500 rounded-md focus:ring-1 focus:ring-blue-400 text-black placeholder-blue-300 text-sm transition hover:shadow-md hover:scale-102"
+                className="w-full px-3 py-2 border border-indigo-500 rounded-md focus:ring-1 focus:ring-indigo-400 text-black placeholder-indigo-300 text-sm transition hover:shadow-md hover:scale-102"
               />
             </div>
 
@@ -137,7 +137,7 @@ const ContactSection: React.FC = () => {
             <div className="grid grid-cols-2 gap-3">
               {["email", "phone"].map((field) => (
                 <div key={field}>
-                  <label className="block text-blue-900 font-semibold mb-1 text-sm">
+                  <label className="block text-indigo-900 font-semibold mb-1 text-sm">
                     {field.charAt(0).toUpperCase() + field.slice(1)}
                   </label>
                   <input
@@ -147,7 +147,7 @@ const ContactSection: React.FC = () => {
                     value={formValues[field as keyof typeof formValues]}
                     onChange={(e) => handleChange(field, e.target.value)}
                     placeholder={placeholderValues[field as keyof typeof placeholderValues]}
-                    className="w-full px-3 py-2 border border-blue-500 rounded-md focus:ring-1 focus:ring-blue-400 text-black placeholder-blue-300 text-sm transition hover:shadow-md hover:scale-102"
+                    className="w-full px-3 py-2 border border-indigo-500 rounded-md focus:ring-1 focus:ring-indigo-400 text-black placeholder-indigo-300 text-sm transition hover:shadow-md hover:scale-102"
                   />
                 </div>
               ))}
@@ -155,7 +155,7 @@ const ContactSection: React.FC = () => {
 
             {/* Subject */}
             <div>
-              <label className="block text-blue-900 font-semibold mb-1 text-sm">Subject</label>
+              <label className="block text-indigo-900 font-semibold mb-1 text-sm">Subject</label>
               <input
                 type="text"
                 name="subject"
@@ -163,13 +163,13 @@ const ContactSection: React.FC = () => {
                 value={formValues.subject}
                 onChange={(e) => handleChange("subject", e.target.value)}
                 placeholder={placeholderValues.subject}
-                className="w-full px-3 py-2 border border-blue-500 rounded-md focus:ring-1 focus:ring-blue-400 text-black placeholder-blue-300 text-sm transition hover:shadow-md hover:scale-102"
+                className="w-full px-3 py-2 border border-indigo-500 rounded-md focus:ring-1 focus:ring-indigo-400 text-black placeholder-indigo-300 text-sm transition hover:shadow-md hover:scale-102"
               />
             </div>
 
             {/* Message */}
             <div>
-              <label className="block text-blue-900 font-semibold mb-1 text-sm">Message</label>
+              <label className="block text-indigo-900 font-semibold mb-1 text-sm">Message</label>
               <textarea
                 name="message"
                 required
@@ -177,7 +177,7 @@ const ContactSection: React.FC = () => {
                 value={formValues.message}
                 onChange={(e) => handleChange("message", e.target.value)}
                 placeholder={placeholderValues.message}
-                className="w-full px-3 py-2 border border-blue-500 rounded-md focus:ring-1 focus:ring-blue-400 text-black placeholder-blue-300 text-sm resize-none transition hover:shadow-md hover:scale-102"
+                className="w-full px-3 py-2 border border-indigo-500 rounded-md focus:ring-1 focus:ring-indigo-400 text-black placeholder-indigo-300 text-sm resize-none transition hover:shadow-md hover:scale-102"
               />
             </div>
 

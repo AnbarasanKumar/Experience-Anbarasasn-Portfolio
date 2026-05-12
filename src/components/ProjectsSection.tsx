@@ -1,7 +1,16 @@
 import React from 'react';
 
+interface Project {
+  title: string;
+  description: string;
+  image: string;
+  technologies: string[];
+  githubUrl: string;
+  liveUrl?: string;
+}
+
 const ProjectsSection: React.FC = () => {
-  const projects = [
+  const projects: Project[] = [
     {
      title: 'E-Commerce Platform',
      description: 'Full-stack e-commerce application developed using Java for backend logic, MySQL for database management, and HTML, CSS, and JavaScript for a responsive frontend. Includes features such as user authentication, product management, shopping cart, and order processing.',
@@ -21,20 +30,21 @@ const ProjectsSection: React.FC = () => {
 ,
 
 {
-  title: 'Parental Control System (YOLO)',
-  description: 'Intelligent parental control system developed to monitor and detect inappropriate content in real time using computer vision. The system implements the YOLO object detection algorithm to analyze live video streams, generate alerts, and produce reports for effective parental monitoring, with a strong focus on enhancing child safety through automated content analysis.',
-  image: 'https://media.istockphoto.com/id/1271697681/photo/science-technology-concept-education-technology-edtech.jpg?s=612x612&w=0&k=20&c=SpzEqDnbyDr-X-_jmNveQKh9o-QVUuT-oWQ8e1ixS_4=',
-  technologies: ['Python', 'YOLO', 'Computer Vision']
+  title: 'Hostel Management System',
+  description: 'A comprehensive hostel management system developed using modern web technologies to streamline room allocations, student registrations, fee management, and administrative tasks. Features include user authentication, real-time availability tracking, and responsive design for efficient hostel operations.',
+  image: 'https://images.unsplash.com/photo-1555854877-bab0e564b8d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+  technologies: ['React', 'Java', 'MySql', 'Spring Boot'],
+  githubUrl: 'https://github.com/AnbarasanKumar/Hostel-Management-System.git',
 }
 
   ];
 
   return (
-    <section id="projects" className="py-20 bg-white">
+    <section id="projects" className="py-20 bg-slate-50">
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Featured Projects</h2>
-          <div className="w-24 h-1 bg-blue-600 mx-auto mb-4 rounded-full"></div>
+          <h2 id="projects-heading" className="text-4xl font-bold text-gray-900 mb-4">Featured Projects</h2>
+          <div className="w-24 h-1 bg-indigo-600 mx-auto mb-4 rounded-full"></div>
           <p className="text-gray-600 max-w-2xl mx-auto">
   A showcase of my featured projects demonstrating expertise in full-stack web development, backend engineering, and real-world application development.
 </p>
@@ -60,7 +70,7 @@ const ProjectsSection: React.FC = () => {
                   {project.technologies.map((tech, techIndex) => (
                     <span
                       key={techIndex}
-                      className="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full font-medium"
+                      className="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full font-medium"
                     >
                       {tech}
                     </span>
@@ -68,19 +78,21 @@ const ProjectsSection: React.FC = () => {
                 </div>
                 
                 <div className="flex gap-4 mt-2">
-                  <a
-                    href={project.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-lg font-semibold transition"
-                  >
-                    Live Demo
-                  </a>
+                  {project.liveUrl && (
+                    <a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded-lg font-semibold transition"
+                    >
+                      Live Demo
+                    </a>
+                  )}
                   <a
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-700 hover:text-gray-900 px-4 py-2 rounded-lg font-semibold border border-gray-300 transition"
+                    className="text-indigo-700 hover:text-indigo-900 px-4 py-2 rounded-lg font-semibold border border-indigo-300 transition hover:bg-indigo-50"
                   >
                     GitHub
                   </a>

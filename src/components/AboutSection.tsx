@@ -81,7 +81,7 @@ const AboutSection: React.FC = () => {
   const [landed, setLanded] = useState<boolean[]>(Array(stats.length).fill(false));
 
   return (
-    <section id="about" className="py-20 bg-white relative overflow-hidden scroll-mt-16 font-inter">
+    <section id="about" className="py-20 bg-gray-50 relative overflow-hidden scroll-mt-16 font-inter">
       {/* Particles + Rain */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {particles.map((p, idx) => (
@@ -170,10 +170,10 @@ const AboutSection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <motion.h2 className="text-4xl font-bold font-poppins bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500 mb-4">
+          <motion.h2 id="about-heading" className="text-4xl font-bold font-poppins bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 mb-4">
             About Me
           </motion.h2>
-          <div className="h-1 bg-blue-600 mx-auto rounded relative overflow-hidden w-32">
+          <div className="h-1 bg-indigo-600 mx-auto rounded relative overflow-hidden w-32">
             <motion.div
               className="absolute top-0 left-0 h-full w-1/3 bg-white opacity-20 blur-md"
               animate={{ x: ["-100%", "100%"] }}

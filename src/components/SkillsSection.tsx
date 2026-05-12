@@ -2,10 +2,10 @@ import React, { useEffect, useRef, useState } from "react";
 
 const Stats = () => {
   return (
-    <section className="py-10 bg-blue-50">
+    <section id="skills" className="py-10 bg-indigo-50">
       <div className="max-w-6xl mx-auto px-6">
-        <div id="skills">
-          <h2 className="text-2xl font-bold text-center text-blue-700 mb-8">
+        <div>
+          <h2 id="skills-heading" className="text-2xl font-bold text-center text-indigo-700 mb-8">
             My Skills
           </h2>
 

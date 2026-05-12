@@ -93,22 +93,22 @@ const HeroSection: React.FC = () => {
   const iconScrollDuration = isMobile ? 30 : 60;
 
   return (
-    <section className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 flex items-center justify-center px-4 relative">
+    <section id="hero" className="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-900 to-slate-900 flex items-center justify-center px-4 relative">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         <div className="text-white space-y-3 md:space-y-4 z-5 relative">
-          <h1 className="text-2xl md:text-2xl font-bold leading-tight whitespace-nowrap">
-            <span className="text-blue-200">Anbarasan K</span>
+          <h1 id="hero-heading" className="text-2xl md:text-2xl font-bold leading-tight whitespace-nowrap">
+            <span className="text-indigo-300">Anbarasan K</span>
           </h1>
-          <p className="text-3xl md:text-4xl text-gray-300 font-semibold h-10">
+          <p className="text-3xl md:text-4xl text-gray-200 font-semibold h-10">
             {displayText}
-            <span className="border-r-2 border-gray-300 animate-pulse ml-1"></span>
+            <span className="border-r-2 border-indigo-400 animate-pulse ml-1"></span>
           </p>
-          <p className="text-xl md:text-xl text-gray-200 leading-relaxed max-w-lg mt-2">
+          <p className="text-xl md:text-xl text-gray-100 leading-relaxed max-w-lg mt-2">
             I am a passionate Java / Full Stack Developer skilled in Java, Spring Boot, MySQL, HTML, CSS, and JavaScript. I have hands-on experience building real-world applications like an E-Commerce Website and a Course Registration System, with a strong focus on backend development, RESTful APIs, and database integration. I enjoy problem-solving, learning new technologies, and developing secure, scalable, and user-friendly applications.
           </p>
           <div className="flex flex-wrap gap-4 mt-4">
-            <a href="#projects" className="bg-blue-600 hover:bg-blue-700 px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg text-white">Projects</a>
-            <a href="#contact" className="border-2 border-blue-400 text-blue-400 hover:bg-blue-400 hover:text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg">Contact</a>
+            <a href="#projects" className="bg-indigo-600 hover:bg-indigo-700 px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg text-white">Projects</a>
+            <a href="#contact" className="border-2 border-indigo-400 text-indigo-300 hover:bg-indigo-400 hover:text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg">Contact</a>
           </div>
 
           <div className="overflow-hidden relative h-24 w-full mt-12 z-10">
@@ -138,10 +138,10 @@ const HeroSection: React.FC = () => {
               src="Anbarasan-image.jpeg" 
               alt="Anbarasan"
               loading="lazy"
-              className="w-80 h-80 md:w-96 md:h-96 rounded-full object-cover border-4 border-blue-400 shadow-2xl"
+              className="w-80 h-80 md:w-96 md:h-96 rounded-full object-cover border-4 border-indigo-400 shadow-2xl"
               whileHover={{ scale: 1.05 }}
             />
-            <div className="absolute -inset-4 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full blur-lg opacity-30 animate-pulse group-hover:opacity-50 transition-opacity duration-500"></div>
+            <div className="absolute -inset-4 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-full blur-lg opacity-30 animate-pulse group-hover:opacity-50 transition-opacity duration-500"></div>
           </motion.div>
         </motion.div>
       </div>

@@ -40,7 +40,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="relative bg-gray-900 text-white py-10 font-sans overflow-hidden">
       {/* Background gradients */}
-      <div className="absolute top-0 left-1/4 w-64 h-64 rounded-full opacity-20 bg-gradient-to-tr from-blue-500 to-green-400 animate-float -z-10"></div>
+      <div className="absolute top-0 left-1/4 w-64 h-64 rounded-full opacity-20 bg-gradient-to-tr from-indigo-500 to-green-400 animate-float -z-10"></div>
       <div className="absolute bottom-0 right-1/4 w-80 h-80 rounded-full opacity-20 bg-gradient-to-br from-purple-500 to-pink-400 animate-float delay-4s -z-10"></div>
       <div className="absolute top-1/2 right-1/2 w-72 h-72 rounded-full opacity-10 bg-gradient-to-r from-yellow-300 to-red-400 animate-float delay-8s -z-10"></div>
 
@@ -53,7 +53,7 @@ const Footer: React.FC = () => {
               aria-label="Back to top"
               className="relative w-28 h-28 md:w-32 md:h-32 lg:w-36 lg:h-36 mb-3 rotate-logo"
             >
-              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-green-400 via-blue-500 to-yellow-300"></div>
+              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-green-400 via-indigo-500 to-yellow-300"></div>
               <div className="absolute inset-[4px] rounded-full bg-gray-900 overflow-hidden flex items-center justify-center">
                 <img
                   /* FIXED: Removed leading slash and added URL encoding for the space */
@@ -155,7 +155,7 @@ const Footer: React.FC = () => {
               rel="noopener noreferrer"
               className="w-12 h-12 flex items-center justify-center rounded-full relative overflow-hidden group"
             >
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-500 via-yellow-400 to-yellow-300 animate-spin-smooth"></div>
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-500 via-yellow-400 to-yellow-300 animate-spin-smooth\"></div>
               <div className="absolute inset-[2px] rounded-full bg-gray-900 flex items-center justify-center group-hover:bg-transparent transition-colors duration-300">
                 <Icon className="relative w-6 h-6 text-white group-hover:text-black z-10" />
               </div>

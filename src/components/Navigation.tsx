@@ -69,7 +69,7 @@ const Navigation: React.FC = () => {
   return (
     <>
       {/* Profile picture */}
-      <div className="fixed top-2 left-2 z-50 w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-blue-400 shadow-lg overflow-hidden animate-pulse-slow">
+      <div className="fixed top-2 left-2 z-50 w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-indigo-600 shadow-lg overflow-hidden animate-pulse-slow">
         <img
           /* REMOVED leading slash so it works on GitHub Pages */
           src="Anbarasan%20logo.png" 
@@ -93,10 +93,10 @@ const Navigation: React.FC = () => {
                 className={`px-4 py-2 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105
                   ${
                     activeSection === item.id
-                      ? "bg-gradient-to-r from-red-500 via-yellow-400 to-blue-500 text-white shadow-lg"
+                      ? "bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg"
                       : isScrolled
-                      ? "bg-gray-200 text-gray-800 hover:bg-blue-100"
-                      : "bg-white/20 text-white hover:bg-white/40"
+                      ? "bg-gray-100 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600"
+                      : "bg-white/10 text-white hover:bg-white/20"
                   }
                 `}
               >
@@ -107,7 +107,7 @@ const Navigation: React.FC = () => {
 
           <button
             className={`md:hidden ml-auto ${
-              isScrolled ? "text-gray-900" : "text-white"
+              isScrolled ? "text-gray-700" : "text-white"
             }`}
             onClick={() => setIsMobileMenuOpen((prev) => !prev)}
           >
@@ -141,8 +141,8 @@ const Navigation: React.FC = () => {
                   className={`w-32 text-center px-4 py-2 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105
                     ${
                       activeSection === item.id
-                        ? "bg-gradient-to-r from-red-500 via-yellow-400 to-blue-500 text-white shadow-lg"
-                        : "bg-gray-200 text-gray-800 hover:bg-blue-100"
+                        ? "bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-lg"
+                        : "bg-gray-100 text-gray-700 hover:bg-indigo-50 hover:text-indigo-600"
                     }
                   `}
                 >

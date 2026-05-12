@@ -23,8 +23,22 @@ interface EducationItem {
 
 const experiences: ExperienceItem[] = [
   {
+    title: "Software Engineer",
+    company: "Keyan Technologies",
+    companyUrl: "#",
+    period: "2025 - 2026",
+    icon: <FaCode size={32} className="text-teal-400" />,
+    responsibilities: [
+      "Developed and built the Hostel Management System using React, Java, MySql, and Spring Boot.",
+      "Implemented features for room allocations, student registrations, fee management, and administrative tasks.",
+      "Designed responsive user interfaces and ensured smooth integration with backend services.",
+      "Managed the complete software development lifecycle including requirement analysis, development, testing, and documentation.",
+      "Collaborated with team members to deliver high-quality software solutions."
+    ],
+  },
+  {
     title: "Backend Developer Intern",
-    company: "Itenz Internship",
+    company: "Inetz Internship",
     companyUrl: "#",
     period: "Sept 2025 – Dec 2025",
     icon: <FaServer size={32} className="text-teal-400" />,
@@ -38,7 +52,7 @@ const experiences: ExperienceItem[] = [
   },
   {
     title: "Front-End Developer Intern",
-    company: "Itenz Technology",
+    company: "Inetz Technology",
     companyUrl: "#",
     period: "Jun 2024 – Aug 2024",
     icon: <FaDesktop size={32} className="text-teal-400" />,
@@ -154,7 +168,7 @@ const educationContainer = {
 
 const educationItem = {
   hidden: { opacity: 0, y: 40 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
 };
 
 const Experience: React.FC = () => {
@@ -173,7 +187,7 @@ const Experience: React.FC = () => {
     rotateX: hoveredCard === idx ? mouseTilt.y : 0,
     rotateY: hoveredCard === idx ? mouseTilt.x : 0,
     boxShadow: "0 0 30px #14B8A6, 0 0 60px #00ffff",
-    transition: { type: "spring", stiffness: 200, damping: 15 },
+    transition: { type: "spring" as const, stiffness: 200, damping: 15 },
   });
 
   return (
@@ -181,7 +195,7 @@ const Experience: React.FC = () => {
       <div className="max-w-6xl mx-auto px-6 relative z-10">
 
         {/* Work Experience */}
-        <h2 className="text-3xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-red-500 via-yellow-400 via-green-400 to-blue-500 animate-gradient">
+        <h2 id="experience-heading" className="text-3xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-600 animate-gradient">
           Work Experience
         </h2>
 

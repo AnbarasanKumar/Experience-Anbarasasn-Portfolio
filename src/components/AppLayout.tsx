@@ -13,15 +13,30 @@ import FloatingWhatsAppButton from './FloatingWhatsAppButton';
 const AppLayout: React.FC = () => {
   return (
     <div className="min-h-screen relative">
+      <a href="#main" className="sr-only">Skip to main content</a>
       <Navigation />
-      <main>
-        <HeroSection />
-        <AboutSection />
-        <SkillsSection />
-        <Experience /> 
-        <ProjectsSection />
-        <TestimonialsSection />
-        <ContactSection />
+      <main id="main" role="main" aria-label="Main content">
+        <section aria-labelledby="hero-heading">
+          <HeroSection />
+        </section>
+        <section aria-labelledby="about-heading">
+          <AboutSection />
+        </section>
+        <section aria-labelledby="skills-heading">
+          <SkillsSection />
+        </section>
+        <section aria-labelledby="experience-heading">
+          <Experience /> 
+        </section>
+        <section aria-labelledby="projects-heading">
+          <ProjectsSection />
+        </section>
+        <section aria-labelledby="testimonials-heading">
+          <TestimonialsSection />
+        </section>
+        <section aria-labelledby="contact-heading">
+          <ContactSection />
+        </section>
       </main>
       <Footer />
 
