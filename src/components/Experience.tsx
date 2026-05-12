@@ -91,6 +91,23 @@ const education: EducationItem[] = [
   }
 ];
 
+const additionalCourses: EducationItem[] = [
+  {
+    school: "QSPIDERS",
+    qualification: "Java Full Stack Development",
+    period: "2024 - 2025",
+    icon: <FaGraduationCap className="text-teal-400" />,
+    description: "Intensive 6-month specialized training in enterprise Java, Spring Boot architecture, and full-stack integration."
+  },
+  {
+    school: "GUVI",
+    qualification: "Python Programming",
+    period: "2024",
+    icon: <FaGraduationCap className="text-teal-400" />,
+    description: "Advanced certification in Python programming, focusing on algorithmic problem solving and data processing fundamentals."
+  }
+];
+
 const Experience: React.FC = () => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
@@ -195,31 +212,59 @@ const Experience: React.FC = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="lg:col-span-4 space-y-8"
+            className="lg:col-span-4 space-y-16"
           >
-            <h3 className="text-2xl font-bold text-white mb-8 flex items-center gap-3">
-              <span className="w-8 h-8 bg-indigo-500/20 rounded-lg flex items-center justify-center text-indigo-400 text-sm">02</span>
-              Education
-            </h3>
+            {/* 02 Education */}
+            <div className="space-y-8">
+              <h3 className="text-2xl font-bold text-white mb-8 flex items-center gap-3">
+                <span className="w-8 h-8 bg-indigo-500/20 rounded-lg flex items-center justify-center text-indigo-400 text-sm">02</span>
+                Education
+              </h3>
 
-            <div className="relative pl-8 space-y-12 before:absolute before:left-0 before:top-2 before:bottom-2 before:w-px before:bg-gradient-to-b before:from-indigo-500 before:to-transparent">
-              {education.map((edu, idx) => (
-                <motion.div 
-                  key={idx}
-                  variants={itemVariants}
-                  className="relative"
-                >
-                  <div className="absolute -left-[37px] top-1 w-4 h-4 rounded-full bg-[#1a1a1a] border-2 border-indigo-500 z-10" />
-                  <div className="space-y-2">
-                    <span className="text-indigo-400 text-xs font-bold uppercase tracking-widest">{edu.period}</span>
-                    <h4 className="text-lg font-bold text-white leading-tight">{edu.school}</h4>
-                    <p className="text-gray-400 text-sm">{edu.qualification}</p>
-                    {edu.description && <p className="text-gray-500 text-xs italic mt-2">{edu.description}</p>}
-                  </div>
-                </motion.div>
-              ))}
+              <div className="relative pl-8 space-y-12 before:absolute before:left-0 before:top-2 before:bottom-2 before:w-px before:bg-gradient-to-b before:from-indigo-500 before:to-transparent">
+                {education.map((edu, idx) => (
+                  <motion.div 
+                    key={idx}
+                    variants={itemVariants}
+                    className="relative"
+                  >
+                    <div className="absolute -left-[37px] top-1 w-4 h-4 rounded-full bg-[#1a1a1a] border-2 border-indigo-500 z-10" />
+                    <div className="space-y-2">
+                      <span className="text-indigo-400 text-xs font-bold uppercase tracking-widest">{edu.period}</span>
+                      <h4 className="text-lg font-bold text-white leading-tight">{edu.school}</h4>
+                      <p className="text-gray-400 text-sm">{edu.qualification}</p>
+                      {edu.description && <p className="text-gray-500 text-xs italic mt-2">{edu.description}</p>}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
             </div>
 
+            {/* 03 Additional Courses */}
+            <div className="space-y-8">
+              <h3 className="text-2xl font-bold text-white mb-8 flex items-center gap-3">
+                <span className="w-8 h-8 bg-teal-500/20 rounded-lg flex items-center justify-center text-teal-400 text-sm">03</span>
+                Certifications
+              </h3>
+
+              <div className="relative pl-8 space-y-12 before:absolute before:left-0 before:top-2 before:bottom-2 before:w-px before:bg-gradient-to-b before:from-teal-500 before:to-transparent">
+                {additionalCourses.map((edu, idx) => (
+                  <motion.div 
+                    key={idx}
+                    variants={itemVariants}
+                    className="relative"
+                  >
+                    <div className="absolute -left-[37px] top-1 w-4 h-4 rounded-full bg-[#1a1a1a] border-2 border-teal-500 z-10" />
+                    <div className="space-y-2">
+                      <span className="text-teal-400 text-xs font-bold uppercase tracking-widest">{edu.period}</span>
+                      <h4 className="text-lg font-bold text-white leading-tight">{edu.school}</h4>
+                      <p className="text-gray-400 text-sm">{edu.qualification}</p>
+                      {edu.description && <p className="text-gray-500 text-xs italic mt-2">{edu.description}</p>}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>

@@ -79,7 +79,7 @@ const Footer: React.FC = () => {
               />
             </motion.button>
             <div className="space-y-4">
-              <h3 className="text-2xl font-black tracking-tight text-white uppercase tracking-[0.2em]">Anbarasan Kumar</h3>
+              <h3 className="text-2xl font-black tracking-tight text-white uppercase tracking-[0.2em]">Anbarasan <span className="text-teal-400">Kumar</span></h3>
               <p className="text-gray-400 leading-relaxed max-w-sm text-sm">
                 Engineering sophisticated digital experiences with a focus on scalable backend architecture and intuitive full-stack solutions.
               </p>
