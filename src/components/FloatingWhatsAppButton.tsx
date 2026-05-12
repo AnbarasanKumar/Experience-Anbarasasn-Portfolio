@@ -26,8 +26,11 @@ const FloatingWhatsAppButton: React.FC<FloatingWhatsAppButtonProps> = ({
       className="fixed bottom-8 right-8 z-50 bg-[#25D366] text-white p-5 rounded-3xl shadow-2xl flex items-center justify-center group"
       title="Chat with me on WhatsApp"
     >
-      <div className="absolute inset-0 bg-[#25D366] rounded-3xl blur-xl opacity-20 group-hover:opacity-40 transition-opacity animate-pulse" />
-      <FaWhatsapp className="w-6 h-6 relative z-10" />
+      {/* Ping Animation Ring */}
+      <span className="absolute inset-0 rounded-3xl bg-[#25D366] animate-ping opacity-20 group-hover:opacity-40" />
+      
+      <div className="absolute inset-0 bg-[#25D366] rounded-3xl blur-xl opacity-20 group-hover:opacity-40 transition-opacity" />
+      <FaWhatsapp className="w-8 h-8 relative z-10" />
       
       {/* Tooltip */}
       <span className="absolute right-full mr-4 px-4 py-2 bg-white/10 backdrop-blur-md border border-white/10 rounded-xl text-xs font-bold text-white whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
