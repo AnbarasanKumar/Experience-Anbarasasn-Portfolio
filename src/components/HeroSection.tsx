@@ -1,5 +1,5 @@
 import React, { useState, useEffect, memo } from 'react';
-import { motion, AnimatePresence, Variants } from 'framer-motion';
+import { motion, AnimatePresence, Variants, useScroll, useTransform } from 'framer-motion';
 import {
   FaPython, FaJava, FaHtml5, FaCss3Alt, FaGitAlt,
 } from 'react-icons/fa';
@@ -20,6 +20,10 @@ const Icon = memo(({ icon: IconComp, title, color }: any) => (
 ));
 
 const HeroSection: React.FC = () => {
+  const { scrollY } = useScroll();
+  const y1 = useTransform(scrollY, [0, 500], [0, 200]);
+  const y2 = useTransform(scrollY, [0, 500], [0, -150]);
+
   const roles = [
     'Full Stack Engineer',
     'Java Specialist',
@@ -96,18 +100,25 @@ const HeroSection: React.FC = () => {
       {/* Animated Background Mesh */}
       <div className="absolute inset-0 z-0">
         <motion.div 
+          style={{ y: y1 }}
           animate={{ 
             background: [
-              "radial-gradient(circle at 20% 20%, rgba(79, 70, 229, 0.15) 0%, transparent 50%)",
-              "radial-gradient(circle at 80% 80%, rgba(20, 184, 166, 0.15) 0%, transparent 50%)",
-              "radial-gradient(circle at 20% 80%, rgba(79, 70, 229, 0.15) 0%, transparent 50%)",
-              "radial-gradient(circle at 80% 20%, rgba(20, 184, 166, 0.15) 0%, transparent 50%)",
-            ]
+              'radial-gradient(circle at 20% 20%, rgba(20, 184, 166, 0.1) 0%, transparent 50%)',
+              'radial-gradient(circle at 80% 80%, rgba(79, 70, 229, 0.1) 0%, transparent 50%)',
+              'radial-gradient(circle at 20% 20%, rgba(20, 184, 166, 0.1) 0%, transparent 50%)',
+            ],
           }}
-          transition={{ duration: 20, repeat: Infinity, repeatType: "reverse", ease: "linear" }}
+          transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}
           className="absolute inset-0"
         />
-        <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10" />
+        <motion.div 
+          style={{ y: y2 }}
+          className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-teal-500/5 blur-[120px] rounded-full"
+        />
+        <motion.div 
+          style={{ y: y1 }}
+          className="absolute bottom-1/4 left-0 w-[600px] h-[600px] bg-indigo-500/5 blur-[120px] rounded-full"
+        />
       </div>
 
       <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center relative z-10 w-full py-20 md:py-0">

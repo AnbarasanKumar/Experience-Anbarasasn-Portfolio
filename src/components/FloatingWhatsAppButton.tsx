@@ -19,9 +19,22 @@ const FloatingWhatsAppButton: React.FC<FloatingWhatsAppButtonProps> = ({
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      initial={{ scale: 0, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1 }}
-      whileHover={{ scale: 1.1, rotate: 5 }}
+      initial={{ scale: 0, opacity: 0, y: 0 }}
+      animate={{ 
+        scale: 1, 
+        opacity: 1,
+        y: [0, -12, 0]
+      }}
+      transition={{
+        y: {
+          duration: 2,
+          repeat: Infinity,
+          ease: "easeInOut"
+        },
+        scale: { duration: 0.3 },
+        opacity: { duration: 0.3 }
+      }}
+      whileHover={{ scale: 1.1, rotate: 5, y: -15 }}
       whileTap={{ scale: 0.9 }}
       className="fixed bottom-8 right-8 z-50 bg-[#25D366] text-white p-5 rounded-3xl shadow-2xl flex items-center justify-center group"
       title="Chat with me on WhatsApp"

@@ -91,10 +91,22 @@ const Navigation: React.FC = () => {
         }`}
       >
         <div className="max-w-7xl mx-auto px-8 flex justify-end items-center">
-          <div className="hidden md:flex items-center space-x-2">
+          <motion.div 
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: { opacity: 0 },
+              visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
+            }}
+            className="hidden md:flex items-center space-x-2"
+          >
             {NAV_ITEMS.map((item) => (
-              <button
+              <motion.button
                 key={item.id}
+                variants={{
+                  hidden: { opacity: 0, y: -20 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } }
+                }}
                 onClick={() => scrollToSection(item.id)}
                 className={`relative px-5 py-2.5 rounded-xl font-bold text-sm tracking-wide transition-all duration-300
                   ${
@@ -111,9 +123,9 @@ const Navigation: React.FC = () => {
                     className="absolute bottom-0 left-1/2 -translate-x-1/2 w-1 h-1 bg-teal-400 rounded-full"
                   />
                 )}
-              </button>
+              </motion.button>
             ))}
-          </div>
+          </motion.div>
 
           <button
             className="md:hidden p-2 text-gray-400 hover:text-white transition-colors"
@@ -149,9 +161,12 @@ const Navigation: React.FC = () => {
               className="md:hidden bg-[#1a1a1a] border-b border-white/5 overflow-hidden"
             >
               <div className="px-6 py-8 flex flex-col space-y-4">
-                {NAV_ITEMS.map((item) => (
-                  <button
+                {NAV_ITEMS.map((item, idx) => (
+                  <motion.button
                     key={item.id}
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.1 + idx * 0.05 }}
                     onClick={() => scrollToSection(item.id)}
                     className={`px-6 py-4 rounded-2xl font-bold text-left transition-all
                       ${
@@ -162,7 +177,7 @@ const Navigation: React.FC = () => {
                     `}
                   >
                     {item.label}
-                  </button>
+                  </motion.button>
                 ))}
               </div>
             </motion.div>
