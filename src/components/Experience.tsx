@@ -171,9 +171,18 @@ const Experience: React.FC = () => {
                     hidden: { opacity: 0, x: -30 },
                     visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } }
                   }}
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{
+                    y: {
+                      duration: 4 + idx * 1.5,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }
+                  }}
                   whileHover={{ 
-                    x: 12,
-                    backgroundColor: "rgba(255, 255, 255, 0.5)"
+                    y: -14,
+                    scale: 1.01,
+                    boxShadow: "0 30px 60px -12px rgba(20, 184, 166, 0.2)"
                   }}
                   className="bg-white rounded-[2.5rem] p-10 border border-slate-200 hover:border-teal-500/30 transition-all duration-300 shadow-xl group relative overflow-hidden"
                 >
@@ -226,6 +235,15 @@ const Experience: React.FC = () => {
                   <motion.div 
                     key={idx}
                     variants={itemVariants}
+                    animate={{ y: [0, -6, 0] }}
+                    transition={{
+                      y: {
+                        duration: 3 + idx * 1.2,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }
+                    }}
+                    whileHover={{ scale: 1.02, x: 6 }}
                     className="relative"
                   >
                     <div className="absolute -left-[37px] top-1 w-4 h-4 rounded-full bg-white border-2 border-indigo-500 z-10 shadow-sm" />
@@ -252,6 +270,15 @@ const Experience: React.FC = () => {
                   <motion.div 
                     key={idx}
                     variants={itemVariants}
+                    animate={{ y: [0, -6, 0] }}
+                    transition={{
+                      y: {
+                        duration: 3.5 + idx * 1.2,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }
+                    }}
+                    whileHover={{ scale: 1.02, x: 6 }}
                     className="relative"
                   >
                     <div className="absolute -left-[37px] top-1 w-4 h-4 rounded-full bg-white border-2 border-teal-500 z-10 shadow-sm" />

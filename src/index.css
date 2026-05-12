@@ -92,6 +92,11 @@
   }
 }
 
+@keyframes float-form {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
 .markdown-editor {
   font-family: theme('fontFamily.mono');
   font-size: theme('fontSize.base');

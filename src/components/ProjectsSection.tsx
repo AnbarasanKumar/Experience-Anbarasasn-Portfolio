@@ -87,10 +87,20 @@ const ProjectsSection: React.FC = () => {
                 hidden: { opacity: 0, y: 50, scale: 0.95 },
                 visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.7, ease: "easeOut" } }
               }}
+              animate={{
+                y: [0, -15, 0],
+              }}
+              transition={{
+                y: {
+                  duration: 5 + index,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }
+              }}
               whileHover={{ 
-                y: -15, 
+                y: -20, 
                 scale: 1.02,
-                boxShadow: "0 40px 80px -15px rgba(79, 70, 229, 0.15)"
+                boxShadow: "0 40px 80px -15px rgba(79, 70, 229, 0.25)"
               }}
               className="group relative bg-white rounded-[2.5rem] overflow-hidden border border-slate-200 shadow-xl transition-all duration-500 hover:border-teal-500/30"
             >

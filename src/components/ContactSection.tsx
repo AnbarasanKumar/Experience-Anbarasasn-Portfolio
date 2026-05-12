@@ -122,6 +122,9 @@ const ContactSection: React.FC = () => {
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.6 }}
               onSubmit={onSubmit}
+              style={{ 
+                animation: "float-form 6s ease-in-out infinite"
+              }}
               className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white p-8 md:p-12 rounded-[2rem] border border-slate-200 shadow-2xl"
             >
               <div className="space-y-6">

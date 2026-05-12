@@ -71,7 +71,19 @@ const TestimonialsSection: React.FC = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              whileHover={{ y: -10 }}
+              animate={{ y: [0, -10, 0] }}
+              transition={{
+                y: {
+                  duration: 3 + i * 1.3,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }
+              }}
+              whileHover={{ 
+                y: -14,
+                scale: 1.02,
+                boxShadow: "0 30px 60px -12px rgba(79, 70, 229, 0.2)"
+              }}
               className="bg-white rounded-[2rem] p-8 border border-slate-200 shadow-xl hover:border-teal-500/30 transition-all duration-300 group"
             >
               <div className="mb-6">

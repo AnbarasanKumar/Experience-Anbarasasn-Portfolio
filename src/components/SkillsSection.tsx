@@ -78,10 +78,20 @@ const SkillsSection: React.FC = () => {
                 hidden: { opacity: 0, y: 40, scale: 0.98 },
                 visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.7, ease: "easeOut" } }
               }}
+              animate={{
+                y: [0, -12, 0],
+              }}
+              transition={{
+                y: {
+                  duration: 4 + idx,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }
+              }}
               whileHover={{ 
-                y: -12, 
+                y: -15, 
                 scale: 1.03,
-                boxShadow: "0 25px 50px -12px rgba(20, 184, 166, 0.15)"
+                boxShadow: "0 25px 50px -12px rgba(20, 184, 166, 0.25)"
               }}
               className="bg-white p-10 rounded-[3rem] border border-slate-200 shadow-xl hover:border-teal-500/40 transition-all duration-500 group relative overflow-hidden"
             >

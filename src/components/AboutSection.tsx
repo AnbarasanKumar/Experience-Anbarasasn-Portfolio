@@ -68,14 +68,38 @@ const AboutSection: React.FC = () => {
               key={idx}
               variants={{
                 hidden: { opacity: 0, y: 30 },
-                visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100 } }
+                visible: { 
+                  opacity: 1, 
+                  y: 0, 
+                  transition: { type: "spring", stiffness: 100 } 
+                }
               }}
-              className="bg-white p-8 rounded-3xl border border-slate-200 text-center shadow-lg group hover:border-teal-500/30 transition-all duration-500"
+              animate={{
+                y: [0, -10, 0],
+              }}
+              transition={{
+                y: {
+                  duration: 3 + idx,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }
+              }}
+              whileHover={{ 
+                scale: 1.05, 
+                rotate: idx % 2 === 0 ? 1 : -1,
+                boxShadow: "0 25px 50px -12px rgba(20, 184, 166, 0.25)"
+              }}
+              className="bg-white p-8 rounded-[2.5rem] border border-slate-200 text-center shadow-xl group hover:border-teal-500/50 transition-all duration-500 relative overflow-hidden"
             >
-              <h3 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-600 to-indigo-600 mb-2">
-                <CountUp end={parseInt(stat.value)} suffix={stat.value.replace(/\d+/g, "")} enableScrollSpy />
-              </h3>
-              <p className="text-slate-500 font-medium tracking-wide uppercase text-xs">{stat.label}</p>
+              {/* Card Glow Effect */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-teal-500 to-indigo-600 rounded-[2.5rem] opacity-0 group-hover:opacity-10 blur transition duration-500" />
+              
+              <div className="relative z-10">
+                <h3 className="text-4xl font-black bg-clip-text text-transparent bg-gradient-to-r from-teal-600 to-indigo-600 mb-2">
+                  <CountUp end={parseInt(stat.value)} suffix={stat.value.replace(/\d+/g, "")} enableScrollSpy />
+                </h3>
+                <p className="text-slate-500 font-black tracking-[0.1em] uppercase text-[10px] whitespace-nowrap">{stat.label}</p>
+              </div>
             </motion.div>
           ))}
         </motion.div>

@@ -129,6 +129,19 @@ const HeroSection: React.FC = () => {
           className="text-slate-900 space-y-10"
         >
           <div className="space-y-4">
+            {/* Availability Badge */}
+            <motion.div
+              variants={itemVariants}
+              className="inline-flex items-center gap-2 px-4 py-2 bg-teal-50 border border-teal-200 rounded-full"
+            >
+              <motion.span
+                animate={{ scale: [1, 1.4, 1], opacity: [1, 0.6, 1] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+                className="w-2 h-2 bg-teal-500 rounded-full"
+              />
+              <span className="text-teal-700 text-xs font-black uppercase tracking-widest">Available for Work</span>
+            </motion.div>
+
             <motion.h1 
               variants={itemVariants}
               id="hero-heading" 
@@ -227,10 +240,51 @@ const HeroSection: React.FC = () => {
               <img 
                 src="Anbarasan-image.png" 
                 alt="Anbarasan Kumar"
-                className="w-80 h-80 md:w-[500px] md:h-[500px] object-cover rounded-[4rem] border-2 border-white/10 shadow-2xl relative z-10 transition-transform duration-700 group-hover:scale-[1.02]"
+                className="w-80 h-80 md:w-[500px] md:h-[500px] object-cover rounded-[4rem] border-2 border-white shadow-2xl relative z-10 transition-transform duration-700 group-hover:scale-[1.02]"
               />
+              {/* Professional Role Overlay */}
+              <div className="absolute inset-0 z-20 opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-[4rem] flex flex-col items-center justify-center bg-white/20 backdrop-blur-2xl p-8 text-center border-4 border-white/40 shadow-[inset_0_0_100px_rgba(255,255,255,0.2)]">
+                <motion.div
+                  initial={{ y: 30, opacity: 0 }}
+                  whileHover={{ y: 0, opacity: 1 }}
+                  transition={{ type: "spring", stiffness: 100 }}
+                  className="space-y-6"
+                >
+                  <div className="space-y-2">
+                    <p className="text-indigo-600 font-black text-sm uppercase tracking-[0.4em] mb-4">Professional Profile</p>
+                    <div className="h-1 w-16 bg-gradient-to-r from-teal-500 to-indigo-600 mx-auto rounded-full" />
+                  </div>
+                  
+                  <div className="space-y-4">
+                    <div className="space-y-1">
+                      <p className="text-slate-900 font-black text-3xl md:text-4xl leading-tight">Software Engineer</p>
+                      <p className="text-teal-600 font-bold text-xl">Full Stack Specialist</p>
+                    </div>
+                    
+                    <div className="flex flex-wrap justify-center gap-3 pt-4">
+                      {['Java', 'Spring Boot', 'React', 'Cloud'].map((skill) => (
+                        <span key={skill} className="px-4 py-2 bg-white/40 backdrop-blur-md rounded-xl text-[10px] font-black text-slate-800 uppercase tracking-widest border border-white/50 shadow-sm">
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="pt-8">
+                    <motion.div 
+                      animate={{ scale: [1, 1.05, 1] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                      className="inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 text-white rounded-2xl text-xs font-black uppercase tracking-widest shadow-xl shadow-indigo-600/30"
+                    >
+                      <span className="w-2 h-2 bg-teal-400 rounded-full animate-pulse" />
+                      Open for Collaboration
+                    </motion.div>
+                  </div>
+                </motion.div>
+              </div>
             </motion.div>
           </div>
+
         </motion.div>
       </div>
 
@@ -243,6 +297,28 @@ const HeroSection: React.FC = () => {
           animation: gradient-x 5s ease infinite;
         }
       `}</style>
+
+      {/* Scroll Down Indicator */}
+      <motion.div
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: [0, 12, 0] }}
+        transition={{ delay: 2, duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+        onClick={() => {
+          const el = document.getElementById('about');
+          if (el) el.scrollIntoView({ behavior: 'smooth' });
+        }}
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 cursor-pointer group"
+      >
+        <span className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 group-hover:text-teal-600 transition-colors">Scroll</span>
+        <div className="w-6 h-10 border-2 border-slate-300 group-hover:border-teal-500 rounded-full flex items-start justify-center pt-2 transition-colors">
+          <motion.div
+            animate={{ y: [0, 8, 0], opacity: [1, 0, 1] }}
+            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            className="w-1.5 h-1.5 bg-slate-400 group-hover:bg-teal-500 rounded-full transition-colors"
+          />
+        </div>
+      </motion.div>
+
     </section>
   );
 };
