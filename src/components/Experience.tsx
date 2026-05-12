@@ -97,7 +97,7 @@ const additionalCourses: EducationItem[] = [
     qualification: "Java Full Stack Development",
     period: "2024 - 2025",
     icon: <FaGraduationCap className="text-teal-400" />,
-    description: "Intensive 6-month specialized training in enterprise Java, Spring Boot architecture, and full-stack integration."
+    description: "Intensive six-month specialized training in enterprise Java, Spring Boot architecture, and full-stack integration."
   },
   {
     school: "GUVI",
