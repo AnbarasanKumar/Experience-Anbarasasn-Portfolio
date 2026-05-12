@@ -40,12 +40,12 @@ const ProjectsSection: React.FC = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 bg-slate-50">
+    <section id="projects" className="py-20 bg-[#1a1a1a]">
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-16">
-          <h2 id="projects-heading" className="text-4xl font-bold text-gray-900 mb-4">Featured Projects</h2>
-          <div className="w-24 h-1 bg-indigo-600 mx-auto mb-4 rounded-full"></div>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <h2 id="projects-heading" className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-indigo-400 mb-4">Featured Projects</h2>
+          <div className="w-24 h-1 bg-indigo-600 mx-auto mb-6 rounded-full"></div>
+          <p className="text-gray-300 max-w-2xl mx-auto">
   A showcase of my featured projects demonstrating expertise in full-stack web development, backend engineering, and real-world application development.
 </p>
 
@@ -55,7 +55,7 @@ const ProjectsSection: React.FC = () => {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl shadow-lg overflow-hidden transform transition duration-300 hover:scale-105 hover:shadow-2xl"
+              className="bg-white/5 backdrop-blur-xl rounded-xl shadow-2xl overflow-hidden border border-white/10 transform transition duration-300 hover:scale-105 hover:shadow-indigo-500/20"
             >
               <img 
                 src={project.image} 
@@ -63,14 +63,14 @@ const ProjectsSection: React.FC = () => {
                 className="w-full h-56 object-cover transition-transform duration-500 hover:scale-110"
               />
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">{project.title}</h3>
-                <p className="text-gray-600 mb-4 leading-relaxed">{project.description}</p>
+                <h3 className="text-xl font-semibold text-teal-400 mb-3">{project.title}</h3>
+                <p className="text-gray-300 mb-4 leading-relaxed">{project.description}</p>
                 
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.map((tech, techIndex) => (
                     <span
                       key={techIndex}
-                      className="px-3 py-1 bg-indigo-100 text-indigo-800 text-sm rounded-full font-medium"
+                      className="px-3 py-1 bg-white/10 text-teal-300 text-sm rounded-full font-medium"
                     >
                       {tech}
                     </span>
@@ -92,7 +92,7 @@ const ProjectsSection: React.FC = () => {
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-indigo-700 hover:text-indigo-900 px-4 py-2 rounded-lg font-semibold border border-indigo-300 transition hover:bg-indigo-50"
+                    className="text-white hover:text-white px-4 py-2 rounded-lg font-semibold border border-white/20 transition hover:bg-white/10"
                   >
                     GitHub
                   </a>

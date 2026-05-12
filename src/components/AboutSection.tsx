@@ -81,7 +81,7 @@ const AboutSection: React.FC = () => {
   const [landed, setLanded] = useState<boolean[]>(Array(stats.length).fill(false));
 
   return (
-    <section id="about" className="py-20 bg-gray-50 relative overflow-hidden scroll-mt-16 font-inter">
+    <section id="about" className="py-20 bg-[#1a1a1a] relative overflow-hidden scroll-mt-16 font-inter">
       {/* Particles + Rain */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {particles.map((p, idx) => (
@@ -117,7 +117,7 @@ const AboutSection: React.FC = () => {
               <motion.div
                 key={idx}
                 ref={ref}
-                className="bg-gray-100 p-6 rounded-xl shadow-lg relative overflow-visible font-poppins"
+                className="bg-white/5 backdrop-blur-xl p-6 rounded-xl shadow-2xl border border-white/10 relative overflow-visible font-poppins"
                 initial={{ opacity: 0, y: -200, rotate: -5 }}
                 whileInView={{ opacity: 1, y: 0, rotate: 0 }}
                 viewport={{ once: false }}
@@ -157,7 +157,7 @@ const AboutSection: React.FC = () => {
                     )}
                   </AnimatePresence>
                 </h3>
-                <p className="text-gray-700 mt-2 font-inter">{stat.label}</p>
+                <p className="text-gray-300 mt-2 font-inter">{stat.label}</p>
               </motion.div>
             );
           })}
@@ -170,7 +170,7 @@ const AboutSection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <motion.h2 id="about-heading" className="text-4xl font-bold font-poppins bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-purple-600 mb-4">
+          <motion.h2 id="about-heading" className="text-4xl font-bold font-poppins bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-indigo-400 mb-4">
             About Me
           </motion.h2>
           <div className="h-1 bg-indigo-600 mx-auto rounded relative overflow-hidden w-32">
@@ -186,25 +186,25 @@ const AboutSection: React.FC = () => {
         <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Left Panel */}
           <motion.div
-            className="space-y-8 bg-blue-600 p-8 rounded-xl shadow-lg min-h-[650px]"
+            className="space-y-8 bg-white/5 backdrop-blur-xl p-8 rounded-xl shadow-2xl border border-white/10 min-h-[650px]"
             initial={{ opacity: 0, x: -100 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.9 }}
             viewport={{ once: false }}
           >
-            <h3 className="text-2xl font-semibold text-blue-100 mb-4 font-poppins">Full-Stack Development with Practical Impact</h3>
+            <h3 className="text-2xl font-semibold text-teal-400 mb-4 font-poppins">Full-Stack Development with Practical Impact</h3>
 
             {[
               {
-  text: "I bring hands-on experience in full-stack development, building real-world web applications using Java, Spring Boot, MySQL, HTML, CSS, and JavaScript with a strong focus on backend logic and clean architecture.",
+  text: "As an expert in full-stack engineering, I architect high-performance web applications by leveraging Java and Spring Boot for robust backend systems, integrated with scalable MySQL databases and responsive frontends.",
   img: "https://i.pinimg.com/736x/ef/e1/5c/efe15c31e146989f9df6277418a5057c.jpg",
 },
 {
-  text: "From concept to deployment, I have developed complete projects such as an E-Commerce Platform and Course Registration System, implementing RESTful APIs, role-based access control, and responsive user interfaces.",
+  text: "From enterprise architecture to final deployment, I have successfully engineered comprehensive systems including E-Commerce platforms and Course Registration environments, focusing on RESTful API efficiency and secure authentication.",
   img: "https://i.pinimg.com/736x/4e/19/82/4e1982ddc4dbc34b5843f7443f4fc676.jpg",
 },
 {
-  text: "I am passionate about problem-solving and continuous learning, with additional experience in AI and computer vision through a Parental Control System using YOLO to solve real-world safety challenges.",
+  text: "Driven by technical innovation and rigorous problem-solving, I also explore the frontiers of AI and Computer Vision, specifically developing intelligent systems with Python and YOLO to address complex safety and monitoring requirements.",
   img: "https://i.pinimg.com/1200x/36/d1/6a/36d16a8bc9597f727d31bf16b3d6872c.jpg",
 }
 ,
@@ -216,7 +216,7 @@ const AboutSection: React.FC = () => {
                 transition={{ duration: 0.8, delay: idx * 0.2 }}
                 viewport={{ once: false, amount: 0.4 }}
               >
-                <p className="text-blue-50 text-lg leading-relaxed mb-3 font-inter">{block.text}</p>
+                <p className="text-gray-200 text-lg leading-relaxed mb-3 font-inter">{block.text}</p>
                 <motion.img
                   src={block.img}
                   alt="About Section Visual"
@@ -234,7 +234,7 @@ const AboutSection: React.FC = () => {
               href="/Anbarasan.K Resume-1.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-white text-blue-600 px-6 py-3 rounded-lg font-semibold shadow-md mt-6 font-poppins"
+              className="inline-flex items-center gap-2 bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold shadow-md mt-6 font-poppins"
               whileHover={{
                 scale: 1.1,
                 backgroundColor: "#f7b11bff",
@@ -252,14 +252,14 @@ const AboutSection: React.FC = () => {
 
           {/* Right Panel */}
           <motion.div
-            className="space-y-6 bg-gray-100 p-8 rounded-xl shadow-lg"
+            className="space-y-6 bg-white/5 backdrop-blur-xl p-8 rounded-xl shadow-2xl border border-white/10"
             initial={{ opacity: 0, x: 100 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.9 }}
             viewport={{ once: false }}
           >
-            <h4 className="font-semibold text-black mb-6 text-xl font-poppins">What I Do</h4>
-            <ul className="space-y-8 text-gray-800">
+            <h4 className="font-semibold text-teal-400 mb-6 text-xl font-poppins">What I Do</h4>
+            <ul className="space-y-8 text-gray-300">
               {bulletItems.map((item, idx) => (
                 <motion.li
                   key={idx}
@@ -271,8 +271,8 @@ const AboutSection: React.FC = () => {
                   <div className="flex items-start mb-2">
                     <span className="w-3 h-3 bg-gray-700 rounded-full mr-3 mt-1"></span>
                     <div>
-                      <h5 className="font-semibold text-gray-900 font-poppins">{item.title}</h5>
-                      <p className="ml-1 text-sm text-gray-700 font-inter">{item.description}</p>
+                      <h5 className="font-semibold text-gray-100 font-poppins">{item.title}</h5>
+                      <p className="ml-1 text-sm text-gray-300 font-inter">{item.description}</p>
                     </div>
                   </div>
 

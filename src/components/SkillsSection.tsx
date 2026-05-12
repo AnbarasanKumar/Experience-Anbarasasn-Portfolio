@@ -2,10 +2,10 @@ import React, { useEffect, useRef, useState } from "react";
 
 const Stats = () => {
   return (
-    <section id="skills" className="py-10 bg-indigo-50">
+    <section id="skills" className="py-10 bg-[#1a1a1a]">
       <div className="max-w-6xl mx-auto px-6">
         <div>
-          <h2 id="skills-heading" className="text-2xl font-bold text-center text-indigo-700 mb-8">
+          <h2 id="skills-heading" className="text-3xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-indigo-400">
             My Skills
           </h2>
 
@@ -54,7 +54,7 @@ const Stats = () => {
 };
 
 const SkillCategory = ({ title, skills }: { title: string, skills: {name: string, level: number}[] }) => (
-  <div className="bg-white p-5 rounded-xl shadow-md">
+  <div className="bg-white/5 backdrop-blur-xl p-5 rounded-xl shadow-2xl border border-white/10 group">
     <h3
       className="text-xl font-bold text-center 
                  bg-clip-text text-transparent 
@@ -108,17 +108,17 @@ const SkillBar = ({ name, level }: { name: string, level: number }) => {
   return (
     <div ref={barRef}>
       <div className="flex justify-between mb-1">
-        <span className="text-gray-700 font-medium transition-transform transform hover:scale-105 hover:text-blue-500">
+        <span className="text-gray-200 font-medium transition-transform transform hover:scale-105 hover:text-teal-400">
           {name}
         </span>
         <span className="text-blue-600 font-semibold">{progress}%</span>
       </div>
-      <div className="w-full bg-gray-200 rounded-full h-3 overflow-hidden relative">
+      <div className="w-full bg-white/10 rounded-full h-3 overflow-hidden relative">
         <div
           className="h-3 rounded-full transition-all duration-500 ease-in-out"
           style={{
             width: `${progress}%`,
-            background: `linear-gradient(270deg, #4f46e5, #ec4899, #facc15, #4f46e5)`,
+            background: `linear-gradient(270deg, #14b8a6, #4f46e5, #06b6d4, #14b8a6)`,
             backgroundSize: "600% 100%",
             animation: "flowGradient 3s ease infinite",
             boxShadow: `0 0 8px rgba(236,72,153,0.5), 0 0 8px rgba(252,204,21,0.5)`,

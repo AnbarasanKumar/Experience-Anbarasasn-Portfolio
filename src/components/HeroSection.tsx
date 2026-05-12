@@ -93,7 +93,7 @@ const HeroSection: React.FC = () => {
   const iconScrollDuration = isMobile ? 30 : 60;
 
   return (
-    <section id="hero" className="min-h-screen bg-gradient-to-br from-slate-900 via-indigo-900 to-slate-900 flex items-center justify-center px-4 relative">
+    <section id="hero" className="min-h-screen bg-gradient-to-br from-[#1a1a1a] via-indigo-950 to-[#0f172a] flex items-center justify-center px-4 relative">
       <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
         <div className="text-white space-y-3 md:space-y-4 z-5 relative">
           <h1 id="hero-heading" className="text-2xl md:text-2xl font-bold leading-tight whitespace-nowrap">
@@ -103,8 +103,8 @@ const HeroSection: React.FC = () => {
             {displayText}
             <span className="border-r-2 border-indigo-400 animate-pulse ml-1"></span>
           </p>
-          <p className="text-xl md:text-xl text-gray-100 leading-relaxed max-w-lg mt-2">
-            I am a passionate Java / Full Stack Developer skilled in Java, Spring Boot, MySQL, HTML, CSS, and JavaScript. I have hands-on experience building real-world applications like an E-Commerce Website and a Course Registration System, with a strong focus on backend development, RESTful APIs, and database integration. I enjoy problem-solving, learning new technologies, and developing secure, scalable, and user-friendly applications.
+          <p className="text-xl md:text-xl text-gray-200 leading-relaxed max-w-2xl mt-4">
+            Professional Full Stack Developer dedicated to building scalable enterprise applications using Java, Spring Boot, and React. With a proven track record of developing complex systems like Hostel Management and E-Commerce platforms, I specialize in robust backend architecture, RESTful API design, and high-performance database integration to deliver secure, user-centric web solutions.
           </p>
           <div className="flex flex-wrap gap-4 mt-4">
             <a href="#projects" className="bg-indigo-600 hover:bg-indigo-700 px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg text-white">Projects</a>

@@ -54,12 +54,12 @@ const ContactSection: React.FC = () => {
       const response = await fetch("https://api.web3forms.com/submit", { method: "POST", body: formData });
       const data = await response.json();
       if (data.success) {
-        setResult("✅ Form Submitted Successfully Anbarasan will respond back within 24hrs! Thank You");
+        setResult("✅ Form Submitted Successfully! Your message has been sent to anbarasanpno18@gmail.com. Anbarasan will respond within 24hrs.");
         setFormValues({ name: "", email: "", phone: "", subject: "", message: "" });
         localStorage.removeItem("contactForm");
       } else setResult(data.message || "Failed to send message.");
     } catch {
-      setResult("Message sent successfully. Thank you, Anbarasan will respond shortly.");
+      setResult("✅ Message sent successfully to anbarasanpno18@gmail.com. Thank you!");
     }
   };
 
@@ -68,12 +68,7 @@ const ContactSection: React.FC = () => {
   return (
     <section
       id="contact"
-      className="relative py-12 min-h-[60vh] overflow-hidden"
-      style={{
-        backgroundImage: "url('https://i.pinimg.com/736x/71/a6/d8/71a6d82e769b7778fb900203ab9d45de.jpg')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
+      className="relative py-24 min-h-[60vh] overflow-hidden bg-[#1a1a1a]"
     >
       <div className="absolute inset-0 bg-black bg-opacity-40 -z-10"></div>
 
@@ -92,11 +87,11 @@ const ContactSection: React.FC = () => {
 
       <div className="max-w-3xl mx-auto px-4 relative z-10 -translate-y-4">
         <div className="text-center mb-12">
-          <h2 id="contact-heading" className="text-3xl md:text-4xl font-bold animate-glow-text" style={{ color: "#0a3d91" }}>
+          <h2 id="contact-heading" className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-indigo-400 mb-4">
             Get In Touch
           </h2>
-          <p className="max-w-xl mx-auto text-sm md:text-base animate-glow-text" style={{ color: "#0f4bbd" }}>
-            Ready to start your next project? Fill out the form below and I’ll get back to you within 24hrs.
+          <p className="max-w-xl mx-auto text-gray-300">
+            Ready to start your next project? Fill out the form below or email me directly at <span className="text-teal-400 font-semibold">anbarasanpno18@gmail.com</span>.
           </p>
         </div>
 
@@ -112,16 +107,11 @@ const ContactSection: React.FC = () => {
         ) : (
           <form
             onSubmit={onSubmit}
-            className="space-y-4 p-6 rounded-2xl border border-indigo-700 shadow-lg relative transition-all duration-1000 animate-glow hover-glow"
-            style={{
-              background: "rgba(10, 61, 145, 0.08)",
-              backdropFilter: "blur(8px)",
-              boxShadow: `0 0 15px hsl(${hue}, 100%, 50%), 0 0 30px hsl(${(hue + 30) % 360}, 100%, 50%)`,
-            }}
+            className="space-y-4 p-8 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl relative"
           >
             {/* Name field (single box) */}
             <div>
-              <label className="block text-indigo-900 font-semibold mb-1 text-sm">Name</label>
+              <label className="block text-gray-300 font-semibold mb-1 text-sm">Name</label>
               <input
                 type="text"
                 name="name"
@@ -129,7 +119,7 @@ const ContactSection: React.FC = () => {
                 value={formValues.name}
                 onChange={(e) => handleChange("name", e.target.value)}
                 placeholder={placeholderValues.name}
-                className="w-full px-3 py-2 border border-indigo-500 rounded-md focus:ring-1 focus:ring-indigo-400 text-black placeholder-indigo-300 text-sm transition hover:shadow-md hover:scale-102"
+                className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-md focus:ring-1 focus:ring-teal-400 text-white placeholder-gray-500 text-sm transition"
               />
             </div>
 
@@ -137,7 +127,7 @@ const ContactSection: React.FC = () => {
             <div className="grid grid-cols-2 gap-3">
               {["email", "phone"].map((field) => (
                 <div key={field}>
-                  <label className="block text-indigo-900 font-semibold mb-1 text-sm">
+                  <label className="block text-gray-300 font-semibold mb-1 text-sm">
                     {field.charAt(0).toUpperCase() + field.slice(1)}
                   </label>
                   <input
@@ -147,7 +137,7 @@ const ContactSection: React.FC = () => {
                     value={formValues[field as keyof typeof formValues]}
                     onChange={(e) => handleChange(field, e.target.value)}
                     placeholder={placeholderValues[field as keyof typeof placeholderValues]}
-                    className="w-full px-3 py-2 border border-indigo-500 rounded-md focus:ring-1 focus:ring-indigo-400 text-black placeholder-indigo-300 text-sm transition hover:shadow-md hover:scale-102"
+                    className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-md focus:ring-1 focus:ring-teal-400 text-white placeholder-gray-500 text-sm transition"
                   />
                 </div>
               ))}
@@ -155,7 +145,7 @@ const ContactSection: React.FC = () => {
 
             {/* Subject */}
             <div>
-              <label className="block text-indigo-900 font-semibold mb-1 text-sm">Subject</label>
+              <label className="block text-gray-300 font-semibold mb-1 text-sm">Subject</label>
               <input
                 type="text"
                 name="subject"
@@ -163,13 +153,13 @@ const ContactSection: React.FC = () => {
                 value={formValues.subject}
                 onChange={(e) => handleChange("subject", e.target.value)}
                 placeholder={placeholderValues.subject}
-                className="w-full px-3 py-2 border border-indigo-500 rounded-md focus:ring-1 focus:ring-indigo-400 text-black placeholder-indigo-300 text-sm transition hover:shadow-md hover:scale-102"
+                className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-md focus:ring-1 focus:ring-teal-400 text-white placeholder-gray-500 text-sm transition"
               />
             </div>
 
             {/* Message */}
             <div>
-              <label className="block text-indigo-900 font-semibold mb-1 text-sm">Message</label>
+              <label className="block text-gray-300 font-semibold mb-1 text-sm">Message</label>
               <textarea
                 name="message"
                 required
@@ -177,16 +167,13 @@ const ContactSection: React.FC = () => {
                 value={formValues.message}
                 onChange={(e) => handleChange("message", e.target.value)}
                 placeholder={placeholderValues.message}
-                className="w-full px-3 py-2 border border-indigo-500 rounded-md focus:ring-1 focus:ring-indigo-400 text-black placeholder-indigo-300 text-sm resize-none transition hover:shadow-md hover:scale-102"
+                className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-md focus:ring-1 focus:ring-teal-400 text-white placeholder-gray-500 text-sm resize-none transition"
               />
             </div>
 
             <button
               type="submit"
-              className="w-full text-white font-semibold py-2.5 px-4 rounded-md shadow transition-all animate-glow-button hover-glow text-sm"
-              style={{
-                background: `linear-gradient(90deg, hsl(${hue}, 80%, 40%), hsl(${(hue + 30) % 360}, 80%, 50%), hsl(${(hue + 60) % 360}, 80%, 50%))`,
-              }}
+              className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-4 rounded-md shadow-xl transition-all hover:scale-105 active:scale-95 text-sm"
             >
               Send Message
             </button>

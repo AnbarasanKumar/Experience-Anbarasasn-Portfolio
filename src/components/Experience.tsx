@@ -191,11 +191,16 @@ const Experience: React.FC = () => {
   });
 
   return (
-    <section id="experience" className="relative py-16 bg-gray-900 overflow-hidden">
+    <section id="experience" className="relative py-16 bg-[#1a1a1a] overflow-hidden">
+      {/* Premium Background Pattern */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,#4f46e5,transparent_50%)]" />
+      </div>
+
       <div className="max-w-6xl mx-auto px-6 relative z-10">
 
         {/* Work Experience */}
-        <h2 id="experience-heading" className="text-3xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 via-purple-500 to-indigo-600 animate-gradient">
+        <h2 id="experience-heading" className="text-3xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-indigo-400">
           Work Experience
         </h2>
 
@@ -203,13 +208,14 @@ const Experience: React.FC = () => {
           {experiences.map((exp, idx) => (
             <motion.div
               key={idx}
-              className="relative bg-gray-800/70 backdrop-blur-md rounded-2xl p-6 shadow-lg cursor-pointer border border-white/10 overflow-hidden"
+              className="relative bg-white/5 backdrop-blur-xl rounded-2xl p-6 shadow-2xl cursor-pointer border border-white/10 overflow-hidden group"
               onMouseEnter={() => setHoveredCard(idx)}
               onMouseLeave={() => setHoveredCard(null)}
               onMouseMove={handleCardMouseMove}
               animate={hoveredCard === idx ? hoverAnimation(idx) : { scale: 1, rotateX: 0, rotateY: 0, boxShadow: "0 0 10px #00000050" }}
             >
-              <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-red-500 via-yellow-400 via-green-400 to-blue-500 opacity-20 animate-gradient blur-xl rounded-2xl" />
+              <div className="absolute inset-0 pointer-events-none bg-gradient-to-br from-teal-500/10 to-indigo-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
               <div className="relative z-10 flex justify-center mb-4">{exp.icon}</div>
               <h3 className="text-xl font-semibold text-teal-400 text-center mb-1">{exp.title}</h3>
               <p className="text-teal-300 font-medium text-center mb-1">
@@ -228,7 +234,9 @@ const Experience: React.FC = () => {
         </div>
 
         {/* Education */}
-        <h2 className="text-3xl font-bold text-center mt-16 mb-8 text-teal-400">EDUCATION</h2>
+        <h2 className="text-3xl font-bold text-center mt-16 mb-12 bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-indigo-400">
+          Education
+        </h2>
         <motion.div
           className="relative max-w-4xl mx-auto"
           variants={educationContainer}
@@ -252,7 +260,8 @@ const Experience: React.FC = () => {
                     {edu.icon || <FaGraduationCap className="text-gray-900" />}
                   </div>
                 </div>
-                <div className="bg-gray-800/70 backdrop-blur-md rounded-2xl p-6 shadow-lg border border-white/10 w-full">
+                <div className="bg-white/5 backdrop-blur-xl rounded-2xl p-6 shadow-2xl border border-white/10 w-full group">
+                  <div className="absolute inset-0 pointer-events-none bg-gradient-to-br from-teal-500/5 to-indigo-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   <h3 className="text-lg font-semibold text-teal-400 mb-1">{edu.school}</h3>
                   <p className="text-gray-300 mb-1">{edu.qualification}</p>
                   <p className="text-sm text-gray-400 italic mb-2">{edu.period}</p>
@@ -270,16 +279,16 @@ const Experience: React.FC = () => {
             className="flex items-center gap-2 px-6 py-3 bg-gray-900/80 backdrop-blur-md rounded-full shadow-lg cursor-pointer overflow-hidden"
             animate={{
               boxShadow: [
-                "0 0 10px #ff0000, 0 0 20px #ff9900, 0 0 30px #ffff00",
-                "0 0 15px #00ff00, 0 0 25px #00ffff, 0 0 35px #ff00ff",
-                "0 0 10px #ff0000, 0 0 20px #ff9900, 0 0 30px #ffff00",
+                "0 0 20px rgba(20, 184, 166, 0.3)",
+                "0 0 40px rgba(79, 70, 229, 0.3)",
+                "0 0 20px rgba(20, 184, 166, 0.3)",
               ],
             }}
-            transition={{ duration: 2, repeat: Infinity, repeatType: "mirror", ease: "easeInOut" }}
+            transition={{ duration: 3, repeat: Infinity, repeatType: "mirror", ease: "easeInOut" }}
             whileHover={{
-              scale: 1.1,
-              boxShadow: "0 0 20px #ff0000,0 0 30px #ff9900,0 0 40px #ffff00,0 0 25px #00ff00,0 0 35px #00ffff,0 0 45px #ff00ff",
-              transition: { duration: 0.3, type: "spring", stiffness: 300 },
+              scale: 1.05,
+              boxShadow: "0 0 30px rgba(20, 184, 166, 0.5), 0 0 60px rgba(79, 70, 229, 0.4)",
+              transition: { duration: 0.3 },
             }}
           >
             <motion.div
