@@ -48,7 +48,7 @@ const TestimonialsSection: React.FC = () => {
   };
 
   return (
-    <section id="testimonials" className="relative py-24 overflow-hidden bg-[#f8fafc]">
+    <section id="testimonials" className="relative py-24 overflow-hidden bg-rose-50/30">
       {/* Background decoration */}
       <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-indigo-500/5 blur-[100px] rounded-full pointer-events-none" />
 

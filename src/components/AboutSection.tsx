@@ -39,7 +39,7 @@ const AboutSection: React.FC = () => {
   };
 
   return (
-    <section id="about" className="py-24 bg-[#f8fafc] relative overflow-hidden flex items-center justify-center">
+    <section id="about" className="py-24 bg-indigo-50/30 relative overflow-hidden flex items-center justify-center">
       {/* Background decoration */}
       <div className="absolute inset-0 pointer-events-none">
         <motion.div 

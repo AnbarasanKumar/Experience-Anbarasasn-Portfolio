@@ -55,7 +55,7 @@ const ProjectsSection: React.FC = () => {
   };
 
   return (
-    <section id="projects" className="py-24 bg-[#f8fafc] relative overflow-hidden">
+    <section id="projects" className="py-24 bg-blue-50/20 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500/5 blur-[120px] rounded-full pointer-events-none" />
       

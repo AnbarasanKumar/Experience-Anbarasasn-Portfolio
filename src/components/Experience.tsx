@@ -129,7 +129,7 @@ const Experience: React.FC = () => {
   };
 
   return (
-    <section id="experience" className="relative py-24 bg-[#f8fafc] overflow-hidden">
+    <section id="experience" className="relative py-24 bg-slate-50 overflow-hidden">
       {/* Background Orbs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 -left-20 w-96 h-96 bg-teal-500/5 blur-[100px] rounded-full" />
