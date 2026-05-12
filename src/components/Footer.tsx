@@ -1,4 +1,5 @@
 import React from "react";
+import { motion } from "framer-motion";
 import {
   FaLinkedin,
   FaGithub,
@@ -23,7 +24,7 @@ const Footer: React.FC = () => {
     { label: "Skills", id: "skills" },
     { label: "Experience", id: "experience" },
     { label: "Projects", id: "projects" },
-    { label: "Contact", id: "contact" },
+    { label: "Connect", id: "connect" },
   ];
 
   const scrollToSection = (id: string) => {
@@ -38,163 +39,165 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="relative bg-[#1a1a1a] text-white py-10 font-sans overflow-hidden border-t border-white/5">
-      {/* Background gradients */}
-      <div className="absolute top-0 left-1/4 w-64 h-64 rounded-full opacity-20 bg-gradient-to-tr from-indigo-500 to-green-400 animate-float -z-10"></div>
-      <div className="absolute bottom-0 right-1/4 w-80 h-80 rounded-full opacity-20 bg-gradient-to-br from-purple-500 to-pink-400 animate-float delay-4s -z-10"></div>
-      <div className="absolute top-1/2 right-1/2 w-72 h-72 rounded-full opacity-10 bg-gradient-to-r from-yellow-300 to-red-400 animate-float delay-8s -z-10"></div>
+    <footer className="relative bg-[#1a1a1a] text-white py-24 overflow-hidden border-t border-white/5">
+      {/* Background decoration */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-indigo-500/5 blur-[120px] rounded-full" />
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-teal-500/5 blur-[120px] rounded-full" />
+      </div>
 
-      <div className="max-w-6xl mx-auto px-4 animate-fade-up space-y-8">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-6 text-center md:text-left">
-          {/* Brand */}
-          <div className="flex flex-col items-center md:items-start">
-            <button
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.1 } }
+          }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16 mb-20"
+        >
+          {/* Brand Column */}
+          <motion.div 
+            variants={{
+              hidden: { opacity: 0, y: 30 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+            }}
+            className="lg:col-span-4 space-y-8"
+          >
+            <motion.button
+              whileHover={{ scale: 1.05, rotate: 2 }}
+              whileTap={{ scale: 0.95 }}
               onClick={() => scrollToSection("home")}
-              aria-label="Back to top"
-              className="relative w-28 h-28 md:w-32 md:h-32 lg:w-36 lg:h-36 mb-3 rotate-logo"
+              className="relative w-24 h-24 rounded-3xl overflow-hidden border-2 border-white/10 p-1 group shadow-2xl"
             >
-              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-green-400 via-indigo-500 to-yellow-300"></div>
-              <div className="absolute inset-[4px] rounded-full bg-gray-900 overflow-hidden flex items-center justify-center">
-                <img
-                  /* FIXED: Removed leading slash and added URL encoding for the space */
-                  src="Anbarasan%20logo.png"
-                  alt="anbarasan Logo"
-                  className="w-full h-full rounded-full object-cover"
-                />
-              </div>
-            </button>
-            <p className="text-gray-400 leading-relaxed text-sm md:text-base max-w-xs">
-              Full-Stack & Backend with hands-on experience in web development and Java backend development, focused on building scalable and secure applications.
-            </p>
-          </div>
+              <div className="absolute inset-0 bg-gradient-to-tr from-indigo-600 to-teal-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <img
+                src="Anbarasan%20logo.png"
+                alt="Logo"
+                className="w-full h-full rounded-2xl object-cover relative z-10"
+              />
+            </motion.button>
+            <div className="space-y-4">
+              <h3 className="text-2xl font-black tracking-tight text-white uppercase tracking-[0.2em]">Anbarasan Kumar</h3>
+              <p className="text-gray-400 leading-relaxed max-w-sm text-sm">
+                Engineering sophisticated digital experiences with a focus on scalable backend architecture and intuitive full-stack solutions.
+              </p>
+            </div>
+            <div className="flex gap-4">
+              {socialLinks.map(({ icon: Icon, href, label }, i) => (
+                <motion.a
+                  key={i}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ y: -8, scale: 1.1, backgroundColor: "rgba(45, 212, 191, 0.1)" }}
+                  whileTap={{ scale: 0.9 }}
+                  className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center text-gray-400 hover:text-white border border-white/5 hover:border-teal-500/30 transition-all duration-300"
+                  aria-label={label}
+                >
+                  <Icon size={20} />
+                </motion.a>
+              ))}
+            </div>
+          </motion.div>
 
           {/* Quick Links */}
-          <div>
-            <h3 className="text-lg font-semibold mb-3">Quick Links</h3>
-            <ul className="space-y-1.5">
+          <motion.div 
+            variants={{
+              hidden: { opacity: 0, y: 30 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+            }}
+            className="lg:col-span-2 space-y-8"
+          >
+            <h4 className="text-xs font-black uppercase tracking-[0.3em] text-teal-400">Navigation</h4>
+            <ul className="space-y-4">
               {quickLinks.map((link) => (
                 <li key={link.id}>
                   <button
                     onClick={() => scrollToSection(link.id)}
-                    className="text-gray-300 hover:text-white transition-colors"
+                    className="text-gray-400 hover:text-teal-400 transition-colors duration-300 font-bold text-sm tracking-wide"
                   >
                     {link.label}
                   </button>
                 </li>
               ))}
             </ul>
-          </div>
+          </motion.div>
 
-          {/* Services */}
-          <div>
-            <h3 className="text-lg font-semibold mb-3">Services</h3>
-            <ul className="space-y-1.5 text-gray-300">
-              <li>Full-Stack Development</li>
-              <li>Web Development</li>
-              <li>Backend Development</li>
-            </ul>
-          </div>
-
-          {/* Location */}
-          <div>
-  <h3 className="text-lg font-semibold mb-3">Location</h3>
-  
-  {/* Location */}
-  <div className="flex items-center gap-2 text-gray-300 justify-center md:justify-start mb-2">
-    <FaMapMarkerAlt className="w-4 h-4 flex-shrink-0" />
-    <span>Parangipettai</span>
-  </div>
-
-  {/* Phone - Optimized for mobile tap */}
-  <div className="flex items-center gap-2 text-gray-300 justify-center md:justify-start mb-2">
-    <FaPhoneAlt className="w-4 h-4 flex-shrink-0" />
-    <a 
-      href="tel:+919787638123" 
-      className="hover:text-white transition-colors duration-200"
-    >
-      +91 9787638123
-    </a>
-  </div>
-
-  {/* Email - Fixed to prevent auto-launch warnings */}
-  <div className="flex items-center gap-2 text-gray-300 justify-center md:justify-start">
-    <FaEnvelope className="w-4 h-4 flex-shrink-0" />
-    <a 
-      href="mailto:anbarasanpno18@gmail.com" 
-      className="hover:text-white text-sm transition-colors duration-200"
-      /* We use div instead of p to avoid browser parsing conflicts with nested links */
-    >
-      anbarasanpno18@gmail.com
-    </a>
-  </div>
-</div>
-
-          {/* QR Code */}
-          <div className="flex flex-col items-center md:items-end mt-4 md:mt-0">
-            <p className="font-semibold mb-2 text-center md:text-right">Scan to WhatsApp</p>
-            <div className="bg-white p-2 rounded-lg">
-              <QRCode
-  value="https://wa.me/919787638123"
-  size={120}
-  bgColor="#ffffff"
-  fgColor="#000000"
-  level="H" // 'H' (High) helps the QR code scan even if slightly damaged
-/>
-            </div>
-          </div>
-        </div>
-
-        {/* Social Icons */}
-        <div className="flex justify-center gap-6 mt-6 flex-wrap">
-          {socialLinks.map(({ icon: Icon, href, label }, i) => (
-            <a
-              key={i}
-              href={href}
-              aria-label={label}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-12 h-12 flex items-center justify-center rounded-full relative overflow-hidden group"
-            >
-              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-indigo-500 via-yellow-400 to-yellow-300 animate-spin-smooth\"></div>
-              <div className="absolute inset-[2px] rounded-full bg-gray-900 flex items-center justify-center group-hover:bg-transparent transition-colors duration-300">
-                <Icon className="relative w-6 h-6 text-white group-hover:text-black z-10" />
+          {/* Contact Details */}
+          <motion.div 
+            variants={{
+              hidden: { opacity: 0, y: 30 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+            }}
+            className="lg:col-span-3 space-y-8"
+          >
+            <h4 className="text-xs font-black uppercase tracking-[0.3em] text-indigo-400">Contact Info</h4>
+            <div className="space-y-6">
+              <div className="flex items-start gap-4 text-gray-400 group cursor-pointer">
+                <FaMapMarkerAlt className="mt-1 text-indigo-500 group-hover:scale-125 transition-transform" />
+                <a 
+                  href="https://www.google.com/maps/search/?api=1&query=Parangipettai%2C+Tamil+Nadu%2C+India"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group-hover:text-white transition-colors text-sm"
+                >
+                  Parangipettai, Tamil Nadu, India
+                </a>
               </div>
-            </a>
-          ))}
-        </div>
+              <div className="flex items-start gap-4 text-gray-400 group cursor-pointer">
+                <FaPhoneAlt className="mt-1 text-indigo-500 group-hover:scale-125 transition-transform" />
+                <a href="tel:+919787638123" className="group-hover:text-white transition-colors text-sm">+91 9787638123</a>
+              </div>
+              <div className="flex items-start gap-4 text-gray-400 group cursor-pointer">
+                <FaEnvelope className="mt-1 text-indigo-500 group-hover:scale-125 transition-transform" />
+                <a href="mailto:anbarasanpno18@gmail.com" className="group-hover:text-white transition-colors text-sm">anbarasanpno18@gmail.com</a>
+              </div>
+            </div>
+          </motion.div>
 
-        {/* Copyright */}
-        <div className="border-t border-gray-700 pt-4 text-center">
-          <p className="text-sm tracking-wider text-gray-400">
-            © {currentYear} Anbarasan K. All rights reserved.
+          {/* QR Column */}
+          <motion.div 
+            id="connect"
+            variants={{
+              hidden: { opacity: 0, scale: 0.9 },
+              visible: { opacity: 1, scale: 1, transition: { duration: 0.6 } }
+            }}
+            className="lg:col-span-3 flex flex-col items-center lg:items-end space-y-8"
+          >
+            <h4 className="text-xs font-black uppercase tracking-[0.2em] text-white">Digital Handshake</h4>
+            <motion.div 
+              whileHover={{ scale: 1.05, rotate: -2 }}
+              className="p-5 bg-white rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.5)] border-4 border-white/10"
+            >
+              <QRCode
+                value="https://wa.me/919787638123"
+                size={140}
+                bgColor="#ffffff"
+                fgColor="#1a1a1a"
+                level="H"
+              />
+            </motion.div>
+            <p className="text-gray-500 text-[10px] text-center lg:text-right font-bold uppercase tracking-widest italic">
+              Scan to connect directly via WhatsApp
+            </p>
+          </motion.div>
+        </motion.div>
+
+        {/* Bottom Bar */}
+        <div className="pt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-gray-500 text-sm">
+            © {currentYear} Anbarasan K. Built with Passion & Precision.
           </p>
+          <div className="flex gap-8 text-xs font-bold uppercase tracking-widest text-gray-600">
+            <span className="hover:text-teal-400 cursor-default transition-colors">React</span>
+            <span className="hover:text-indigo-400 cursor-default transition-colors">Spring Boot</span>
+            <span className="hover:text-teal-400 cursor-default transition-colors">Tailwind CSS</span>
+          </div>
         </div>
       </div>
-
-      <style>
-        {`
-          @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-          }
-          .animate-fade-up { animation: fadeUp 1s ease-out forwards; }
-
-          @keyframes rotateLogo { to { transform: rotate(360deg); } }
-          .rotate-logo { animation: rotateLogo 20s linear infinite; }
-
-          @keyframes float { 0%,100%{transform:translateY(0);}50%{transform:translateY(-30px);} }
-          .animate-float { animation: float 12s ease-in-out infinite; }
-          .delay-4s { animation-delay: 4s; }
-          .delay-8s { animation-delay: 8s; }
-
-          @keyframes spin-smooth {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-          }
-          .animate-spin-smooth { animation: spin-smooth 8s linear infinite; }
-        `}
-      </style>
-    </footer>
+    </footer >
   );
 };
 

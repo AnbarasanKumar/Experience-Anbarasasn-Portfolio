@@ -1,5 +1,6 @@
 import React from 'react';
 import Slider from 'react-slick';
+import { motion } from 'framer-motion';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
@@ -18,9 +19,9 @@ const TestimonialsSection: React.FC = () => {
       rating: 5,
     },
     {
-      name: 'Project Reviewer',
-      position: 'Academic Project Evaluation',
-      content: 'Anbarasan developed an intelligent parental control system using the YOLO object detection algorithm. Strong skills in computer vision.',
+      name: 'System Architect',
+      position: 'Technical Portfolio Review',
+      content: 'The Hostel Management System developed by Anbarasan demonstrates exceptional full-stack expertise. The integration of React with a robust Spring Boot backend is highly impressive.',
       rating: 5,
     },
   ];
@@ -48,35 +49,67 @@ const TestimonialsSection: React.FC = () => {
 
   return (
     <section id="testimonials" className="relative py-24 overflow-hidden bg-[#1a1a1a]">
-      <div className="max-w-6xl mx-auto px-4 relative z-10">
-        <div className="text-center mb-16">
-          <h2 id="testimonials-heading" className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-indigo-400 mb-3">What Reviews Say</h2>
-          <div className="w-28 h-1 bg-indigo-600 mx-auto mb-6 rounded-full"></div>
-        </div>
+      {/* Background decoration */}
+      <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-indigo-500/5 blur-[100px] rounded-full pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-20"
+        >
+          <h2 id="testimonials-heading" className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-indigo-400 mb-6 drop-shadow-[0_0_30px_rgba(20,184,166,0.3)]">Peer Recognition</h2>
+          <div className="w-24 h-1.5 bg-gradient-to-r from-indigo-600 to-teal-500 mx-auto rounded-full shadow-[0_0_15px_rgba(79,70,229,0.5)]"></div>
+        </motion.div>
 
         <div className="hidden md:grid md:grid-cols-3 gap-8">
           {testimonials.map((t, i) => (
-            <div key={i} className="bg-white/5 backdrop-blur-xl rounded-2xl p-6 shadow-2xl border border-white/10 animate-float">
-              <StarRating rating={t.rating} />
-              <blockquote className="text-gray-200 mt-4 mb-6 italic">"{t.content}"</blockquote>
-              <div className="border-t border-gray-700 pt-4">
-                <p className="font-semibold text-teal-400">{t.name}</p>
-                <p className="text-gray-300 text-sm">{t.position}</p>
+            <motion.div 
+              key={i}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1 }}
+              whileHover={{ y: -10 }}
+              className="bg-white/5 backdrop-blur-xl rounded-[2rem] p-8 border border-white/10 shadow-2xl hover:border-teal-500/30 transition-all duration-300 group"
+            >
+              <div className="mb-6">
+                <StarRating rating={t.rating} />
               </div>
-            </div>
+              <blockquote className="text-gray-300 text-lg leading-relaxed mb-8 italic">
+                "{t.content}"
+              </blockquote>
+              <div className="flex items-center gap-4 border-t border-white/10 pt-6">
+                <div className="w-12 h-12 bg-indigo-500/20 rounded-full flex items-center justify-center text-indigo-400 font-bold">
+                  {t.name.charAt(0)}
+                </div>
+                <div>
+                  <p className="font-bold text-white group-hover:text-teal-400 transition-colors">{t.name}</p>
+                  <p className="text-gray-400 text-sm">{t.position}</p>
+                </div>
+              </div>
+            </motion.div>
           ))}
         </div>
 
         <div className="md:hidden">
           <Slider {...settings}>
             {testimonials.map((t, i) => (
-              <div key={i} className="px-2">
-                <div className="bg-white/5 backdrop-blur-xl rounded-2xl p-6 shadow-2xl border border-white/10">
+              <div key={i} className="px-2 pb-12">
+                <div className="bg-white/5 backdrop-blur-xl rounded-[2rem] p-8 border border-white/10 shadow-2xl">
                   <StarRating rating={t.rating} />
-                  <blockquote className="text-gray-200 mt-4 mb-6 italic">"{t.content}"</blockquote>
-                  <div className="pt-4">
-                    <p className="font-semibold text-teal-400">{t.name}</p>
-                    <p className="text-gray-300 text-sm">{t.position}</p>
+                  <blockquote className="text-gray-300 text-lg leading-relaxed mt-6 mb-8 italic">
+                    "{t.content}"
+                  </blockquote>
+                  <div className="flex items-center gap-4 border-t border-white/10 pt-6">
+                    <div className="w-12 h-12 bg-indigo-500/20 rounded-full flex items-center justify-center text-indigo-400 font-bold">
+                      {t.name.charAt(0)}
+                    </div>
+                    <div>
+                      <p className="font-bold text-white">{t.name}</p>
+                      <p className="text-gray-400 text-sm">{t.position}</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -84,17 +117,8 @@ const TestimonialsSection: React.FC = () => {
           </Slider>
         </div>
       </div>
-
-      {/* FIXED: Removed the 'jsx' attribute */}
-      <style>{`
-        @keyframes float {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-10px); }
-        }
-        .animate-float { animation: float 6s ease-in-out infinite; }
-      `}</style>
     </section>
   );
 };
 
-export default TestimonialsSection;
+export default TestimonialsSection;

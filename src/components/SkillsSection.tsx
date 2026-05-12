@@ -1,154 +1,131 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
+import { motion } from "framer-motion";
 
-const Stats = () => {
+const skillsData = [
+  {
+    category: "Frontend Architecture",
+    skills: [
+      { name: "ReactJs", level: 85 },
+      { name: "JavaScript (ES6+)", level: 92 },
+      { name: "HTML5 / CSS3", level: 95 },
+      { name: "Tailwind CSS", level: 90 },
+    ],
+  },
+  {
+    category: "Backend Engineering",
+    skills: [
+      { name: "Java", level: 95 },
+      { name: "Spring Boot", level: 92 },
+      { name: "Python", level: 90 },
+      { name: "RESTful APIs", level: 95 },
+    ],
+  },
+  {
+    category: "Data & Infrastructure",
+    skills: [
+      { name: "MySQL", level: 90 },
+      { name: "OracleDB", level: 75 },
+      { name: "Git / GitHub", level: 92 },
+      { name: "Postman / Swagger", level: 95 },
+    ],
+  },
+];
+
+const SkillsSection: React.FC = () => {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.2 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, scale: 0.95 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.5 }
+    }
+  };
+
   return (
-    <section id="skills" className="py-10 bg-[#1a1a1a]">
-      <div className="max-w-6xl mx-auto px-6">
-        <div>
-          <h2 id="skills-heading" className="text-3xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-indigo-400">
-            My Skills
+    <section id="skills" className="py-24 bg-[#1a1a1a] relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-20"
+        >
+          <h2 id="skills-heading" className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-indigo-400 mb-6">
+            Technical Proficiency
           </h2>
+          <div className="w-24 h-1.5 bg-gradient-to-r from-indigo-600 to-teal-500 mx-auto rounded-full"></div>
+        </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
-            <SkillCategory
-              title="Frontend"
-              skills={[
-                { name: "HTML5", level: 95 },
-                { name: "CSS3 ", level: 90 },
-                { name: "JavaScript (ES6+)", level: 92 },
-              ]}
-            />
-            <SkillCategory
-              title="Backend"
-              skills={[
-                { name: "Java", level: 95 },
-                { name: "Python", level: 90 },
-                { name: "REST APIs", level: 92 },
-              ]}
-            />
-            <SkillCategory
-              title="DevOps"
-              skills={[
-                { name: "Git & GitHub", level: 92 },
-              ]}
-            />
-            <SkillCategory
-              title="Databases"
-              skills={[
-                { name: "OracleDB", level: 70 },
-                { name: "MySQL", level: 90 },
-              ]}
-            />
-            <SkillCategory
-              title="Other Tools"
-              skills={[
-                { name: "Swagger", level: 95 },
-                { name: "Postman", level: 90 },
-              ]}
-            />
-          </div>
-        </div>
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
+        >
+          {skillsData.map((cat, idx) => (
+            <motion.div
+              key={idx}
+              variants={{
+                hidden: { opacity: 0, y: 40, scale: 0.98 },
+                visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.7, ease: "easeOut" } }
+              }}
+              whileHover={{ 
+                y: -12, 
+                scale: 1.03,
+                boxShadow: "0 25px 50px -12px rgba(20, 184, 166, 0.25)"
+              }}
+              className="bg-white/5 backdrop-blur-xl p-10 rounded-[3rem] border border-white/10 shadow-2xl hover:border-teal-500/40 transition-all duration-500 group relative overflow-hidden"
+            >
+              <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-teal-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+              <h3 className="text-xl font-extrabold text-white mb-10 group-hover:text-teal-400 transition-colors duration-300 tracking-[0.2em] uppercase text-xs">
+                {cat.category}
+              </h3>
+              <div className="space-y-10">
+                {cat.skills.map((skill, sIdx) => (
+                  <div key={sIdx} className="space-y-4">
+                    <div className="flex justify-between text-sm font-bold">
+                      <span className="text-gray-300 tracking-wide">{skill.name}</span>
+                      <motion.span 
+                        initial={{ opacity: 0 }}
+                        whileInView={{ opacity: 1 }}
+                        className="text-teal-400"
+                      >
+                        {skill.level}%
+                      </motion.span>
+                    </div>
+                    <div className="w-full bg-white/5 rounded-full h-2.5 overflow-hidden border border-white/5 shadow-inner">
+                      <motion.div
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${skill.level}%` }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 1.8, ease: [0.34, 1.56, 0.64, 1] }} // Spring-like ease
+                        className="h-full bg-gradient-to-r from-indigo-600 via-teal-500 to-indigo-400 rounded-full"
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+
+      {/* Decorative Orbs */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none opacity-20">
+        <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-indigo-500/10 blur-[120px] rounded-full" />
+        <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-teal-500/10 blur-[120px] rounded-full" />
       </div>
     </section>
   );
 };
 
-const SkillCategory = ({ title, skills }: { title: string, skills: {name: string, level: number}[] }) => (
-  <div className="bg-white/5 backdrop-blur-xl p-5 rounded-xl shadow-2xl border border-white/10 group">
-    <h3
-      className="text-xl font-bold text-center 
-                 bg-clip-text text-transparent 
-                 bg-gradient-to-r from-indigo-500 via-pink-500 to-yellow-400
-                 drop-shadow-lg
-                 transition transform hover:scale-110 hover:drop-shadow-xl mb-4"
-    >
-      {title}
-    </h3>
-    <div className="space-y-4">
-      {skills.map((skill, index) => (
-        <SkillBar key={index} name={skill.name} level={skill.level} />
-      ))}
-    </div>
-  </div>
-);
-
-const SkillBar = ({ name, level }: { name: string, level: number }) => {
-  const [inView, setInView] = useState(false);
-  const [progress, setProgress] = useState(0);
-  const barRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setInView(true);
-      },
-      { threshold: 0.3 }
-    );
-    if (barRef.current) observer.observe(barRef.current);
-    return () => {
-      if (barRef.current) observer.unobserve(barRef.current);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (inView) {
-      let start = 0;
-      const interval = setInterval(() => {
-        start += 2;
-        if (start >= level) {
-          start = level;
-          clearInterval(interval);
-        }
-        setProgress(start);
-      }, 20);
-      return () => clearInterval(interval);
-    }
-  }, [inView, level]);
-
-  return (
-    <div ref={barRef}>
-      <div className="flex justify-between mb-1">
-        <span className="text-gray-200 font-medium transition-transform transform hover:scale-105 hover:text-teal-400">
-          {name}
-        </span>
-        <span className="text-blue-600 font-semibold">{progress}%</span>
-      </div>
-      <div className="w-full bg-white/10 rounded-full h-3 overflow-hidden relative">
-        <div
-          className="h-3 rounded-full transition-all duration-500 ease-in-out"
-          style={{
-            width: `${progress}%`,
-            background: `linear-gradient(270deg, #14b8a6, #4f46e5, #06b6d4, #14b8a6)`,
-            backgroundSize: "600% 100%",
-            animation: "flowGradient 3s ease infinite",
-            boxShadow: `0 0 8px rgba(236,72,153,0.5), 0 0 8px rgba(252,204,21,0.5)`,
-          }}
-        ></div>
-        <div
-          className="absolute top-0 left-0 h-3 rounded-full pointer-events-none"
-          style={{
-            width: `${progress}%`,
-            background:
-              "linear-gradient(120deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.3) 100%)",
-            animation: "shine 2s infinite linear",
-          }}
-        ></div>
-      </div>
-
-      {/* FIXED: Removed 'jsx' attribute to prevent console error */}
-      <style>{`
-        @keyframes shine {
-          0% { transform: translateX(-100%); }
-          100% { transform: translateX(100%); }
-        }
-        @keyframes flowGradient {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
-        }
-      `}</style>
-    </div>
-  );
-};
-
-export default Stats;
+export default SkillsSection;

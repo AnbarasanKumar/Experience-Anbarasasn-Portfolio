@@ -6,13 +6,26 @@ import SkillsSection from './SkillsSection';
 import Experience from './Experience'; 
 import ProjectsSection from './ProjectsSection';
 import TestimonialsSection from './TestimonialsSection';
-import ContactSection from './ContactSection';
 import Footer from './Footer';
 import FloatingWhatsAppButton from './FloatingWhatsAppButton';
 
+import { motion, useScroll, useSpring } from 'framer-motion';
+
 const AppLayout: React.FC = () => {
+  const { scrollYProgress } = useScroll();
+  const scaleX = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
+
   return (
-    <div className="min-h-screen relative">
+    <div className="min-h-screen relative overflow-x-hidden">
+      <div className="fixed inset-0 z-[-1] opacity-20 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]" />
+      <motion.div
+        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-teal-500 via-indigo-500 to-teal-500 z-[100] origin-left"
+        style={{ scaleX }}
+      />
       <a href="#main" className="sr-only">Skip to main content</a>
       <Navigation />
       <main id="main" role="main" aria-label="Main content">
@@ -33,9 +46,6 @@ const AppLayout: React.FC = () => {
         </section>
         <section aria-labelledby="testimonials-heading">
           <TestimonialsSection />
-        </section>
-        <section aria-labelledby="contact-heading">
-          <ContactSection />
         </section>
       </main>
       <Footer />

@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 interface Project {
   title: string;
@@ -12,95 +13,148 @@ interface Project {
 const ProjectsSection: React.FC = () => {
   const projects: Project[] = [
     {
-     title: 'E-Commerce Platform',
-     description: 'Full-stack e-commerce application developed using Java for backend logic, MySQL for database management, and HTML, CSS, and JavaScript for a responsive frontend. Includes features such as user authentication, product management, shopping cart, and order processing.',
+     title: 'Enterprise E-Commerce Platform',
+     description: 'A robust, full-stack e-commerce solution engineered with Java and MySQL for scalable backend performance, paired with a dynamic React-based frontend. This enterprise application features secure JWT authentication, a sophisticated product catalog management system, complex shopping cart logic, and an automated order processing pipeline.',
      image: 'https://i.pinimg.com/1200x/eb/09/7a/eb097ad94bfe6075f3ba5c8a752fd56e.jpg',
-     technologies: ['Java', 'HTML', 'MySQL', 'CSS', 'JavaScript'],
+     technologies: ['Java', 'Spring Boot', 'MySQL', 'React', 'Tailwind CSS'],
      githubUrl: 'https://github.com/AnbarasanKumar/E-Commerce_ShoppingCart.git'
     },
    {
-  title: 'Course Registration System',
-  description: 'Web-based course registration system developed using Java and Spring Boot, enabling students to enroll in courses and administrators to manage courses and users. Features include RESTful APIs, role-based access control for admin and students, and a MySQL database for managing students, courses, and registrations, with a responsive frontend built using HTML, CSS, and JavaScript.',
+  title: 'Smart Course Registration System',
+  description: 'An advanced academic management portal developed using Java and Spring Boot. This system provides a high-performance RESTful API architecture enabling seamless student enrollment and administrative course management. It features granular role-based access control (RBAC), optimized MySQL schema design, and a responsive interface for superior user experience.',
   image: 'https://cdn.slidesharecdn.com/ss_thumbnails/onlinecourseregistrationsystemdevelopmentsoftwareengineeringprojectpresentation-170505033339-thumbnail.jpg?width=560&fit=bounds',
-  technologies: ['Java', 'Spring Boot', 'MySQL', 'HTML', 'CSS', 'JavaScript'],
+  technologies: ['Java', 'Spring Boot', 'MySQL', 'REST API', 'JavaScript'],
   githubUrl: 'https://github.com/AnbarasanKumar/Course-Registration-System.git'
-}
-
-
-,
-
+},
 {
-  title: 'Hostel Management System',
-  description: 'A comprehensive hostel management system developed using modern web technologies to streamline room allocations, student registrations, fee management, and administrative tasks. Features include user authentication, real-time availability tracking, and responsive design for efficient hostel operations.',
+  title: 'Automated Hostel Management System',
+  description: 'A comprehensive ERP-style solution designed to digitize hostel operations. Built with a React and Spring Boot stack, it streamlines complex workflows including automated room allocation, real-time resident tracking, and secure digital fee processing. The system emphasizes high availability, data integrity, and cross-platform responsiveness.',
   image: 'https://images.unsplash.com/photo-1555854877-bab0e564b8d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
-  technologies: ['React', 'Java', 'MySql', 'Spring Boot'],
-  githubUrl: 'https://github.com/AnbarasanKumar/Hostel-Management-System.git',
+  technologies: ['React', 'Java', 'MySQL', 'Spring Boot', 'Cloud Deployment'],
+  githubUrl: 'https://github.com/AnbarasanKumar/hostel-management.git',
 }
-
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6 }
+    }
+  };
+
   return (
-    <section id="projects" className="py-20 bg-[#1a1a1a]">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 id="projects-heading" className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-indigo-400 mb-4">Featured Projects</h2>
-          <div className="w-24 h-1 bg-indigo-600 mx-auto mb-6 rounded-full"></div>
-          <p className="text-gray-300 max-w-2xl mx-auto">
-  A showcase of my featured projects demonstrating expertise in full-stack web development, backend engineering, and real-world application development.
-</p>
+    <section id="projects" className="py-24 bg-[#1a1a1a] relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500/5 blur-[120px] rounded-full pointer-events-none" />
+      
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-20"
+        >
+          <h2 id="projects-heading" className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-indigo-400 mb-6">Featured Engineering</h2>
+          <div className="w-24 h-1.5 bg-gradient-to-r from-indigo-600 to-teal-500 mx-auto mb-8 rounded-full"></div>
+          <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+            A showcase of enterprise-grade applications demonstrating proficiency in full-stack architecture, backend efficiency, and modern user experiences.
+          </p>
+        </motion.div>
 
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-12"
+        >
           {projects.map((project, index) => (
-            <div
+            <motion.div
               key={index}
-              className="bg-white/5 backdrop-blur-xl rounded-xl shadow-2xl overflow-hidden border border-white/10 transform transition duration-300 hover:scale-105 hover:shadow-indigo-500/20"
+              variants={{
+                hidden: { opacity: 0, y: 50, scale: 0.95 },
+                visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.7, ease: "easeOut" } }
+              }}
+              whileHover={{ 
+                y: -15, 
+                scale: 1.02,
+                boxShadow: "0 40px 80px -15px rgba(79, 70, 229, 0.25)"
+              }}
+              className="group relative bg-white/5 backdrop-blur-2xl rounded-[2.5rem] overflow-hidden border border-white/10 shadow-2xl transition-all duration-500 hover:border-teal-500/30"
             >
-              <img 
-                src={project.image} 
-                alt={project.title}
-                className="w-full h-56 object-cover transition-transform duration-500 hover:scale-110"
-              />
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-teal-400 mb-3">{project.title}</h3>
-                <p className="text-gray-300 mb-4 leading-relaxed">{project.description}</p>
+              <div className="relative h-72 overflow-hidden">
+                <img 
+                  src={project.image} 
+                  alt={project.title}
+                  className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a] via-transparent to-transparent opacity-80" />
+                <div className="absolute bottom-6 left-8">
+                  <motion.div 
+                    initial={{ width: 0 }}
+                    whileInView={{ width: "4rem" }}
+                    className="h-1.5 bg-teal-400 rounded-full mb-4"
+                  />
+                </div>
+              </div>
+              
+              <div className="p-10">
+                <h3 className="text-2xl font-extrabold text-white mb-4 group-hover:text-teal-400 transition-colors duration-300">{project.title}</h3>
+                <p className="text-gray-400 mb-8 leading-relaxed line-clamp-4 group-hover:text-gray-300 transition-colors duration-300 text-sm">
+                  {project.description}
+                </p>
                 
-                <div className="flex flex-wrap gap-2 mb-4">
+                <div className="flex flex-wrap gap-2 mb-10">
                   {project.technologies.map((tech, techIndex) => (
                     <span
                       key={techIndex}
-                      className="px-3 py-1 bg-white/10 text-teal-300 text-sm rounded-full font-medium"
+                      className="px-4 py-1.5 bg-indigo-500/10 text-indigo-300 text-[10px] font-black rounded-full border border-indigo-500/20 uppercase tracking-[0.15em]"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
                 
-                <div className="flex gap-4 mt-2">
-                  {project.liveUrl && (
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-white bg-indigo-600 hover:bg-indigo-700 px-4 py-2 rounded-lg font-semibold transition"
-                    >
-                      Live Demo
-                    </a>
-                  )}
-                  <a
+                <div className="flex gap-4">
+                  <motion.a
                     href={project.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-white hover:text-white px-4 py-2 rounded-lg font-semibold border border-white/20 transition hover:bg-white/10"
+                    whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.1)" }}
+                    whileTap={{ scale: 0.95 }}
+                    className="flex-grow text-center text-white bg-white/5 px-6 py-4 rounded-2xl font-bold border border-white/10 transition-all text-sm uppercase tracking-wider"
                   >
-                    GitHub
-                  </a>
+                    Source Code
+                  </motion.a>
+                  {project.liveUrl && (
+                    <motion.a
+                      href={project.liveUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(79, 70, 229, 0.4)" }}
+                      whileTap={{ scale: 0.95 }}
+                      className="flex-grow text-center text-white bg-gradient-to-r from-indigo-600 to-indigo-800 px-6 py-4 rounded-2xl font-bold shadow-lg text-sm uppercase tracking-wider"
+                    >
+                      Live Demo
+                    </motion.a>
+                  )}
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

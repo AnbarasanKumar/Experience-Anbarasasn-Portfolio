@@ -1,5 +1,6 @@
 import React from "react";
 import { FaWhatsapp } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 interface FloatingWhatsAppButtonProps {
   phoneNumber: string;
@@ -14,15 +15,25 @@ const FloatingWhatsAppButton: React.FC<FloatingWhatsAppButtonProps> = ({
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
   return (
-    <a
+    <motion.a
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-6 right-6 z-50 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg flex items-center justify-center animate-bounce"
+      initial={{ scale: 0, opacity: 0 }}
+      animate={{ scale: 1, opacity: 1 }}
+      whileHover={{ scale: 1.1, rotate: 5 }}
+      whileTap={{ scale: 0.9 }}
+      className="fixed bottom-8 right-8 z-50 bg-[#25D366] text-white p-5 rounded-3xl shadow-2xl flex items-center justify-center group"
       title="Chat with me on WhatsApp"
     >
-      <FaWhatsapp className="w-5 h-5" />
-    </a>
+      <div className="absolute inset-0 bg-[#25D366] rounded-3xl blur-xl opacity-20 group-hover:opacity-40 transition-opacity animate-pulse" />
+      <FaWhatsapp className="w-6 h-6 relative z-10" />
+      
+      {/* Tooltip */}
+      <span className="absolute right-full mr-4 px-4 py-2 bg-white/10 backdrop-blur-md border border-white/10 rounded-xl text-xs font-bold text-white whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
+        Chat with me
+      </span>
+    </motion.a>
   );
 };
 

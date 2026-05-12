@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const ContactSection: React.FC = () => {
   const placeholderValues = {
@@ -6,36 +7,28 @@ const ContactSection: React.FC = () => {
     email: "john.doe@example.com",
     phone: "+91 9876543210",
     subject: "Project Inquiry / Collaboration / Question",
-    message:
-      "Hello Anbarasan, I’d like to discuss a new project idea. Here are the details...",
+    message: "Hello Anbarasan, I’d like to discuss a new project idea. Here are the details...",
   };
 
-  const savedValues =
-    typeof window !== "undefined"
-      ? JSON.parse(localStorage.getItem("contactForm") || "null")
-      : null;
+  const savedValues = typeof window !== "undefined"
+    ? JSON.parse(localStorage.getItem("contactForm") || "null")
+    : null;
 
   const [formValues, setFormValues] = useState(
     savedValues || { name: "", email: "", phone: "", subject: "", message: "" }
   );
   const [result, setResult] = useState("");
-  const [hue, setHue] = useState(210);
 
   useEffect(() => {
     localStorage.setItem("contactForm", JSON.stringify(formValues));
   }, [formValues]);
 
   useEffect(() => {
-    const interval = setInterval(() => setHue((prev) => (prev + 0.3) % 360), 30);
-    return () => clearInterval(interval);
-  }, []);
-
-  useEffect(() => {
     if (result.includes("Successfully")) {
       const timer = setTimeout(() => {
         setResult("");
         setFormValues({ name: "", email: "", phone: "", subject: "", message: "" });
-      }, 3000);
+      }, 5000);
       return () => clearTimeout(timer);
     }
   }, [result]);
@@ -63,136 +56,168 @@ const ContactSection: React.FC = () => {
     }
   };
 
-  const particles = Array.from({ length: 30 }, (_, i) => i);
-
   return (
     <section
       id="contact"
-      className="relative py-24 min-h-[60vh] overflow-hidden bg-[#1a1a1a]"
+      className="relative py-24 min-h-[90vh] overflow-hidden bg-[#1a1a1a] flex items-center justify-center"
     >
-      <div className="absolute inset-0 bg-black bg-opacity-40 -z-10"></div>
-
-      {particles.map((i) => (
-        <div
-          key={i}
-          className="absolute w-1.5 h-1.5 rounded-full bg-white opacity-20 animate-float"
-          style={{
-            top: `${Math.max(0, Math.random() * 100 - 8)}%`,
-            left: `${Math.random() * 100}%`,
-            animationDelay: `${Math.random() * 5}s`,
-            animationDuration: `${4 + Math.random() * 4}s`,
-          }}
+      {/* Dynamic Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <motion.div 
+          animate={{ scale: [1, 1.2, 1], x: [0, 50, 0], y: [0, 30, 0] }}
+          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute -top-[10%] -left-[10%] w-[50%] h-[50%] bg-indigo-500/10 blur-[120px] rounded-full"
         />
-      ))}
-
-      <div className="max-w-3xl mx-auto px-4 relative z-10 -translate-y-4">
-        <div className="text-center mb-12">
-          <h2 id="contact-heading" className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-indigo-400 mb-4">
-            Get In Touch
-          </h2>
-          <p className="max-w-xl mx-auto text-gray-300">
-            Ready to start your next project? Fill out the form below or email me directly at <span className="text-teal-400 font-semibold">anbarasanpno18@gmail.com</span>.
-          </p>
-        </div>
-
-        {result && result.includes("Successfully") ? (
-          <div
-            className="p-6 rounded-2xl border border-indigo-700 shadow-lg text-center animate-glow"
-            style={{ background: "rgba(10, 61, 145, 0.15)", backdropFilter: "blur(8px)", color: "#1a5eff", fontWeight: 600 }}
-          >
-            <h3 className="text-2xl font-bold mb-3">🎉 Thank You!</h3>
-            <p className="text-lg mb-4">{result}</p>
-            <p className="text-indigo-200 text-sm">Form will reopen automatically...</p>
-          </div>
-        ) : (
-          <form
-            onSubmit={onSubmit}
-            className="space-y-4 p-8 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl relative"
-          >
-            {/* Name field (single box) */}
-            <div>
-              <label className="block text-gray-300 font-semibold mb-1 text-sm">Name</label>
-              <input
-                type="text"
-                name="name"
-                required
-                value={formValues.name}
-                onChange={(e) => handleChange("name", e.target.value)}
-                placeholder={placeholderValues.name}
-                className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-md focus:ring-1 focus:ring-teal-400 text-white placeholder-gray-500 text-sm transition"
-              />
-            </div>
-
-            {/* Email & Phone side by side */}
-            <div className="grid grid-cols-2 gap-3">
-              {["email", "phone"].map((field) => (
-                <div key={field}>
-                  <label className="block text-gray-300 font-semibold mb-1 text-sm">
-                    {field.charAt(0).toUpperCase() + field.slice(1)}
-                  </label>
-                  <input
-                    type={field === "email" ? "email" : "tel"}
-                    name={field}
-                    required
-                    value={formValues[field as keyof typeof formValues]}
-                    onChange={(e) => handleChange(field, e.target.value)}
-                    placeholder={placeholderValues[field as keyof typeof placeholderValues]}
-                    className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-md focus:ring-1 focus:ring-teal-400 text-white placeholder-gray-500 text-sm transition"
-                  />
-                </div>
-              ))}
-            </div>
-
-            {/* Subject */}
-            <div>
-              <label className="block text-gray-300 font-semibold mb-1 text-sm">Subject</label>
-              <input
-                type="text"
-                name="subject"
-                required
-                value={formValues.subject}
-                onChange={(e) => handleChange("subject", e.target.value)}
-                placeholder={placeholderValues.subject}
-                className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-md focus:ring-1 focus:ring-teal-400 text-white placeholder-gray-500 text-sm transition"
-              />
-            </div>
-
-            {/* Message */}
-            <div>
-              <label className="block text-gray-300 font-semibold mb-1 text-sm">Message</label>
-              <textarea
-                name="message"
-                required
-                rows={4}
-                value={formValues.message}
-                onChange={(e) => handleChange("message", e.target.value)}
-                placeholder={placeholderValues.message}
-                className="w-full px-3 py-2 bg-white/5 border border-white/10 rounded-md focus:ring-1 focus:ring-teal-400 text-white placeholder-gray-500 text-sm resize-none transition"
-              />
-            </div>
-
-            <button
-              type="submit"
-              className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-3 px-4 rounded-md shadow-xl transition-all hover:scale-105 active:scale-95 text-sm"
-            >
-              Send Message
-            </button>
-          </form>
-        )}
+        <motion.div 
+          animate={{ scale: [1, 1.3, 1], x: [0, -40, 0], y: [0, -20, 0] }}
+          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+          className="absolute -bottom-[10%] -right-[10%] w-[50%] h-[50%] bg-teal-500/10 blur-[120px] rounded-full"
+        />
       </div>
 
-      <style>{`
-        @keyframes float { 0% { transform: translateY(0px); opacity: 0.2; } 50% { transform: translateY(-15px); opacity: 0.4; } 100% { transform: translateY(0px); opacity: 0.2; } }
-        .animate-float { animation-name: float; animation-duration: 5s; animation-iteration-count: infinite; animation-timing-function: ease-in-out; }
+      <div className="max-w-4xl mx-auto px-6 relative z-10 w-full">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-16"
+        >
+          <h2 id="contact-heading" className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-indigo-400 mb-6">
+            Let's Build Something Exceptional
+          </h2>
+          <p className="max-w-2xl mx-auto text-gray-300 text-lg leading-relaxed">
+            Ready to transform your ideas into scalable technical solutions? Reach out today for collaborations, project inquiries, or just a technical discussion.
+          </p>
+          <div className="mt-4 text-teal-400 font-medium">
+            <a href="mailto:anbarasanpno18@gmail.com" className="hover:underline">anbarasanpno18@gmail.com</a>
+          </div>
+        </motion.div>
 
-        @keyframes glowAnimation { 0% { box-shadow: 0 0 8px #0a3d91, 0 0 15px #0f4bbd; } 50% { box-shadow: 0 0 15px #1a5eff, 0 0 25px #2980ff; } 100% { box-shadow: 0 0 8px #0a3d91, 0 0 15px #0f4bbd; } }
-        .animate-glow { animation: glowAnimation 6s ease-in-out infinite; }
-        .animate-glow-button { animation: glowAnimation 4s ease-in-out infinite; }
-        .hover-glow:hover { animation: glowAnimation 2s ease-in-out infinite; transform: scale(1.02); }
+        <AnimatePresence mode="wait">
+          {result && result.includes("Successfully") ? (
+            <motion.div
+              key="success"
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              className="p-10 rounded-3xl border border-teal-500/30 bg-teal-500/5 backdrop-blur-2xl text-center shadow-[0_0_50px_-12px_rgba(20,184,166,0.25)]"
+            >
+              <div className="w-20 h-20 bg-teal-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg className="w-10 h-10 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                </svg>
+              </div>
+              <h3 className="text-3xl font-bold text-white mb-4">Message Received!</h3>
+              <p className="text-xl text-gray-300 mb-6 leading-relaxed">
+                Thank you for reaching out. Your message has been successfully transmitted. I will review it and get back to you within 24 hours.
+              </p>
+              <div className="text-teal-400/60 text-sm italic">Returning to form shortly...</div>
+            </motion.div>
+          ) : (
+            <motion.form
+              key="form"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.6 }}
+              onSubmit={onSubmit}
+              className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white/5 backdrop-blur-2xl p-8 md:p-12 rounded-[2rem] border border-white/10 shadow-2xl"
+            >
+              <div className="space-y-6">
+                <div>
+                  <label className="block text-gray-400 font-medium mb-2 ml-1 text-sm uppercase tracking-wider">Full Name</label>
+                  <motion.input
+                    whileFocus={{ scale: 1.01 }}
+                    type="text"
+                    name="name"
+                    required
+                    value={formValues.name}
+                    onChange={(e) => handleChange("name", e.target.value)}
+                    placeholder={placeholderValues.name}
+                    className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-2xl focus:ring-2 focus:ring-teal-500/50 outline-none text-white placeholder-gray-600 transition-all duration-300"
+                  />
+                </div>
+                <div>
+                  <label className="block text-gray-400 font-medium mb-2 ml-1 text-sm uppercase tracking-wider">Email Address</label>
+                  <motion.input
+                    whileFocus={{ scale: 1.01 }}
+                    type="email"
+                    name="email"
+                    required
+                    value={formValues.email}
+                    onChange={(e) => handleChange("email", e.target.value)}
+                    placeholder={placeholderValues.email}
+                    className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-2xl focus:ring-2 focus:ring-teal-500/50 outline-none text-white placeholder-gray-600 transition-all duration-300"
+                  />
+                </div>
+                <div>
+                  <label className="block text-gray-400 font-medium mb-2 ml-1 text-sm uppercase tracking-wider">Phone Number</label>
+                  <motion.input
+                    whileFocus={{ scale: 1.01 }}
+                    type="tel"
+                    name="phone"
+                    required
+                    value={formValues.phone}
+                    onChange={(e) => handleChange("phone", e.target.value)}
+                    placeholder={placeholderValues.phone}
+                    className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-2xl focus:ring-2 focus:ring-teal-500/50 outline-none text-white placeholder-gray-600 transition-all duration-300"
+                  />
+                </div>
+              </div>
 
-        @keyframes glowText { 0% { color: #0a3d91; text-shadow: 0 0 4px #0f4bbd; } 50% { color: #1a5eff; text-shadow: 0 0 10px #2980ff; } 100% { color: #0a3d91; text-shadow: 0 0 4px #0f4bbd; } }
-        .animate-glow-text { animation: glowText 2s ease-in-out infinite; }
-      `}</style>
+              <div className="space-y-6 flex flex-col">
+                <div className="flex-grow">
+                  <label className="block text-gray-400 font-medium mb-2 ml-1 text-sm uppercase tracking-wider">Subject</label>
+                  <motion.input
+                    whileFocus={{ scale: 1.01 }}
+                    type="text"
+                    name="subject"
+                    required
+                    value={formValues.subject}
+                    onChange={(e) => handleChange("subject", e.target.value)}
+                    placeholder={placeholderValues.subject}
+                    className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-2xl focus:ring-2 focus:ring-teal-500/50 outline-none text-white placeholder-gray-600 transition-all duration-300"
+                  />
+                </div>
+                <div className="flex-grow">
+                  <label className="block text-gray-400 font-medium mb-2 ml-1 text-sm uppercase tracking-wider">Message</label>
+                  <motion.textarea
+                    whileFocus={{ scale: 1.01 }}
+                    name="message"
+                    required
+                    rows={4}
+                    value={formValues.message}
+                    onChange={(e) => handleChange("message", e.target.value)}
+                    placeholder={placeholderValues.message}
+                    className="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-2xl focus:ring-2 focus:ring-teal-500/50 outline-none text-white placeholder-gray-600 resize-none h-[155px] transition-all duration-300"
+                  />
+                </div>
+              </div>
+
+              <div className="md:col-span-2 mt-4">
+                <motion.button
+                  whileHover={{ scale: 1.02, boxShadow: "0 0 30px rgba(79, 70, 229, 0.4)" }}
+                  whileTap={{ scale: 0.98 }}
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-indigo-600 to-teal-500 text-white font-bold py-5 rounded-2xl shadow-xl text-lg tracking-wide uppercase transition-all"
+                >
+                  {result === "Sending..." ? "Transmitting..." : "Send Secure Message"}
+                </motion.button>
+                {result && !result.includes("Successfully") && (
+                  <motion.p 
+                    initial={{ opacity: 0 }} 
+                    animate={{ opacity: 1 }} 
+                    className="mt-4 text-red-400 text-center font-medium"
+                  >
+                    {result}
+                  </motion.p>
+                )}
+              </div>
+            </motion.form>
+          )}
+        </AnimatePresence>
+      </div>
     </section>
   );
 };

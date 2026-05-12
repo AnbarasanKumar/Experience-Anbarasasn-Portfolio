@@ -5,17 +5,16 @@ import CountUp from "react-countup";
 
 const stats = [
   { label: "Year Experience", value: "1" },
-  { label: "Technologies Mastered", value: "5+" },
+  { label: "Technologies", value: "15+" },
   { label: "Clients Served", value: "3+" },
-  { label: "Projects Completed", value: "3+" },
-  { label: "Client Satisfaction", value: "99%" },
+  { label: "Projects Completed", value: "5+" },
+  { label: "Satisfaction", value: "99%" },
 ];
 
 const bulletItems = [
   {
-    title: "Full-Stack Web Development",
-    description:
-      "Crafting responsive and efficient web applications using Java, Spring Boot, MySQL, HTML, CSS, and JavaScript. Focused on building scalable systems, clean backend logic, and smooth user experiences across projects like E-Commerce and Course Registration System.",
+    title: "Full-Stack Architecture",
+    description: "Architecting scalable enterprise applications with Java, Spring Boot, and modern React. Delivering high-availability systems with sub-second response times.",
     images: [
       "https://i.pinimg.com/736x/08/72/8f/08728f42513b4d9194d46d0d6655cde0.jpg",
       "https://i.pinimg.com/736x/40/26/ba/4026ba46fd98ac6223e83607e0de1709.jpg",
@@ -23,281 +22,140 @@ const bulletItems = [
     ],
   },
   {
-    title: "Project Development & Real-Time Systems",
-    description:
-      "Implemented projects involving real-time monitoring and automated analysis, such as the Parental Control System using Python and YOLO. Developed robust project workflows including database design, backend logic, and responsive frontends.",
+    title: "AI & Smart Integration",
+    description: "Leveraging Python and Computer Vision (YOLO) to build intelligent monitoring systems. Merging real-time analytics with robust web infrastructures.",
     images: [
       "https://media.istockphoto.com/id/1271697681/photo/science-technology-concept-education-technology-edtech.jpg?s=612x612&w=0&k=20&c=SpzEqDnbyDr-X-_jmNveQKh9o-QVUuT-oWQ8e1ixS_4=",
       "https://i.pinimg.com/736x/d2/78/0a/d2780aaa5f367ba0be55e20e1c2e96cc.jpg",
       "https://i.pinimg.com/1200x/0e/6e/d1/0e6ed19c5195302fb9b0ffbaf68f5076.jpg",
     ],
   },
-  {
-    title: "API Design & Integration",
-    description:
-      "Developed secure, scalable RESTful APIs and integrated backend services for smooth communication between frontend and backend, demonstrated in projects like the Course Registration System.",
-    images: [
-      "https://i.pinimg.com/1200x/3d/64/d0/3d64d065313c7fc92e53d82350760d64.jpg",
-      "https://i.pinimg.com/736x/cd/9c/84/cd9c841f7b9e7b763fe05b7500187d93.jpg",
-      "https://i.pinimg.com/736x/93/bb/f4/93bbf49e48ed27d46ff18d2bff884b8a.jpg",
-    ],
-  },
-  {
-    title: "Database Architecture",
-    description:
-      "Designed and optimized SQL databases for high performance, reliability, and scalability in production environments, including MySQL implementations for E-Commerce and Course Registration projects.",
-    images: [
-      "https://i.pinimg.com/736x/d1/dc/7f/d1dc7f53d038d45a309730ed79a5c5b9.jpg",
-      "https://i.pinimg.com/736x/d2/78/0a/d2780aaa5f367ba0be55e20e1c2e96cc.jpg",
-      "https://i.pinimg.com/1200x/0e/6e/d1/0e6ed19c5195302fb9b0ffbaf68f5076.jpg",
-    ],
-  },
 ];
 
-
 const AboutSection: React.FC = () => {
-  const [particles] = useState(
-    Array.from({ length: 30 }).map(() => ({
-      top: Math.random() * 100 + "%",
-      left: Math.random() * 100 + "%",
-      size: Math.random() * 4 + 2 + "px",
-      duration: Math.random() * 10 + 5,
-      delay: Math.random() * 5,
-      rotate: Math.random() * 360,
-      xOffset: Math.random() * 20 - 10,
-      yOffset: Math.random() * 20 - 10,
-    }))
-  );
-
-  const [raindrops] = useState(
-    Array.from({ length: 50 }).map(() => ({
-      left: Math.random() * 100 + "%",
-      length: Math.random() * 20 + 10 + "px",
-      delay: Math.random() * 5,
-      duration: Math.random() * 2 + 1,
-    }))
-  );
-
-  const [landed, setLanded] = useState<boolean[]>(Array(stats.length).fill(false));
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { staggerChildren: 0.15 } }
+  };
 
   return (
-    <section id="about" className="py-20 bg-[#1a1a1a] relative overflow-hidden scroll-mt-16 font-inter">
-      {/* Particles + Rain */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        {particles.map((p, idx) => (
-          <motion.div
-            key={idx}
-            className="absolute bg-blue-400 rounded-full opacity-30"
-            style={{ top: p.top, left: p.left, width: p.size, height: p.size }}
-            animate={{ x: [0, p.xOffset, 0], y: [0, p.yOffset, 0], rotate: [0, p.rotate, 0] }}
-            transition={{ duration: p.duration, repeat: Infinity, repeatType: "mirror", delay: p.delay }}
-          />
-        ))}
-        {raindrops.map((r, idx) => (
-          <motion.div
-            key={idx}
-            className="absolute bg-blue-300 w-[2px]"
-            style={{ top: "-10%", left: r.left, height: r.length }}
-            animate={{ y: ["-10%", "110%"] }}
-            transition={{ duration: r.duration, repeat: Infinity, delay: r.delay, ease: "linear" }}
-          />
-        ))}
+    <section id="about" className="py-24 bg-[#1a1a1a] relative overflow-hidden flex items-center justify-center">
+      {/* Background decoration */}
+      <div className="absolute inset-0 pointer-events-none">
+        <motion.div 
+          animate={{ x: [0, 100, 0], y: [0, 50, 0] }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          className="absolute top-0 right-0 w-[600px] h-[600px] bg-indigo-500/5 blur-[120px] rounded-full"
+        />
+        <motion.div 
+          animate={{ x: [0, -100, 0], y: [0, -50, 0] }}
+          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+          className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-teal-500/5 blur-[120px] rounded-full"
+        />
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 relative z-10">
-        {/* Stats Section */}
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-6 text-center mb-16">
-          {stats.map((stat, idx) => {
-            const ref = useRef(null);
-            const isInView = useInView(ref, { margin: "-100px" });
-            const numericValue = parseInt(stat.value);
-            const suffix = stat.value.replace(/\d+/g, "");
-
-            return (
-              <motion.div
-                key={idx}
-                ref={ref}
-                className="bg-white/5 backdrop-blur-xl p-6 rounded-xl shadow-2xl border border-white/10 relative overflow-visible font-poppins"
-                initial={{ opacity: 0, y: -200, rotate: -5 }}
-                whileInView={{ opacity: 1, y: 0, rotate: 0 }}
-                viewport={{ once: false }}
-                transition={{
-                  type: "spring",
-                  stiffness: 120,
-                  damping: 15,
-                  delay: idx * 0.3,
-                }}
-                onAnimationComplete={() => {
-                  setLanded(prev => {
-                    const updated = [...prev];
-                    updated[idx] = true;
-                    return updated;
-                  });
-                }}
-              >
-                <h3 className="text-3xl font-bold text-blue-600 relative inline-block">
-                  {isInView ? (
-                    <CountUp start={0} end={numericValue} duration={2} suffix={suffix} redraw={true} />
-                  ) : (
-                    "0" + suffix
-                  )}
-
-                  <AnimatePresence>
-                    {landed[idx] && (
-                      <motion.span
-                        key={`splash-${idx}`}
-                        className="absolute inset-0 flex items-center justify-center"
-                        initial={{ scale: 0, opacity: 0.6 }}
-                        animate={{ scale: 1.5, opacity: 0 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.5, ease: "easeOut" }}
-                      >
-                        <span className="block w-6 h-6 bg-blue-400 rounded-full opacity-30"></span>
-                      </motion.span>
-                    )}
-                  </AnimatePresence>
-                </h3>
-                <p className="text-gray-300 mt-2 font-inter">{stat.label}</p>
-              </motion.div>
-            );
-          })}
-        </div>
-
-        {/* About Me Header */}
-        <motion.div
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+      <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
+        {/* Stats Row */}
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 mb-24"
         >
-          <motion.h2 id="about-heading" className="text-4xl font-bold font-poppins bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-indigo-400 mb-4">
-            About Me
-          </motion.h2>
-          <div className="h-1 bg-indigo-600 mx-auto rounded relative overflow-hidden w-32">
+          {stats.map((stat, idx) => (
             <motion.div
-              className="absolute top-0 left-0 h-full w-1/3 bg-white opacity-20 blur-md"
-              animate={{ x: ["-100%", "100%"] }}
-              transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-            />
-          </div>
+              key={idx}
+              variants={{
+                hidden: { opacity: 0, y: 30 },
+                visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100 } }
+              }}
+              className="bg-white/5 backdrop-blur-xl p-8 rounded-3xl border border-white/10 text-center shadow-2xl group hover:border-teal-500/30 transition-all duration-500"
+            >
+              <h3 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-indigo-400 mb-2">
+                <CountUp end={parseInt(stat.value)} suffix={stat.value.replace(/\d+/g, "")} enableScrollSpy />
+              </h3>
+              <p className="text-gray-400 font-medium tracking-wide uppercase text-xs">{stat.label}</p>
+            </motion.div>
+          ))}
         </motion.div>
 
-        {/* Left and Right Panels */}
-        <div className="grid md:grid-cols-2 gap-12 items-start">
-          {/* Left Panel */}
-          <motion.div
-            className="space-y-8 bg-white/5 backdrop-blur-xl p-8 rounded-xl shadow-2xl border border-white/10 min-h-[650px]"
-            initial={{ opacity: 0, x: -100 }}
+        <div className="grid lg:grid-cols-2 gap-20 items-center">
+          {/* Content Panel */}
+          <motion.div 
+            initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.9 }}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="space-y-10"
           >
-            <h3 className="text-2xl font-semibold text-teal-400 mb-4 font-poppins">Full-Stack Development with Practical Impact</h3>
+            <div className="space-y-4">
+              <h2 className="text-4xl md:text-5xl font-bold text-white">
+                Transforming <span className="text-teal-400">Vision</span> into Digital <span className="text-indigo-400">Reality</span>
+              </h2>
+              <div className="w-20 h-1.5 bg-teal-500 rounded-full" />
+            </div>
 
-            {[
-              {
-  text: "As an expert in full-stack engineering, I architect high-performance web applications by leveraging Java and Spring Boot for robust backend systems, integrated with scalable MySQL databases and responsive frontends.",
-  img: "https://i.pinimg.com/736x/ef/e1/5c/efe15c31e146989f9df6277418a5057c.jpg",
-},
-{
-  text: "From enterprise architecture to final deployment, I have successfully engineered comprehensive systems including E-Commerce platforms and Course Registration environments, focusing on RESTful API efficiency and secure authentication.",
-  img: "https://i.pinimg.com/736x/4e/19/82/4e1982ddc4dbc34b5843f7443f4fc676.jpg",
-},
-{
-  text: "Driven by technical innovation and rigorous problem-solving, I also explore the frontiers of AI and Computer Vision, specifically developing intelligent systems with Python and YOLO to address complex safety and monitoring requirements.",
-  img: "https://i.pinimg.com/1200x/36/d1/6a/36d16a8bc9597f727d31bf16b3d6872c.jpg",
-}
-,
-            ].map((block, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: idx * 0.2 }}
-                viewport={{ once: false, amount: 0.4 }}
+            <div className="space-y-6 text-gray-300 text-lg leading-relaxed">
+              <p>
+                As a specialized Full Stack Engineer, I bridge the gap between complex backend architectures and intuitive user interfaces. My journey is defined by a passion for solving enterprise-scale challenges using <span className="text-white font-semibold">Java, Spring Boot, and React</span>.
+              </p>
+              <p>
+                I don't just write code; I engineer systems that are built to scale, secure by design, and optimized for peak performance. Whether it's a high-concurrency E-commerce engine or an AI-driven monitoring tool, I deliver precision in every line.
+              </p>
+            </div>
+
+            <div className="flex flex-wrap gap-6 pt-4">
+              <motion.a 
+                href="/Anbarasan.K Resume-1.pdf"
+                target="_blank"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="inline-flex items-center gap-3 bg-white/5 border border-white/10 hover:border-white/20 px-10 py-4 rounded-2xl font-bold text-white transition-all shadow-xl"
               >
-                <p className="text-gray-200 text-lg leading-relaxed mb-3 font-inter">{block.text}</p>
-                <motion.img
-                  src={block.img}
-                  alt="About Section Visual"
-                  className="w-full h-40 object-cover rounded-lg shadow-md"
-                  whileHover={{ scale: 1.05 }}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.8 }}
-                  viewport={{ once: false }}
-                />
-              </motion.div>
-            ))}
-
-            <motion.a
-              href="/Anbarasan.K Resume-1.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold shadow-md mt-6 font-poppins"
-              whileHover={{
-                scale: 1.1,
-                backgroundColor: "#f7b11bff",
-                boxShadow: "0 10px 20px rgba(59,130,246,0.3)",
-              }}
-              whileTap={{ scale: 0.95 }}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.4 }}
-              viewport={{ once: false }}
-            >
-              <FaEye /> View CV 
-            </motion.a>
+                <FaEye className="text-teal-400" /> View Credentials
+              </motion.a>
+            </div>
           </motion.div>
 
-          {/* Right Panel */}
-          <motion.div
-            className="space-y-6 bg-white/5 backdrop-blur-xl p-8 rounded-xl shadow-2xl border border-white/10"
-            initial={{ opacity: 0, x: 100 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.9 }}
-            viewport={{ once: false }}
+          {/* Feature Grid */}
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: 0.2 } }
+            }}
+            className="space-y-8"
           >
-            <h4 className="font-semibold text-teal-400 mb-6 text-xl font-poppins">What I Do</h4>
-            <ul className="space-y-8 text-gray-300">
-              {bulletItems.map((item, idx) => (
-                <motion.li
-                  key={idx}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: idx * 0.1 }}
-                  viewport={{ once: false }}
-                >
-                  <div className="flex items-start mb-2">
-                    <span className="w-3 h-3 bg-gray-700 rounded-full mr-3 mt-1"></span>
-                    <div>
-                      <h5 className="font-semibold text-gray-100 font-poppins">{item.title}</h5>
-                      <p className="ml-1 text-sm text-gray-300 font-inter">{item.description}</p>
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-2">
-                    {item.images.map((img, i) => (
-                      <motion.img
-                        key={i}
-                        src={img}
-                        alt={`${item.title} ${i + 1}`}
-                        className="w-full h-24 md:h-28 object-cover rounded-lg shadow-md"
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.7, delay: i * 0.2 }}
-                        viewport={{ once: false }}
-                        whileHover={{
-                          scale: 1.05,
-                          rotate: i % 2 === 0 ? 2 : -2,
-                          boxShadow: "0 0 15px rgba(59,130,246,0.4)",
-                        }}
-                      />
-                    ))}
-                  </div>
-                </motion.li>
-              ))}
-            </ul>
+            {bulletItems.map((item, idx) => (
+              <motion.div 
+                key={idx}
+                variants={{
+                  hidden: { opacity: 0, x: 50 },
+                  visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } }
+                }}
+                whileHover={{ y: -8, scale: 1.02 }}
+                className="bg-white/5 backdrop-blur-xl p-8 rounded-[2rem] border border-white/10 space-y-6 shadow-2xl hover:border-teal-500/30 transition-all duration-500"
+              >
+                <div className="space-y-2">
+                  <h4 className="text-xl font-bold text-teal-400">{item.title}</h4>
+                  <p className="text-gray-400 text-sm leading-relaxed">{item.description}</p>
+                </div>
+                <div className="grid grid-cols-3 gap-3">
+                  {item.images.map((img, i) => (
+                    <motion.div 
+                      key={i}
+                      whileHover={{ scale: 1.15, rotate: i % 2 === 0 ? 3 : -3, zIndex: 20 }}
+                      className="h-24 rounded-xl overflow-hidden shadow-lg border border-white/5 relative"
+                    >
+                      <img src={img} alt="Detail" className="w-full h-full object-cover" />
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </div>

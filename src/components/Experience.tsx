@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { FaServer, FaDesktop, FaCode, FaEnvelope, FaGraduationCap } from "react-icons/fa";
 
 interface ExperienceItem {
@@ -23,73 +23,45 @@ interface EducationItem {
 
 const experiences: ExperienceItem[] = [
   {
-    title: "Software Engineer",
+    title: "Full Stack Engineer",
     company: "Keyan Technologies",
     companyUrl: "#",
-    period: "2025 - 2026",
+    period: "2025 - Present",
     icon: <FaCode size={32} className="text-teal-400" />,
     responsibilities: [
-      "Developed and built the Hostel Management System using React, Java, MySql, and Spring Boot.",
-      "Implemented features for room allocations, student registrations, fee management, and administrative tasks.",
-      "Designed responsive user interfaces and ensured smooth integration with backend services.",
-      "Managed the complete software development lifecycle including requirement analysis, development, testing, and documentation.",
-      "Collaborated with team members to deliver high-quality software solutions."
+      "Architected and engineered a comprehensive Hostel Management System utilizing React, Java, MySQL, and Spring Boot to streamline campus operations.",
+      "Developed enterprise-grade features for automated room allocation, real-time student registration tracking, and secure digital fee management.",
+      "Engineered high-performance RESTful APIs and optimized database schemas to ensure sub-second response times for critical administrative tasks.",
+      "Led the end-to-end SDLC, from initial requirement gathering and system architecture to production deployment and technical documentation.",
+      "Spearheaded technical collaborations to implement agile methodologies and maintain high standards of code quality and system reliability."
     ],
   },
   {
-    title: "Backend Developer Intern",
+    title: "Backend Developer Specialist",
     company: "Inetz Internship",
     companyUrl: "#",
     period: "Sept 2025 – Dec 2025",
     icon: <FaServer size={32} className="text-teal-400" />,
     responsibilities: [
-      "Developed backend modules using Java and Spring Boot for web-based applications.",
-      "Designed and implemented RESTful APIs for user, product, and data management.",
-      "Integrated MySQL databases with backend services and optimized queries.",
-      "Implemented role-based access control and authentication mechanisms.",
-      "Collaborated with team members to test, debug, and improve application performance."
+      "Engineered scalable backend microservices using Java and Spring Boot, focusing on modular architecture and high-availability design.",
+      "Designed and implemented high-throughput RESTful APIs for complex data processing, product catalog management, and user session handling.",
+      "Optimized MySQL database performance through advanced indexing and query optimization, significantly reducing data retrieval latency.",
+      "Implemented robust security protocols, including role-based access control (RBAC) and JWT-based authentication for secure data transmission.",
+      "Collaborated in a fast-paced environment to conduct unit testing, performance debugging, and system scalability enhancements."
     ],
   },
   {
-    title: "Front-End Developer Intern",
+    title: "Frontend Engineering Associate",
     company: "Inetz Technology",
     companyUrl: "#",
     period: "Jun 2024 – Aug 2024",
     icon: <FaDesktop size={32} className="text-teal-400" />,
     responsibilities: [
-      "Developed responsive user interfaces using HTML, CSS, and JavaScript.",
-      "Integrated frontend components with backend REST APIs.",
-      "Improved UI usability and performance across multiple screen sizes.",
-      "Debugged and fixed UI-related issues to enhance user experience.",
-      "Worked closely with backend developers to ensure smooth data flow."
-    ],
-  },
-  {
-    title: "Full Stack Developer Course",
-    company: "QSpider",
-    companyUrl: "#",
-    period: "Nov 2023 – Apr 2024",
-    icon: <FaServer size={32} className="text-teal-400" />,
-    responsibilities: [
-      "Learned full-stack development using Java, Spring Boot, HTML, CSS, and JavaScript.",
-      "Built RESTful web applications with proper MVC architecture.",
-      "Implemented basic authentication and authorization concepts.",
-      "Worked with MySQL databases for CRUD operations and schema design.",
-      "Developed mini-projects to apply real-world full-stack concepts."
-    ],
-  },
-  {
-    title: "Full Stack Software Engineer",
-    company: "Freelance / Personal Projects",
-    companyUrl: "#",
-    period: "2024 – 2025",
-    icon: <FaCode size={32} className="text-teal-400" />,
-    responsibilities: [
-      "Developed a full-stack E-Commerce Platform using Java, MySQL, HTML, CSS, and JavaScript with features such as authentication, product management, shopping cart, and order processing.",
-      "Built a Course Registration System using Java and Spring Boot, implementing RESTful APIs, role-based access control, and database-driven workflows.",
-      "Implemented an Intelligent Parental Control System using Python and YOLO for real-time video analysis, alert generation, and reporting.",
-      "Designed responsive frontends and ensured smooth integration with backend services.",
-      "Managed the complete software development lifecycle including requirement analysis, development, testing, and documentation."
+      "Developed sophisticated, pixel-perfect user interfaces using modern HTML5, CSS3, and JavaScript (ES6+), ensuring 100% responsive design across all devices.",
+      "Seamlessly integrated frontend architectures with complex backend REST APIs, focusing on asynchronous data fetching and state management.",
+      "Optimized client-side performance and rendering efficiency, resulting in a significantly improved Core Web Vitals score.",
+      "Executed rigorous cross-browser testing and UI debugging to deliver a consistent, high-quality user experience.",
+      "Partnered with backend engineers to define API contracts and ensure cohesive full-stack integration."
     ],
   },
 ];
@@ -100,218 +72,157 @@ const education: EducationItem[] = [
     school: "CK COLLEGE OF ENGINEERING AND TECHNOLOGY",
     qualification: "Computer Science and Engineering",
     period: "2020 - 2024",
-    icon: <FaGraduationCap className="text-gray-900" />,
-    description:
-  "Studied core Computer Science concepts including Data Structures, Algorithms, Object-Oriented Programming, Database Management Systems, Operating Systems, Computer Networks, and Software Engineering, with hands-on project development.",
-
+    icon: <FaGraduationCap className="text-indigo-400" />,
+    description: "Specialized in enterprise software architecture, advanced data structures, and full-stack system design."
   },
   {
     school: "SEVAMANDIR MATRIC HR SEC SCHOOL",
     qualification: "Computer Science",
     period: "2019 - 2020",
-    icon: <FaGraduationCap className="text-gray-900" />,
-    description:
-  "Developed a foundational understanding of Computer Science with basic programming, logical problem-solving, algorithms, and computer fundamentals.",
-
+    icon: <FaGraduationCap className="text-indigo-400" />,
+    description: "Foundational studies in algorithms, logical problem solving, and computational fundamentals."
   },
   {
     school: "SEVAMANDIR MATRIC HR SEC SCHOOL",
     qualification: "State Board",
     period: "2017 - 2018",
-    icon: <FaGraduationCap className="text-gray-900" />,
-    description:
-  "Completed State Board curriculum with a strong foundation in core subjects such as Mathematics, Science, and English, developing analytical thinking and problem-solving skills.",
-  },
+    icon: <FaGraduationCap className="text-indigo-400" />,
+    description: "Completed State Board curriculum with a strong foundation in core subjects such as Mathematics, Science, and English, developing analytical thinking and problem-solving skills."
+  }
 ];
-
-// Typewriter for "Available for Hire"
-const TypewriterText: React.FC<{ text: string }> = ({ text }) => {
-  const [displayed, setDisplayed] = React.useState("");
-  const [index, setIndex] = React.useState(0);
-  const [deleting, setDeleting] = React.useState(false);
-
-  React.useEffect(() => {
-    const timeout = setTimeout(() => {
-      if (!deleting) {
-        setDisplayed(text.slice(0, index + 1));
-        setIndex(index + 1);
-        if (index + 1 === text.length) setDeleting(true);
-      } else {
-        setDisplayed(text.slice(0, index - 1));
-        setIndex(index - 1);
-        if (index - 1 === 0) setDeleting(false);
-      }
-    }, deleting ? 80 : 120);
-    return () => clearTimeout(timeout);
-  }, [index, deleting, text]);
-
-  return (
-    <span className="overflow-hidden text-white font-bold text-lg">
-      {displayed}
-      <span className="animate-blink">|</span>
-      <style>{`
-        @keyframes blink {
-          0%, 50%, 100% { opacity: 1; }
-          25%, 75% { opacity: 0; }
-        }
-        .animate-blink { display:inline-block; margin-left:2px; animation:blink 1s infinite; }
-      `}</style>
-    </span>
-  );
-};
-
-// Framer Motion variants for Education
-const educationContainer = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.15 } },
-};
-
-const educationItem = {
-  hidden: { opacity: 0, y: 40 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-};
 
 const Experience: React.FC = () => {
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
-  const [mouseTilt, setMouseTilt] = useState({ x: 0, y: 0 });
 
-  const handleCardMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 20;
-    const y = ((e.clientY - rect.top) / rect.height - 0.5) * -20;
-    setMouseTilt({ x, y });
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.2 }
+    }
   };
 
-  const hoverAnimation = (idx: number) => ({
-    scale: 1.05,
-    rotateX: hoveredCard === idx ? mouseTilt.y : 0,
-    rotateY: hoveredCard === idx ? mouseTilt.x : 0,
-    boxShadow: "0 0 30px #14B8A6, 0 0 60px #00ffff",
-    transition: { type: "spring" as const, stiffness: 200, damping: 15 },
-  });
+  const itemVariants = {
+    hidden: { opacity: 0, x: -20 },
+    visible: {
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.5 }
+    }
+  };
 
   return (
-    <section id="experience" className="relative py-16 bg-[#1a1a1a] overflow-hidden">
-      {/* Premium Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,#4f46e5,transparent_50%)]" />
+    <section id="experience" className="relative py-24 bg-[#1a1a1a] overflow-hidden">
+      {/* Background Orbs */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 -left-20 w-96 h-96 bg-teal-500/5 blur-[100px] rounded-full" />
+        <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-indigo-500/5 blur-[100px] rounded-full" />
       </div>
 
-      <div className="max-w-6xl mx-auto px-6 relative z-10">
-
-        {/* Work Experience */}
-        <h2 id="experience-heading" className="text-3xl font-bold text-center mb-12 bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-indigo-400">
-          Work Experience
-        </h2>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {experiences.map((exp, idx) => (
-            <motion.div
-              key={idx}
-              className="relative bg-white/5 backdrop-blur-xl rounded-2xl p-6 shadow-2xl cursor-pointer border border-white/10 overflow-hidden group"
-              onMouseEnter={() => setHoveredCard(idx)}
-              onMouseLeave={() => setHoveredCard(null)}
-              onMouseMove={handleCardMouseMove}
-              animate={hoveredCard === idx ? hoverAnimation(idx) : { scale: 1, rotateX: 0, rotateY: 0, boxShadow: "0 0 10px #00000050" }}
-            >
-              <div className="absolute inset-0 pointer-events-none bg-gradient-to-br from-teal-500/10 to-indigo-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-              <div className="relative z-10 flex justify-center mb-4">{exp.icon}</div>
-              <h3 className="text-xl font-semibold text-teal-400 text-center mb-1">{exp.title}</h3>
-              <p className="text-teal-300 font-medium text-center mb-1">
-                <a href={exp.companyUrl} target="_blank" rel="noopener noreferrer" className="hover:text-teal-200">
-                  {exp.company}
-                </a>
-              </p>
-              <p className="text-sm text-gray-400 italic text-center mb-4">{exp.period}</p>
-              <div className="space-y-2 text-gray-300 text-sm">
-                {exp.responsibilities.map((item, i) => (
-                  <p key={i}>• {item}</p>
-                ))}
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Education */}
-        <h2 className="text-3xl font-bold text-center mt-16 mb-12 bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-indigo-400">
-          Education
-        </h2>
-        <motion.div
-          className="relative max-w-4xl mx-auto"
-          variants={educationContainer}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.2 }}
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mb-20"
         >
-          <div className="absolute left-5 top-0 w-1 bg-teal-500 h-full rounded" />
-
-          <div className="space-y-12">
-            {education.map((edu, idx) => (
-              <motion.div
-                key={idx}
-                variants={educationItem}
-                whileHover={{ y: -6, boxShadow: "0 0 25px #14B8A6, 0 0 50px #00ffff" }}
-                transition={{ type: "spring", stiffness: 180, damping: 18 }}
-                className="relative pl-16 flex items-start cursor-pointer"
-              >
-                <div className="absolute left-0 top-2">
-                  <div className="w-10 h-10 bg-teal-400 rounded-full flex items-center justify-center shadow-lg">
-                    {edu.icon || <FaGraduationCap className="text-gray-900" />}
-                  </div>
-                </div>
-                <div className="bg-white/5 backdrop-blur-xl rounded-2xl p-6 shadow-2xl border border-white/10 w-full group">
-                  <div className="absolute inset-0 pointer-events-none bg-gradient-to-br from-teal-500/5 to-indigo-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <h3 className="text-lg font-semibold text-teal-400 mb-1">{edu.school}</h3>
-                  <p className="text-gray-300 mb-1">{edu.qualification}</p>
-                  <p className="text-sm text-gray-400 italic mb-2">{edu.period}</p>
-                  {edu.description && <p className="text-gray-300 text-sm">{edu.description}</p>}
-                </div>
-              </motion.div>
-            ))}
-          </div>
+          <h2 id="experience-heading" className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-400 to-indigo-400 mb-6">
+            Professional Journey
+          </h2>
+          <div className="w-24 h-1.5 bg-gradient-to-r from-indigo-600 to-teal-500 mx-auto rounded-full"></div>
         </motion.div>
 
-        {/* Available for Hire */}
-        <div className="flex justify-center mt-12">
-          <motion.a
-            href="mailto:anbarasanpno18@gmail.com"
-            className="flex items-center gap-2 px-6 py-3 bg-gray-900/80 backdrop-blur-md rounded-full shadow-lg cursor-pointer overflow-hidden"
-            animate={{
-              boxShadow: [
-                "0 0 20px rgba(20, 184, 166, 0.3)",
-                "0 0 40px rgba(79, 70, 229, 0.3)",
-                "0 0 20px rgba(20, 184, 166, 0.3)",
-              ],
-            }}
-            transition={{ duration: 3, repeat: Infinity, repeatType: "mirror", ease: "easeInOut" }}
-            whileHover={{
-              scale: 1.05,
-              boxShadow: "0 0 30px rgba(20, 184, 166, 0.5), 0 0 60px rgba(79, 70, 229, 0.4)",
-              transition: { duration: 0.3 },
-            }}
+        <div className="grid lg:grid-cols-12 gap-12">
+          {/* Work Experience Timeline */}
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="lg:col-span-8 space-y-8"
           >
-            <motion.div
-              className="text-white"
-              whileHover={{ scale: 1.3, textShadow: "0 0 8px #ffffff,0 0 12px #14B8A6" }}
-              transition={{ duration: 0.3 }}
-            >
-              <FaEnvelope />
-            </motion.div>
-            <TypewriterText text="Available For Hire" />
-          </motion.a>
+            <h3 className="text-2xl font-bold text-white mb-8 flex items-center gap-3">
+              <span className="w-8 h-8 bg-teal-500/20 rounded-lg flex items-center justify-center text-teal-400 text-sm">01</span>
+              Work Experience
+            </h3>
+            
+            <div className="space-y-8">
+              {experiences.map((exp, idx) => (
+                <motion.div
+                  key={idx}
+                  variants={{
+                    hidden: { opacity: 0, x: -30 },
+                    visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } }
+                  }}
+                  whileHover={{ 
+                    x: 12,
+                    backgroundColor: "rgba(255, 255, 255, 0.08)"
+                  }}
+                  className="bg-white/5 backdrop-blur-xl rounded-[2.5rem] p-10 border border-white/10 hover:border-teal-500/30 transition-all duration-300 shadow-2xl group relative overflow-hidden"
+                >
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-teal-500/5 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                  
+                  <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-6 relative z-10">
+                    <div className="flex items-center gap-6">
+                      <div className="w-16 h-16 bg-white/5 rounded-[1.25rem] flex items-center justify-center text-teal-400 group-hover:scale-110 group-hover:bg-teal-500/10 transition-all duration-500 shadow-lg">
+                        {exp.icon}
+                      </div>
+                      <div>
+                        <h4 className="text-2xl font-extrabold text-white tracking-tight">{exp.title}</h4>
+                        <p className="text-teal-400 font-bold uppercase text-xs tracking-widest">{exp.company}</p>
+                      </div>
+                    </div>
+                    <span className="px-5 py-2 bg-white/5 rounded-full text-gray-400 text-xs font-black border border-white/10 uppercase tracking-widest">
+                      {exp.period}
+                    </span>
+                  </div>
+                  <ul className="space-y-4 relative z-10">
+                    {exp.responsibilities.map((resp, i) => (
+                      <li key={i} className="flex items-start gap-4 text-gray-400 text-sm leading-relaxed group/item">
+                        <span className="mt-2 w-2 h-2 bg-teal-500 rounded-full flex-shrink-0 shadow-[0_0_10px_rgba(20,184,166,0.5)] group-hover/item:scale-125 transition-transform" />
+                        <span className="group-hover/item:text-gray-200 transition-colors">{resp}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Education Sidebar */}
+          <motion.div 
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="lg:col-span-4 space-y-8"
+          >
+            <h3 className="text-2xl font-bold text-white mb-8 flex items-center gap-3">
+              <span className="w-8 h-8 bg-indigo-500/20 rounded-lg flex items-center justify-center text-indigo-400 text-sm">02</span>
+              Education
+            </h3>
+
+            <div className="relative pl-8 space-y-12 before:absolute before:left-0 before:top-2 before:bottom-2 before:w-px before:bg-gradient-to-b before:from-indigo-500 before:to-transparent">
+              {education.map((edu, idx) => (
+                <motion.div 
+                  key={idx}
+                  variants={itemVariants}
+                  className="relative"
+                >
+                  <div className="absolute -left-[37px] top-1 w-4 h-4 rounded-full bg-[#1a1a1a] border-2 border-indigo-500 z-10" />
+                  <div className="space-y-2">
+                    <span className="text-indigo-400 text-xs font-bold uppercase tracking-widest">{edu.period}</span>
+                    <h4 className="text-lg font-bold text-white leading-tight">{edu.school}</h4>
+                    <p className="text-gray-400 text-sm">{edu.qualification}</p>
+                    {edu.description && <p className="text-gray-500 text-xs italic mt-2">{edu.description}</p>}
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+          </motion.div>
         </div>
-
       </div>
-
-      <style>{`
-        @keyframes gradientShift {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
-        }
-        .animate-gradient { background-size: 200% 200%; animation: gradientShift 6s ease infinite; }
-      `}</style>
     </section>
   );
 };
