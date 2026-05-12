@@ -135,7 +135,7 @@ const HeroSection: React.FC = () => {
           >
             <motion.img
               /* FIXED PATH FOR GITHUB PAGES */
-              src="Anbarasan-image.jpeg" 
+              src="Anbarasan-image.png" 
               alt="Anbarasan"
               loading="lazy"
               className="w-80 h-80 md:w-96 md:h-96 rounded-full object-cover border-4 border-indigo-400 shadow-2xl"
