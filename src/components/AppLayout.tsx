@@ -8,6 +8,7 @@ import ProjectsSection from './ProjectsSection';
 import MethodologySection from './MethodologySection';
 import ServicesSection from './ServicesSection';
 import TestimonialsSection from './TestimonialsSection';
+import ValuesSection from './ValuesSection';
 import Footer from './Footer';
 import FloatingWhatsAppButton from './FloatingWhatsAppButton';
 
@@ -56,6 +57,9 @@ const AppLayout: React.FC = () => {
         </section>
         <section aria-labelledby="services-heading">
           <ServicesSection />
+        </section>
+        <section aria-labelledby="values-heading">
+          <ValuesSection />
         </section>
         <section aria-labelledby="projects-heading">
           <ProjectsSection />

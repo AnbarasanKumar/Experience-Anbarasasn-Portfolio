@@ -10,6 +10,7 @@ const NAV_ITEMS = [
   { label: "Experience", id: "experience" },
   { label: "Methodology", id: "methodology" },
   { label: "Services", id: "services" },
+  { label: "Philosophy", id: "values" },
   { label: "Projects", id: "projects" },
   { label: "Connect", id: "connect" },
 ];
