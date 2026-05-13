@@ -47,7 +47,7 @@ const ContactSection: React.FC = () => {
       const response = await fetch("https://api.web3forms.com/submit", { method: "POST", body: formData });
       const data = await response.json();
       if (data.success) {
-        setResult("✅ Form Submitted Successfully! Your message has been sent to anbarasanpno18@gmail.com. Anbarasan will respond within 24hrs.");
+        setResult("✅ Form Submitted Successfully! Your message has been sent to anbarasanpno18@gmail.com. Anbarasan will respond within 24 hours.");
         setFormValues({ name: "", email: "", phone: "", subject: "", message: "" });
         localStorage.removeItem("contactForm");
       } else setResult(data.message || "Failed to send message.");

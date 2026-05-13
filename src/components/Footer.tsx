@@ -74,14 +74,17 @@ const Footer: React.FC = () => {
               <div className="absolute inset-0 bg-gradient-to-tr from-indigo-600 to-teal-500 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <img
                 src="Anbarasan%20logo.png"
-                alt="Logo"
+                alt="Anbarasan Kumar Portfolio Logo"
                 className="w-full h-full rounded-2xl object-cover relative z-10"
               />
             </motion.button>
             <div className="space-y-4">
-              <h3 className="text-2xl font-black tracking-tight text-white uppercase tracking-[0.2em]">Anbarasan <span className="text-teal-400">Kumar</span></h3>
-              <p className="text-slate-400 leading-relaxed max-w-sm text-sm">
-                Engineering sophisticated digital experiences with a focus on scalable backend architecture and intuitive full-stack solutions.
+              <h3 className="text-2xl font-black tracking-tight uppercase tracking-[0.2em] flex gap-3">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-teal-400">Anbarasan</span>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-indigo-400">Kumar</span>
+              </h3>
+              <p className="text-slate-400 leading-relaxed max-w-sm text-sm font-medium">
+                Developing high-performance digital experiences with a specialization in scalable Java Spring Boot backends and modern React frontend architectures.
               </p>
             </div>
             <div className="flex gap-4">
@@ -110,13 +113,14 @@ const Footer: React.FC = () => {
             }}
             className="lg:col-span-2 space-y-8"
           >
-            <h4 className="text-xs font-black uppercase tracking-[0.3em] text-teal-600">Navigation</h4>
+            <h4 className="text-xs font-black uppercase tracking-[0.3em] text-teal-500">Explore</h4>
             <ul className="space-y-4">
               {quickLinks.map((link) => (
                 <li key={link.id}>
                   <button
                     onClick={() => scrollToSection(link.id)}
                     className="text-slate-400 hover:text-teal-400 transition-colors duration-300 font-bold text-sm tracking-wide"
+                    title={`Go to ${link.label}`}
                   >
                     {link.label}
                   </button>
@@ -133,7 +137,7 @@ const Footer: React.FC = () => {
             }}
             className="lg:col-span-3 space-y-8"
           >
-            <h4 className="text-xs font-black uppercase tracking-[0.3em] text-indigo-600">Contact Info</h4>
+            <h4 className="text-xs font-black uppercase tracking-[0.3em] text-indigo-500">Get in Touch</h4>
             <div className="space-y-6">
               <div className="flex items-start gap-4 text-slate-400 group cursor-pointer">
                 <FaMapMarkerAlt className="mt-1 text-indigo-400 group-hover:scale-125 transition-transform" />
@@ -166,7 +170,7 @@ const Footer: React.FC = () => {
             }}
             className="lg:col-span-3 flex flex-col items-center lg:items-end space-y-8"
           >
-            <h4 className="text-xs font-black uppercase tracking-[0.2em] text-white">Digital Handshake</h4>
+            <h4 className="text-xs font-black uppercase tracking-[0.2em] text-slate-200">Connect Digitally</h4>
             <motion.div 
               whileHover={{ scale: 1.05, rotate: -2 }}
               className="p-5 bg-white rounded-[2.5rem] shadow-2xl border-4 border-slate-800"
@@ -198,8 +202,7 @@ const Footer: React.FC = () => {
         </div>
       </div>
     </footer>
-
   );
 };
 
-export default Footer;
+export default Footer;

@@ -5,7 +5,7 @@ const skillsData = [
   {
     category: "Frontend Architecture",
     skills: [
-      { name: "ReactJs", level: 85 },
+      { name: "React", level: 85 },
       { name: "JavaScript (ES6+)", level: 92 },
       { name: "HTML5 / CSS3", level: 95 },
       { name: "Tailwind CSS", level: 90 },
@@ -24,7 +24,7 @@ const skillsData = [
     category: "Data & Infrastructure",
     skills: [
       { name: "MySQL", level: 90 },
-      { name: "OracleDB", level: 75 },
+      { name: "Oracle Database", level: 75 },
       { name: "Git / GitHub", level: 92 },
       { name: "Postman / Swagger", level: 95 },
     ],

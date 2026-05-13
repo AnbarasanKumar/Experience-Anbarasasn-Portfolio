@@ -4,7 +4,7 @@ import { FaEye } from "react-icons/fa";
 import CountUp from "react-countup";
 
 const stats = [
-  { label: "Year Experience", value: "1" },
+  { label: "Year of Experience", value: "1" },
   { label: "Technologies", value: "3+" },
   { label: "Clients Served", value: "3+" },
   { label: "Projects Completed", value: "5+" },
@@ -125,7 +125,7 @@ const AboutSection: React.FC = () => {
                 As a specialized Full Stack Engineer, I bridge the gap between complex backend architectures and intuitive user interfaces. My journey is defined by a passion for solving enterprise-scale challenges using <span className="text-slate-900 font-semibold">Java, Spring Boot, and React</span>.
               </p>
               <p>
-                I don't just write code; I engineer systems that are built to scale, secure by design, and optimized for peak performance. Whether it's a high-concurrency E-commerce engine or an AI-driven monitoring tool, I deliver precision in every line.
+                My approach goes beyond development; I engineer resilient, high-performance systems designed to scale seamlessly. From building robust e-commerce architectures to developing intelligent AI-driven tools, I ensure every solution is secure, efficient, and crafted with technical precision.
               </p>
             </div>
 

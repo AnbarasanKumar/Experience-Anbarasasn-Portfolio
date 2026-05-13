@@ -25,8 +25,8 @@ const experiences: ExperienceItem[] = [
   {
     title: "Full Stack Engineer",
     company: "Keyan Technologies",
-    companyUrl: "#",
-    period: "2025 - Present",
+    companyUrl: "https://www.keyansoftware.com/",
+    period: "2025 – Present",
     icon: <FaCode size={32} className="text-teal-400" />,
     responsibilities: [
       "Architected and engineered a comprehensive Hostel Management System utilizing React, Java, MySQL, and Spring Boot to streamline campus operations.",
@@ -39,8 +39,8 @@ const experiences: ExperienceItem[] = [
   {
     title: "Backend Developer Specialist",
     company: "Inetz Internship",
-    companyUrl: "#",
-    period: "Sept 2025 – Dec 2025",
+    companyUrl: "https://www.inetztech.com/",
+    period: "Sep 2025 – Dec 2025",
     icon: <FaServer size={32} className="text-teal-400" />,
     responsibilities: [
       "Engineered scalable backend microservices using Java and Spring Boot, focusing on modular architecture and high-availability design.",
@@ -53,7 +53,7 @@ const experiences: ExperienceItem[] = [
   {
     title: "Frontend Engineering Associate",
     company: "Inetz Technology",
-    companyUrl: "#",
+    companyUrl: "https://www.inetztech.com/",
     period: "Jun 2024 – Aug 2024",
     icon: <FaDesktop size={32} className="text-teal-400" />,
     responsibilities: [
@@ -70,22 +70,22 @@ const experiences: ExperienceItem[] = [
 const education: EducationItem[] = [
   {
     school: "CK COLLEGE OF ENGINEERING AND TECHNOLOGY",
-    qualification: "Computer Science and Engineering",
-    period: "2020 - 2024",
+    qualification: "B.E. Computer Science and Engineering",
+    period: "2020 – 2024",
     icon: <FaGraduationCap className="text-indigo-400" />,
     description: "Specialized in enterprise software architecture, advanced data structures, and full-stack system design."
   },
   {
-    school: "SEVAMANDIR MATRIC HR SEC SCHOOL",
+    school: "SEVAMANDIR MATRICULATION HIGHER SECONDARY SCHOOL",
     qualification: "Computer Science",
-    period: "2019 - 2020",
+    period: "2019 – 2020",
     icon: <FaGraduationCap className="text-indigo-400" />,
     description: "Foundational studies in algorithms, logical problem solving, and computational fundamentals."
   },
   {
-    school: "SEVAMANDIR MATRIC HR SEC SCHOOL",
-    qualification: "State Board",
-    period: "2017 - 2018",
+    school: "SEVAMANDIR MATRICULATION HIGHER SECONDARY SCHOOL",
+    qualification: "SSLC - State Board",
+    period: "2017 – 2018",
     icon: <FaGraduationCap className="text-indigo-400" />,
     description: "Completed State Board curriculum with a strong foundation in core subjects such as Mathematics, Science, and English, developing analytical thinking and problem-solving skills."
   }
@@ -95,7 +95,7 @@ const additionalCourses: EducationItem[] = [
   {
     school: "QSPIDERS",
     qualification: "Java Full Stack Development",
-    period: "2024 - 2025",
+    period: "2024 – 2025",
     icon: <FaGraduationCap className="text-teal-400" />,
     description: "Intensive six-month specialized training in enterprise Java, Spring Boot architecture, and full-stack integration."
   },
@@ -105,6 +105,23 @@ const additionalCourses: EducationItem[] = [
     period: "2024",
     icon: <FaGraduationCap className="text-teal-400" />,
     description: "Advanced certification in Python programming, focusing on algorithmic problem solving and data processing fundamentals."
+  }
+];
+
+const awards: EducationItem[] = [
+  {
+    school: "CARE COLLEGE OF ENGINEERING AND TECHNOLOGY, TRICHY",
+    qualification: "Project Showcase: Parental Control",
+    period: "2024",
+    icon: <FaGraduationCap className="text-amber-500" />,
+    description: "Awarded for the development of a comprehensive Parental Control system designed to ensure digital safety and secure content filtering for students."
+  },
+  {
+    school: "NATIONAL LEVEL TECHNICAL SYMPOSIUM",
+    qualification: "Technical Paper Presentation",
+    period: "2023",
+    icon: <FaGraduationCap className="text-amber-500" />,
+    description: "Presented a research paper on 'AI-Powered Hostel Management Systems'—showcasing the integration of intelligent automation and predictive analytics into enterprise campus operations."
   }
 ];
 
@@ -195,7 +212,15 @@ const Experience: React.FC = () => {
                       </div>
                       <div>
                         <h4 className="text-2xl font-extrabold text-slate-900 tracking-tight">{exp.title}</h4>
-                        <p className="text-teal-600 font-bold uppercase text-xs tracking-widest">{exp.company}</p>
+                        <p className="text-teal-600 font-bold uppercase text-xs tracking-widest">
+                          {exp.companyUrl && exp.companyUrl !== "#" ? (
+                            <a href={exp.companyUrl} target="_blank" rel="noopener noreferrer" className="hover:text-teal-500 transition-colors">
+                              {exp.company}
+                            </a>
+                          ) : (
+                            exp.company
+                          )}
+                        </p>
                       </div>
                     </div>
                     <span className="px-5 py-2 bg-slate-50 rounded-full text-slate-500 text-xs font-black border border-slate-200 uppercase tracking-widest shadow-sm">
@@ -238,7 +263,7 @@ const Experience: React.FC = () => {
                     animate={{ y: [0, -6, 0] }}
                     transition={{
                       y: {
-                        duration: 3 + idx * 1.2,
+                        duration: 4 + idx * 1.5,
                         repeat: Infinity,
                         ease: "easeInOut"
                       }
@@ -250,7 +275,7 @@ const Experience: React.FC = () => {
                     <div className="space-y-2">
                       <span className="text-indigo-600 text-xs font-bold uppercase tracking-widest">{edu.period}</span>
                       <h4 className="text-lg font-bold text-slate-900 leading-tight">{edu.school}</h4>
-                      <p className="text-slate-600 text-sm">{edu.qualification}</p>
+                      <p className="text-slate-600 text-sm font-semibold">{edu.qualification}</p>
                       {edu.description && <p className="text-slate-500 text-xs italic mt-2">{edu.description}</p>}
                     </div>
                   </motion.div>
@@ -273,7 +298,7 @@ const Experience: React.FC = () => {
                     animate={{ y: [0, -6, 0] }}
                     transition={{
                       y: {
-                        duration: 3.5 + idx * 1.2,
+                        duration: 4 + idx * 1.5,
                         repeat: Infinity,
                         ease: "easeInOut"
                       }
@@ -285,8 +310,43 @@ const Experience: React.FC = () => {
                     <div className="space-y-2">
                       <span className="text-teal-600 text-xs font-bold uppercase tracking-widest">{edu.period}</span>
                       <h4 className="text-lg font-bold text-slate-900 leading-tight">{edu.school}</h4>
-                      <p className="text-slate-600 text-sm">{edu.qualification}</p>
+                      <p className="text-slate-600 text-sm font-semibold">{edu.qualification}</p>
                       {edu.description && <p className="text-slate-500 text-xs italic mt-2">{edu.description}</p>}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* 04 Awards & Recognition */}
+            <div className="space-y-8">
+              <h3 className="text-2xl font-bold text-slate-900 mb-8 flex items-center gap-3">
+                <span className="w-8 h-8 bg-amber-500/10 rounded-lg flex items-center justify-center text-amber-600 text-sm">04</span>
+                Awards & Projects
+              </h3>
+
+              <div className="relative pl-8 space-y-12 before:absolute before:left-0 before:top-2 before:bottom-2 before:w-px before:bg-gradient-to-b before:from-amber-500 before:to-transparent">
+                {awards.map((award, idx) => (
+                  <motion.div 
+                    key={idx}
+                    variants={itemVariants}
+                    animate={{ y: [0, -6, 0] }}
+                    transition={{
+                      y: {
+                        duration: 4 + idx * 1.5,
+                        repeat: Infinity,
+                        ease: "easeInOut"
+                      }
+                    }}
+                    whileHover={{ scale: 1.02, x: 6 }}
+                    className="relative"
+                  >
+                    <div className="absolute -left-[37px] top-1 w-4 h-4 rounded-full bg-white border-2 border-amber-500 z-10 shadow-sm" />
+                    <div className="space-y-2">
+                      <span className="text-amber-600 text-xs font-bold uppercase tracking-widest">{award.period}</span>
+                      <h4 className="text-lg font-bold text-slate-900 leading-tight">{award.school}</h4>
+                      <p className="text-slate-600 text-sm font-semibold">{award.qualification}</p>
+                      {award.description && <p className="text-slate-500 text-xs italic mt-2">{award.description}</p>}
                     </div>
                   </motion.div>
                 ))}
