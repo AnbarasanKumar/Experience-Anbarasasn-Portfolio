@@ -5,6 +5,8 @@ import AboutSection from './AboutSection';
 import SkillsSection from './SkillsSection';
 import Experience from './Experience'; 
 import ProjectsSection from './ProjectsSection';
+import MethodologySection from './MethodologySection';
+import ServicesSection from './ServicesSection';
 import TestimonialsSection from './TestimonialsSection';
 import Footer from './Footer';
 import FloatingWhatsAppButton from './FloatingWhatsAppButton';
@@ -48,6 +50,12 @@ const AppLayout: React.FC = () => {
         </section>
         <section aria-labelledby="experience-heading">
           <Experience /> 
+        </section>
+        <section aria-labelledby="methodology-heading">
+          <MethodologySection />
+        </section>
+        <section aria-labelledby="services-heading">
+          <ServicesSection />
         </section>
         <section aria-labelledby="projects-heading">
           <ProjectsSection />
