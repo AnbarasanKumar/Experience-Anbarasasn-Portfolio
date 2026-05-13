@@ -8,19 +8,19 @@ const TestimonialsSection: React.FC = () => {
   const testimonials = [
     {
       name: 'Technical Mentor',
-      position: 'Software Engineering Review',
+      position: 'Architecture & Logic Review',
       content: 'The e-commerce platform built by Anbarasan showcases solid full-stack development skills. The application effectively integrates Java backend services with MySQL.',
       rating: 5,
     },
     {
       name: 'Project Reviewer',
-      position: 'Academic Project Evaluation',
+      position: 'Technical Excellence Evaluation',
       content: 'Anbarasan designed and implemented a robust Course Registration System using Java and Spring Boot. Strong backend architecture and RESTful APIs.',
       rating: 5,
     },
     {
       name: 'System Architect',
-      position: 'Technical Portfolio Review',
+      position: 'Team Lead',
       content: 'The Hostel Management System developed by Anbarasan demonstrates exceptional full-stack expertise. The integration of React with a robust Spring Boot backend is highly impressive.',
       rating: 5,
     },

@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaServer, FaDesktop, FaCode, FaEnvelope, FaGraduationCap } from "react-icons/fa";
+import { FaServer, FaDesktop, FaCode, FaEnvelope, FaGraduationCap, FaAward, FaTrophy } from "react-icons/fa";
 
 interface ExperienceItem {
   title: string;
@@ -113,14 +113,14 @@ const awards: EducationItem[] = [
     school: "CARE COLLEGE OF ENGINEERING AND TECHNOLOGY, TRICHY",
     qualification: "Project Showcase: Parental Control",
     period: "2024",
-    icon: <FaGraduationCap className="text-amber-500" />,
+    icon: <FaTrophy className="text-amber-500" />,
     description: "Awarded for the development of a comprehensive Parental Control system designed to ensure digital safety and secure content filtering for students."
   },
   {
     school: "NATIONAL LEVEL TECHNICAL SYMPOSIUM",
     qualification: "Technical Paper Presentation",
     period: "2023",
-    icon: <FaGraduationCap className="text-amber-500" />,
+    icon: <FaAward className="text-amber-500" />,
     description: "Presented a research paper on 'AI-Powered Hostel Management Systems'—showcasing the integration of intelligent automation and predictive analytics into enterprise campus operations."
   }
 ];
@@ -214,7 +214,13 @@ const Experience: React.FC = () => {
                         <h4 className="text-2xl font-extrabold text-slate-900 tracking-tight">{exp.title}</h4>
                         <p className="text-teal-600 font-bold uppercase text-xs tracking-widest">
                           {exp.companyUrl && exp.companyUrl !== "#" ? (
-                            <a href={exp.companyUrl} target="_blank" rel="noopener noreferrer" className="hover:text-teal-500 transition-colors">
+                            <a 
+                              href={exp.companyUrl} 
+                              target="_blank" 
+                              rel="noopener noreferrer" 
+                              title={`Visit ${exp.company} official website`}
+                              className="hover:text-teal-500 transition-colors"
+                            >
                               {exp.company}
                             </a>
                           ) : (

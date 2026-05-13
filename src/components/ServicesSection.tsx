@@ -9,7 +9,7 @@ const services = [
     icon: <FaCogs />,
     color: 'from-blue-600 to-indigo-600',
     solutions: [
-      'Architecting Scalable eCommerce Platforms',
+      'Architecting Scalable E-Commerce Platforms',
       'Modular Management Portals (Hostel & Course)',
       'Custom ERP & Enterprise CRM Integrations',
       'High-Performance Progressive Web Apps (PWAs)'

@@ -174,7 +174,7 @@ const AboutSection: React.FC = () => {
                       whileHover={{ scale: 1.15, rotate: i % 2 === 0 ? 3 : -3, zIndex: 20 }}
                       className="h-24 rounded-xl overflow-hidden shadow-md border border-slate-100 relative"
                     >
-                      <img src={img} alt="Detail" className="w-full h-full object-cover" />
+                      <img src={img} alt={`${item.title} implementation detail - ${i + 1}`} className="w-full h-full object-cover" />
                     </motion.div>
                   ))}
                 </div>

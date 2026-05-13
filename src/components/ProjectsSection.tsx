@@ -138,11 +138,12 @@ const ProjectsSection: React.FC = () => {
                 </div>
                 
                 <div className="flex gap-4">
-                  <motion.a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.05, backgroundColor: "rgba(0,0,0,0.02)" }}
+                    <motion.a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      title={`View ${project.title} source code on GitHub`}
+                      whileHover={{ scale: 1.05, backgroundColor: "rgba(0,0,0,0.02)" }}
                     whileTap={{ scale: 0.95 }}
                     className="flex-grow text-center text-slate-700 bg-slate-50 px-6 py-4 rounded-2xl font-bold border border-slate-200 transition-all text-sm uppercase tracking-wider"
                   >
@@ -153,6 +154,7 @@ const ProjectsSection: React.FC = () => {
                       href={project.liveUrl}
                       target="_blank"
                       rel="noopener noreferrer"
+                      title={`View live demo of ${project.title}`}
                       whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(79, 70, 229, 0.2)" }}
                       whileTap={{ scale: 0.95 }}
                       className="flex-grow text-center text-white bg-gradient-to-r from-indigo-600 to-teal-500 px-6 py-4 rounded-2xl font-bold transition-all text-sm uppercase tracking-wider shadow-lg shadow-indigo-600/20"
