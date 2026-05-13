@@ -227,6 +227,37 @@ const HeroSection: React.FC = () => {
           <div className="absolute w-[115%] h-[115%] rounded-full border border-teal-500/10 animate-[spin_25s_linear_infinite_reverse] pointer-events-none" />
           
           <div className="relative z-10">
+            {/* Thought/Innovation Orbs */}
+            <div className="absolute inset-0 pointer-events-none">
+              {[
+                { icon: <FaJava />, delay: 0, x: -100, y: -150, size: "text-2xl" },
+                { icon: <FaPython />, delay: 2, x: 120, y: -180, size: "text-xl" },
+                { icon: <SiJavascript />, delay: 1, x: -150, y: 50, size: "text-2xl" },
+                { icon: <motion.div animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 2, repeat: Infinity }} className="w-3 h-3 bg-teal-400 rounded-full" />, delay: 0.5, x: 180, y: 100, size: "" },
+                { icon: <motion.div animate={{ opacity: [0.2, 0.8, 0.2] }} transition={{ duration: 3, repeat: Infinity }} className="w-2 h-2 bg-indigo-400 rounded-full" />, delay: 1.5, x: -80, y: 180, size: "" },
+              ].map((orb, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0 }}
+                  animate={{ 
+                    opacity: [0, 0.8, 0],
+                    x: [orb.x, orb.x + 20, orb.x],
+                    y: [orb.y, orb.y - 30, orb.y],
+                    scale: [0.8, 1.1, 0.8]
+                  }}
+                  transition={{ 
+                    duration: 5 + i, 
+                    repeat: Infinity, 
+                    delay: orb.delay,
+                    ease: "easeInOut" 
+                  }}
+                  className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 p-3 bg-white/10 backdrop-blur-md rounded-xl border border-white/20 text-teal-500 shadow-xl ${orb.size}`}
+                >
+                  {orb.icon}
+                </motion.div>
+              ))}
+            </div>
+
             <motion.div
               animate={{ 
                 y: [0, -30, 0],
@@ -237,6 +268,14 @@ const HeroSection: React.FC = () => {
             >
               <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/40 to-teal-500/40 rounded-[4rem] blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
               <div className="absolute -inset-1 bg-gradient-to-tr from-indigo-500 to-teal-500 rounded-[4rem] opacity-20 blur group-hover:opacity-40 transition duration-1000" />
+              
+              {/* Thinking Halo Effect */}
+              <motion.div 
+                animate={{ scale: [1, 1.1, 1], opacity: [0.1, 0.3, 0.1] }}
+                transition={{ duration: 4, repeat: Infinity }}
+                className="absolute -top-10 left-1/2 -translate-x-1/2 w-40 h-40 bg-teal-400/20 blur-[60px] rounded-full pointer-events-none"
+              />
+
               <img 
                 src="Anbarasan-image.png" 
                 alt="Anbarasan Kumar"
