@@ -125,7 +125,7 @@ const ContactSection: React.FC = () => {
               style={{ 
                 animation: "float-form 6s ease-in-out infinite"
               }}
-              className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white p-8 md:p-12 rounded-[2rem] border border-slate-200 shadow-2xl"
+              className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white p-6 md:p-8 rounded-3xl border border-slate-200 shadow-xl"
             >
               <div className="space-y-6">
                 <div>

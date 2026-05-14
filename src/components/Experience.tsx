@@ -201,7 +201,7 @@ const Experience: React.FC = () => {
                     scale: 1.01,
                     boxShadow: "0 30px 60px -12px rgba(20, 184, 166, 0.2)"
                   }}
-                  className="bg-white rounded-[2.5rem] p-10 border border-slate-200 hover:border-teal-500/30 transition-all duration-300 shadow-xl group relative overflow-hidden"
+                  className="bg-white rounded-3xl p-7 border border-slate-200 hover:border-teal-500/30 transition-all duration-300 shadow-lg group relative overflow-hidden"
                 >
                   <div className="absolute top-0 right-0 w-32 h-32 bg-teal-500/5 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
                   

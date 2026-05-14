@@ -93,7 +93,7 @@ const SkillsSection: React.FC = () => {
                 scale: 1.03,
                 boxShadow: "0 25px 50px -12px rgba(20, 184, 166, 0.25)"
               }}
-              className="bg-white p-10 rounded-[3rem] border border-slate-200 shadow-xl hover:border-teal-500/40 transition-all duration-500 group relative overflow-hidden"
+              className="bg-white p-7 rounded-3xl border border-slate-200 shadow-lg hover:border-teal-500/40 transition-all duration-500 group relative overflow-hidden"
             >
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-teal-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               <h3 className="text-xl font-extrabold text-slate-900 mb-10 group-hover:text-teal-600 transition-colors duration-300 tracking-[0.2em] uppercase text-xs">

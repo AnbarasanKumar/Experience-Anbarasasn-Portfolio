@@ -121,7 +121,7 @@ const HeroSection: React.FC = () => {
         />
       </div>
 
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center relative z-10 w-full py-20 md:py-0">
+      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center relative z-10 w-full py-20 md:py-0">
         <motion.div 
           variants={containerVariants}
           initial="hidden"
@@ -183,7 +183,7 @@ const HeroSection: React.FC = () => {
             </motion.button>
             <motion.button 
               onClick={() => {
-                const el = document.getElementById('connect');
+                const el = document.getElementById('contact');
                 if (el) el.scrollIntoView({ behavior: 'smooth' });
               }}
               whileHover={{ scale: 1.05, y: -2, backgroundColor: "rgba(20, 184, 166, 0.05)" }}
@@ -196,7 +196,7 @@ const HeroSection: React.FC = () => {
 
           <motion.div variants={itemVariants} className="pt-12 space-y-6">
             <p className="text-xs uppercase tracking-[0.3em] text-slate-400 font-bold">Tech Stack Expertise</p>
-            <div className="overflow-hidden relative w-full h-24 group">
+            <div className="overflow-hidden relative w-full h-20 group">
               <motion.div
                 className="absolute flex gap-4 md:gap-8"
                 animate={{ x: ['0%', '-50%'] }}
@@ -206,7 +206,7 @@ const HeroSection: React.FC = () => {
                   <motion.div 
                     key={i} 
                     whileHover={{ scale: 1.1, backgroundColor: "rgba(0,0,0,0.05)" }}
-                    className="text-3xl md:text-4xl text-slate-400 hover:text-slate-900 transition-all duration-300 bg-slate-100 p-4 md:p-5 rounded-2xl border border-slate-200 cursor-pointer shadow-sm"
+                    className="text-3xl md:text-4xl text-slate-400 hover:text-slate-900 transition-all duration-300 bg-slate-100 p-3 md:p-4 rounded-2xl border border-slate-200 cursor-pointer shadow-sm"
                   >
                     <t.icon />
                   </motion.div>
@@ -266,8 +266,8 @@ const HeroSection: React.FC = () => {
               transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
               className="relative group"
             >
-              <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/40 to-teal-500/40 rounded-[4rem] blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-              <div className="absolute -inset-1 bg-gradient-to-tr from-indigo-500 to-teal-500 rounded-[4rem] opacity-20 blur group-hover:opacity-40 transition duration-1000" />
+              <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/40 to-teal-500/40 rounded-[3rem] blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+              <div className="absolute -inset-1 bg-gradient-to-tr from-indigo-500 to-teal-500 rounded-[3rem] opacity-20 blur group-hover:opacity-40 transition duration-1000" />
               
               {/* Thinking Halo Effect */}
               <motion.div 
@@ -279,10 +279,10 @@ const HeroSection: React.FC = () => {
               <img 
                 src="Anbarasan-image.png" 
                 alt="Anbarasan Kumar"
-                className="w-80 h-80 md:w-[500px] md:h-[500px] object-cover rounded-[4rem] border-2 border-white shadow-2xl relative z-10 transition-transform duration-700 group-hover:scale-[1.02]"
+                className="w-72 h-72 md:w-[450px] md:h-[450px] object-cover rounded-[3rem] border-2 border-white shadow-2xl relative z-10 transition-transform duration-700 group-hover:scale-[1.02]"
               />
               {/* Professional Role Overlay */}
-              <div className="absolute inset-0 z-20 opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-[4rem] flex flex-col items-center justify-center bg-white/20 backdrop-blur-2xl p-8 text-center border-4 border-white/40 shadow-[inset_0_0_100px_rgba(255,255,255,0.2)]">
+              <div className="absolute inset-0 z-20 opacity-0 group-hover:opacity-100 transition-all duration-500 rounded-[3rem] flex flex-col items-center justify-center bg-white/20 backdrop-blur-2xl p-8 text-center border-4 border-white/40 shadow-[inset_0_0_100px_rgba(255,255,255,0.2)]">
                 <motion.div
                   initial={{ y: 30, opacity: 0 }}
                   whileHover={{ y: 0, opacity: 1 }}

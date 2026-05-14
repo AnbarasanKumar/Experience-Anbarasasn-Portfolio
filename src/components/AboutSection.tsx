@@ -89,7 +89,7 @@ const AboutSection: React.FC = () => {
                 rotate: idx % 2 === 0 ? 1 : -1,
                 boxShadow: "0 25px 50px -12px rgba(20, 184, 166, 0.25)"
               }}
-              className="bg-white p-8 rounded-[2.5rem] border border-slate-200 text-center shadow-xl group hover:border-teal-500/50 transition-all duration-500 relative overflow-hidden"
+              className="bg-white p-6 rounded-3xl border border-slate-200 text-center shadow-lg group hover:border-teal-500/50 transition-all duration-500 relative overflow-hidden"
             >
               {/* Card Glow Effect */}
               <div className="absolute -inset-1 bg-gradient-to-r from-teal-500 to-indigo-600 rounded-[2.5rem] opacity-0 group-hover:opacity-10 blur transition duration-500" />
@@ -161,7 +161,7 @@ const AboutSection: React.FC = () => {
                   visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } }
                 }}
                 whileHover={{ y: -8, scale: 1.02 }}
-                className="bg-white p-8 rounded-[2rem] border border-slate-200 space-y-6 shadow-xl hover:border-teal-500/30 transition-all duration-500"
+                className="bg-white p-6 rounded-3xl border border-slate-200 space-y-4 shadow-lg hover:border-teal-500/30 transition-all duration-500"
               >
                 <div className="space-y-2">
                   <h4 className="text-xl font-bold text-teal-600">{item.title}</h4>

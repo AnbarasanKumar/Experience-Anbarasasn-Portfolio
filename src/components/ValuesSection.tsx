@@ -73,7 +73,7 @@ const ValuesSection: React.FC = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1, duration: 0.6 }}
               whileHover={{ y: -10 }}
-              className="bg-white/70 backdrop-blur-xl p-8 rounded-[2.5rem] border border-slate-200 shadow-xl hover:border-indigo-500/30 transition-all duration-500 group relative overflow-hidden"
+              className="bg-white/70 backdrop-blur-xl p-6 rounded-3xl border border-slate-200 shadow-lg hover:border-indigo-500/30 transition-all duration-500 group relative overflow-hidden"
             >
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-indigo-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
               

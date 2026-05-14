@@ -58,7 +58,7 @@ const MethodologySection: React.FC = () => {
               viewport={{ once: true }}
               transition={{ delay: index * 0.2 }}
               whileHover={{ y: -10 }}
-              className="bg-white/80 backdrop-blur-xl p-10 rounded-[2.5rem] border border-slate-200 shadow-xl group hover:border-teal-500/30 transition-all duration-500 relative overflow-hidden"
+              className="bg-white/80 backdrop-blur-xl p-7 rounded-3xl border border-slate-200 shadow-lg group hover:border-teal-500/30 transition-all duration-500 relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 p-8">
                 <span className="text-6xl font-black text-slate-100 group-hover:text-teal-50 transition-colors duration-500">

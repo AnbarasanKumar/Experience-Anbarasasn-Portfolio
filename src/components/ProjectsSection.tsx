@@ -102,9 +102,9 @@ const ProjectsSection: React.FC = () => {
                 scale: 1.02,
                 boxShadow: "0 40px 80px -15px rgba(79, 70, 229, 0.25)"
               }}
-              className="group relative bg-white rounded-[2.5rem] overflow-hidden border border-slate-200 shadow-xl transition-all duration-500 hover:border-teal-500/30"
+              className="group relative bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-lg transition-all duration-500 hover:border-teal-500/30"
             >
-              <div className="relative h-72 overflow-hidden">
+              <div className="relative h-60 overflow-hidden">
                 <img 
                   src={project.image} 
                   alt={project.title}
@@ -120,7 +120,7 @@ const ProjectsSection: React.FC = () => {
                 </div>
               </div>
               
-              <div className="p-10">
+              <div className="p-7">
                 <h3 className="text-2xl font-extrabold text-slate-900 mb-4 group-hover:text-teal-600 transition-colors duration-300">{project.title}</h3>
                 <p className="text-slate-600 mb-8 leading-relaxed line-clamp-4 group-hover:text-slate-700 transition-colors duration-300 text-sm">
                   {project.description}

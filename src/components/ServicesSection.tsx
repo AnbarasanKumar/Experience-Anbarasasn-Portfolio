@@ -81,7 +81,7 @@ const ServicesSection: React.FC = () => {
                 y: -12,
                 boxShadow: "0 40px 80px -15px rgba(0,0,0,0.1)"
               }}
-              className="bg-slate-50 p-10 rounded-[3rem] border border-slate-100 hover:border-teal-500/20 transition-all duration-500 group cursor-pointer"
+              className="bg-slate-50 p-7 rounded-3xl border border-slate-100 hover:border-teal-500/20 transition-all duration-500 group cursor-pointer"
             >
               <div className={`w-20 h-20 rounded-[2rem] bg-gradient-to-br ${service.color} flex items-center justify-center text-3xl text-white mb-8 shadow-lg group-hover:rotate-6 transition-transform duration-500`}>
                 {service.icon}
@@ -160,7 +160,7 @@ const ServicesSection: React.FC = () => {
                 <button 
                   onClick={() => {
                     setSelectedService(null);
-                    document.getElementById('connect')?.scrollIntoView({ behavior: 'smooth' });
+                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
                   }}
                   className="bg-slate-900 text-white px-10 py-4 rounded-2xl font-bold uppercase tracking-widest text-xs hover:bg-teal-600 transition-colors shadow-lg"
                 >

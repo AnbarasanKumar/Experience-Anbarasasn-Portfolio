@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
     { label: "Skills", id: "skills" },
     { label: "Experience", id: "experience" },
     { label: "Projects", id: "projects" },
-    { label: "Connect", id: "connect" },
+    { label: "Connect", id: "contact" },
   ];
 
   const scrollToSection = (id: string) => {
@@ -163,7 +163,7 @@ const Footer: React.FC = () => {
 
           {/* QR Column */}
           <motion.div 
-            id="connect"
+            id="contact"
             variants={{
               hidden: { opacity: 0, scale: 0.9 },
               visible: { opacity: 1, scale: 1, transition: { duration: 0.6 } }

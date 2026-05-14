@@ -12,7 +12,7 @@ const NAV_ITEMS = [
   { label: "Services", id: "services" },
   { label: "Philosophy", id: "values" },
   { label: "Projects", id: "projects" },
-  { label: "Connect", id: "connect" },
+  { label: "Connect", id: "contact" },
 ];
 
 const NAVBAR_HEIGHT = 80;
@@ -70,13 +70,22 @@ const Navigation: React.FC = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Prevent scrolling when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+  }, [isMobileMenuOpen]);
+
   return (
     <>
       {/* Profile picture */}
       <motion.div 
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="fixed top-3 left-4 md:top-4 md:left-6 z-50 w-10 h-10 md:w-14 md:h-14 rounded-full border-2 border-indigo-600/50 shadow-2xl overflow-hidden backdrop-blur-sm"
+        className="fixed top-3 left-4 md:top-4 md:left-6 z-[60] w-10 h-10 md:w-14 md:h-14 rounded-full border-2 border-indigo-600/50 shadow-2xl overflow-hidden backdrop-blur-sm pointer-events-auto"
       >
         <img
           src="Anbarasan%20logo.png" 
@@ -87,13 +96,13 @@ const Navigation: React.FC = () => {
 
       {/* Navbar */}
       <nav
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           isScrolled 
-            ? "py-4 bg-white/80 backdrop-blur-xl border-b border-slate-200 shadow-lg" 
+            ? "py-4 bg-white/90 backdrop-blur-xl border-b border-slate-200 shadow-lg" 
             : "py-6 bg-transparent"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-8 flex justify-end items-center">
+        <div className="max-w-7xl mx-auto px-6 md:px-8 flex justify-end items-center">
           <motion.div 
             initial="hidden"
             animate="visible"
@@ -131,11 +140,12 @@ const Navigation: React.FC = () => {
           </motion.div>
 
           <button
-            className="md:hidden p-2 text-slate-500 hover:text-slate-900 transition-colors"
+            className="md:hidden p-2 text-slate-500 hover:text-slate-900 transition-colors z-[70] relative"
             onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+            aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
           >
             <svg
-              className="w-7 h-7"
+              className="w-8 h-8"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -154,16 +164,17 @@ const Navigation: React.FC = () => {
           </button>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu Overlay */}
         <AnimatePresence>
           {isMobileMenuOpen && (
             <motion.div 
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              className="md:hidden bg-white border-b border-slate-200 shadow-2xl overflow-hidden"
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3 }}
+              className="md:hidden fixed inset-0 top-0 left-0 w-full h-screen bg-white z-[65] flex flex-col pt-24 px-8 overflow-y-auto"
             >
-              <div className="px-6 py-8 flex flex-col space-y-4">
+              <div className="flex flex-col space-y-4 pb-20">
                 {NAV_ITEMS.map((item, idx) => (
                   <motion.button
                     key={item.id}
@@ -171,15 +182,23 @@ const Navigation: React.FC = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: 0.1 + idx * 0.05 }}
                     onClick={() => scrollToSection(item.id)}
-                    className={`px-6 py-4 rounded-2xl font-bold text-left transition-all
+                    className={`px-8 py-5 rounded-2xl font-bold text-left text-lg transition-all
                       ${
                         activeSection === item.id
-                          ? "bg-indigo-600 text-white shadow-lg shadow-indigo-600/20"
-                          : "text-slate-500 bg-slate-50 hover:text-slate-900"
+                          ? "bg-indigo-600 text-white shadow-xl shadow-indigo-600/20"
+                          : "text-slate-500 bg-slate-50 hover:text-slate-900 border border-slate-100"
                       }
                     `}
                   >
-                    {item.label}
+                    <div className="flex items-center justify-between">
+                      {item.label}
+                      {activeSection === item.id && (
+                        <motion.div 
+                          layoutId="mobileNavActive"
+                          className="w-2 h-2 bg-white rounded-full"
+                        />
+                      )}
+                    </div>
                   </motion.button>
                 ))}
               </div>
