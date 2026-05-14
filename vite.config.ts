@@ -4,11 +4,11 @@ import path from "path";
 
 export default defineConfig({
   // CHANGED THIS: Removed the folder name for Render
-  base: "/", 
+  base: "/",
   server: {
     host: "0.0.0.0",
-    port: 5173,
-    allowedHosts: true, 
+    port: 5174,
+    allowedHosts: true,
     fs: {
       strict: false
     }
