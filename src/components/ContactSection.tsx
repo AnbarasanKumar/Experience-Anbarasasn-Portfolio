@@ -59,7 +59,7 @@ const ContactSection: React.FC = () => {
   return (
     <section
       id="contact"
-      className="relative py-24 min-h-[90vh] overflow-hidden bg-gradient-to-br from-emerald-50 via-green-50/70 to-teal-50/50 flex items-center justify-center"
+      className="relative py-16 md:py-20 min-h-[75vh] overflow-hidden bg-gradient-to-br from-emerald-50 via-green-50/70 to-teal-50/50 flex items-center justify-center"
     >
       {/* Dynamic Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -81,7 +81,7 @@ const ContactSection: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-10 md:mb-12"
         >
           <h2 id="contact-heading" className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-600 to-indigo-600 mb-6">
             Let's Build Something Exceptional

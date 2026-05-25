@@ -55,7 +55,7 @@ const ProjectsSection: React.FC = () => {
   };
 
   return (
-    <section id="projects" className="py-24 bg-gradient-to-br from-blue-50 via-sky-50/80 to-indigo-50/50 relative overflow-hidden">
+    <section id="projects" className="py-16 md:py-20 bg-gradient-to-br from-blue-50 via-sky-50/80 to-indigo-50/50 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500/5 blur-[120px] rounded-full pointer-events-none" />
       
@@ -64,7 +64,7 @@ const ProjectsSection: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-16"
         >
           <h2 id="projects-heading" className="text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-indigo-600 mb-6">Featured Engineering</h2>
           <div className="w-24 h-1.5 bg-gradient-to-r from-indigo-600 to-teal-500 mx-auto mb-8 rounded-full"></div>

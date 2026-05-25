@@ -146,7 +146,7 @@ const Experience: React.FC = () => {
   };
 
   return (
-    <section id="experience" className="relative py-24 bg-gradient-to-br from-amber-50 via-orange-50/60 to-yellow-50/40 overflow-hidden">
+    <section id="experience" className="relative py-16 md:py-20 bg-gradient-to-br from-amber-50 via-orange-50/60 to-yellow-50/40 overflow-hidden">
       {/* Background Orbs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-1/4 -left-20 w-96 h-96 bg-teal-500/5 blur-[100px] rounded-full" />
@@ -158,7 +158,7 @@ const Experience: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-16"
         >
           <h2 id="experience-heading" className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-600 to-indigo-600 mb-6">
             Professional Journey
@@ -252,7 +252,7 @@ const Experience: React.FC = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="lg:col-span-4 space-y-16"
+            className="lg:col-span-4 space-y-10 md:space-y-12"
           >
             {/* 02 Education */}
             <div className="space-y-8">

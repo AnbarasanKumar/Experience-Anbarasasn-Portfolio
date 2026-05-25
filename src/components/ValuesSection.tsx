@@ -35,7 +35,7 @@ const engineeringValues = [
 
 const ValuesSection: React.FC = () => {
   return (
-    <section id="values" className="py-24 bg-gradient-to-br from-slate-50 via-white to-slate-50 relative overflow-hidden">
+    <section id="values" className="py-16 md:py-20 bg-gradient-to-br from-slate-50 via-white to-slate-50 relative overflow-hidden">
       {/* Background Decorative Elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <motion.div 
@@ -55,7 +55,7 @@ const ValuesSection: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-16"
         >
           <p className="text-indigo-600 font-black text-sm uppercase tracking-[0.4em] mb-4 text-center">Core Philosophy</p>
           <h2 id="values-heading" className="text-4xl md:text-5xl font-black text-slate-900 mb-6 text-center">

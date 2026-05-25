@@ -39,7 +39,7 @@ const AboutSection: React.FC = () => {
   };
 
   return (
-    <section id="about" className="py-24 bg-gradient-to-br from-indigo-50 via-violet-50/60 to-indigo-100/40 relative overflow-hidden flex items-center justify-center">
+    <section id="about" className="py-16 md:py-20 bg-gradient-to-br from-indigo-50 via-violet-50/60 to-indigo-100/40 relative overflow-hidden flex items-center justify-center">
       {/* Background decoration */}
       <div className="absolute inset-0 pointer-events-none">
         <motion.div 
@@ -61,7 +61,7 @@ const AboutSection: React.FC = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 mb-24"
+          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 mb-12 md:mb-16"
         >
           {stats.map((stat, idx) => (
             <motion.div

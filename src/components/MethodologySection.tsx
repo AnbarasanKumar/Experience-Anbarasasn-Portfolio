@@ -28,7 +28,7 @@ const methodologySteps = [
 
 const MethodologySection: React.FC = () => {
   return (
-    <section id="methodology" className="py-24 bg-gradient-to-br from-slate-50 to-indigo-50/30 relative overflow-hidden">
+    <section id="methodology" className="py-16 md:py-20 bg-gradient-to-br from-slate-50 to-indigo-50/30 relative overflow-hidden">
       {/* Decorative Orbs */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-teal-500/5 blur-[120px] rounded-full pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-indigo-500/5 blur-[120px] rounded-full pointer-events-none" />
@@ -38,7 +38,7 @@ const MethodologySection: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-16"
         >
           <h2 id="methodology-heading" className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-600 to-indigo-600 mb-6 uppercase tracking-tight">
             Strategic Methodology

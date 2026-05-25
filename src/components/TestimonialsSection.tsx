@@ -48,7 +48,7 @@ const TestimonialsSection: React.FC = () => {
   };
 
   return (
-    <section id="testimonials" className="relative py-24 overflow-hidden bg-gradient-to-br from-rose-50 via-pink-50/70 to-fuchsia-50/40">
+    <section id="testimonials" className="relative py-16 md:py-20 overflow-hidden bg-gradient-to-br from-rose-50 via-pink-50/70 to-fuchsia-50/40">
       {/* Background decoration */}
       <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-indigo-500/5 blur-[100px] rounded-full pointer-events-none" />
 
@@ -57,7 +57,7 @@ const TestimonialsSection: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-16"
         >
           <h2 id="testimonials-heading" className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-600 to-indigo-600 mb-6">Peer Recognition</h2>
           <div className="w-24 h-1.5 bg-gradient-to-r from-indigo-600 to-teal-500 mx-auto rounded-full"></div>

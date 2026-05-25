@@ -50,13 +50,13 @@ const SkillsSection: React.FC = () => {
   };
 
   return (
-    <section id="skills" className="py-24 bg-gradient-to-br from-teal-50 via-cyan-50/80 to-emerald-50/50 relative overflow-hidden">
+    <section id="skills" className="py-16 md:py-20 bg-gradient-to-br from-teal-50 via-cyan-50/80 to-emerald-50/50 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-16"
         >
           <h2 id="skills-heading" className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-teal-600 to-indigo-600 mb-6">
             Technical Proficiency

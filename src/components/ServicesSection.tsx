@@ -45,7 +45,7 @@ const ServicesSection: React.FC = () => {
   const [selectedService, setSelectedService] = useState<typeof services[0] | null>(null);
 
   return (
-    <section id="services" className="py-24 bg-white relative overflow-hidden">
+    <section id="services" className="py-16 md:py-20 bg-white relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
         <div className="absolute -top-[10%] -right-[10%] w-[40%] h-[40%] bg-teal-500/5 blur-[120px] rounded-full" />
@@ -57,7 +57,7 @@ const ServicesSection: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-16"
         >
           <h2 id="services-heading" className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
             Strategic <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-indigo-600">Services & Solutions</span>
