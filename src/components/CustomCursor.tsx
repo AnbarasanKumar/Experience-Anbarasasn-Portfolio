@@ -10,7 +10,15 @@ const CustomCursor: React.FC = () => {
   const x = useSpring(cursorX, springConfig);
   const y = useSpring(cursorY, springConfig);
 
+  const springConfig2 = { damping: 20, stiffness: 250 };
+  const x2 = useSpring(cursorX, springConfig2);
+  const y2 = useSpring(cursorY, springConfig2);
+
   useEffect(() => {
+    // Only add listeners on desktop
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    if (isTouchDevice) return;
+
     const moveCursor = (e: MouseEvent) => {
       cursorX.set(e.clientX);
       cursorY.set(e.clientY);
@@ -31,8 +39,8 @@ const CustomCursor: React.FC = () => {
       }
     };
 
-    window.addEventListener("mousemove", moveCursor);
-    window.addEventListener("mouseover", handleHover);
+    window.addEventListener("mousemove", moveCursor, { passive: true });
+    window.addEventListener("mouseover", handleHover, { passive: true });
 
     return () => {
       window.removeEventListener("mousemove", moveCursor);
@@ -43,10 +51,10 @@ const CustomCursor: React.FC = () => {
   return (
     <>
       <motion.div
-        className="fixed top-0 left-0 w-8 h-8 rounded-full border-[3px] border-teal-600 pointer-events-none z-[9999] hidden md:block"
+        className="fixed top-0 left-0 w-8 h-8 rounded-full border-[3px] border-teal-600 pointer-events-none z-[9999] hidden md:block will-change-transform"
         style={{
-          x: useSpring(cursorX, { damping: 20, stiffness: 250 }),
-          y: useSpring(cursorY, { damping: 20, stiffness: 250 }),
+          x: x2,
+          y: y2,
           translateX: "-50%",
           translateY: "-50%",
           scale: isHovered ? 1.5 : 1,
@@ -54,7 +62,7 @@ const CustomCursor: React.FC = () => {
         }}
       />
       <motion.div
-        className="fixed top-0 left-0 w-2.5 h-2.5 bg-indigo-600 rounded-full pointer-events-none z-[9999] hidden md:block shadow-sm"
+        className="fixed top-0 left-0 w-2.5 h-2.5 bg-indigo-600 rounded-full pointer-events-none z-[9999] hidden md:block shadow-sm will-change-transform"
         style={{
           x,
           y,

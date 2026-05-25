@@ -102,13 +102,15 @@ const ProjectsSection: React.FC = () => {
                 scale: 1.02,
                 boxShadow: "0 40px 80px -15px rgba(79, 70, 229, 0.25)"
               }}
-              className="group relative bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-lg transition-all duration-500 hover:border-teal-500/30"
+              className="group relative bg-white rounded-3xl overflow-hidden border border-slate-200 shadow-lg transition-all duration-500 hover:border-teal-500/30 will-change-transform"
             >
               <div className="relative h-60 overflow-hidden">
                 <img 
                   src={project.image} 
                   alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-110"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-white via-transparent to-transparent opacity-80" />
                 <div className="absolute bottom-6 left-8">

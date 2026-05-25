@@ -151,7 +151,7 @@ const AboutSection: React.FC = () => {
               hidden: {},
               visible: { transition: { staggerChildren: 0.2 } }
             }}
-            className="space-y-8"
+            className="space-y-8 will-change-transform"
           >
             {bulletItems.map((item, idx) => (
               <motion.div 
@@ -161,7 +161,7 @@ const AboutSection: React.FC = () => {
                   visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } }
                 }}
                 whileHover={{ y: -8, scale: 1.02 }}
-                className="bg-white p-6 rounded-3xl border border-slate-200 space-y-4 shadow-lg hover:border-teal-500/30 transition-all duration-500"
+                className="bg-white p-6 rounded-3xl border border-slate-200 space-y-4 shadow-lg hover:border-teal-500/30 transition-all duration-500 will-change-transform"
               >
                 <div className="space-y-2">
                   <h4 className="text-xl font-bold text-teal-600">{item.title}</h4>
@@ -172,9 +172,15 @@ const AboutSection: React.FC = () => {
                     <motion.div 
                       key={i}
                       whileHover={{ scale: 1.15, rotate: i % 2 === 0 ? 3 : -3, zIndex: 20 }}
-                      className="h-24 rounded-xl overflow-hidden shadow-md border border-slate-100 relative"
+                      className="h-24 rounded-xl overflow-hidden shadow-md border border-slate-100 relative will-change-transform"
                     >
-                      <img src={img} alt={`${item.title} implementation detail - ${i + 1}`} className="w-full h-full object-cover" />
+                      <img 
+                        src={img} 
+                        alt={`${item.title} implementation detail - ${i + 1}`} 
+                        className="w-full h-full object-cover" 
+                        loading="lazy" 
+                        decoding="async" 
+                      />
                     </motion.div>
                   ))}
                 </div>

@@ -96,32 +96,28 @@ const HeroSection: React.FC = () => {
   };
 
   return (
-    <section id="hero" className="min-h-screen bg-gradient-to-br from-white via-indigo-50/40 to-teal-50/30 flex items-center justify-center px-6 relative overflow-hidden">
-      {/* Animated Background Mesh */}
-      <div className="absolute inset-0 z-0">
+    <section id="hero" className="min-h-screen bg-gradient-to-br from-white via-indigo-50/40 to-teal-50/30 flex flex-col justify-center pt-28 pb-12 md:pt-36 md:pb-20 px-6 relative overflow-hidden">
+      {/* Animated Background Mesh - Optimized */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <motion.div 
           style={{ y: y1 }}
-          animate={{ 
-            background: [
-              'radial-gradient(circle at 20% 20%, rgba(20, 184, 166, 0.05) 0%, transparent 50%)',
-              'radial-gradient(circle at 80% 80%, rgba(79, 70, 229, 0.05) 0%, transparent 50%)',
-              'radial-gradient(circle at 20% 20%, rgba(20, 184, 166, 0.05) 0%, transparent 50%)',
-            ],
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: 'linear' }}
-          className="absolute inset-0"
-        />
+          className="absolute inset-0 opacity-30 will-change-transform"
+        >
+          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_20%_20%,rgba(20,184,166,0.05)_0%,transparent_50%)]" />
+          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_80%_80%,rgba(79,70,229,0.05)_0%,transparent_50%)] animate-pulse" />
+        </motion.div>
+        
         <motion.div 
           style={{ y: y2 }}
-          className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-teal-500/5 blur-[120px] rounded-full"
+          className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-teal-500/5 blur-[80px] rounded-full will-change-transform"
         />
         <motion.div 
           style={{ y: y1 }}
-          className="absolute bottom-1/4 left-0 w-[600px] h-[600px] bg-indigo-500/5 blur-[120px] rounded-full"
+          className="absolute bottom-1/4 left-0 w-[500px] h-[500px] bg-indigo-500/5 blur-[80px] rounded-full will-change-transform"
         />
       </div>
 
-      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center relative z-10 w-full py-20 md:py-0">
+      <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center relative z-10 w-full py-6 md:py-10">
         <motion.div 
           variants={containerVariants}
           initial="hidden"
@@ -130,17 +126,7 @@ const HeroSection: React.FC = () => {
         >
           <div className="space-y-4">
             {/* Availability Badge */}
-            <motion.div
-              variants={itemVariants}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-teal-50 border border-teal-200 rounded-full"
-            >
-              <motion.span
-                animate={{ scale: [1, 1.4, 1], opacity: [1, 0.6, 1] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-                className="w-2 h-2 bg-teal-500 rounded-full"
-              />
-              <span className="text-teal-700 text-xs font-black uppercase tracking-widest">Available for Work</span>
-            </motion.div>
+
 
             <motion.h1 
               variants={itemVariants}
@@ -309,16 +295,7 @@ const HeroSection: React.FC = () => {
                     </div>
                   </div>
 
-                  <div className="pt-8">
-                    <motion.div 
-                      animate={{ scale: [1, 1.05, 1] }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                      className="inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 text-white rounded-2xl text-xs font-black uppercase tracking-widest shadow-xl shadow-indigo-600/30"
-                    >
-                      <span className="w-2 h-2 bg-teal-400 rounded-full animate-pulse" />
-                      Open for Collaboration
-                    </motion.div>
-                  </div>
+
                 </motion.div>
               </div>
             </motion.div>
