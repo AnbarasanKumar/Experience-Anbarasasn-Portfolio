@@ -96,7 +96,7 @@ const AboutSection: React.FC = () => {
             className="space-y-10"
           >
             <div className="space-y-4">
-              <h2 className="text-4xl md:text-5xl font-bold text-slate-900">
+              <h2 id="about-heading" className="text-4xl md:text-5xl font-bold text-slate-900">
                 Transforming <span className="text-teal-600">Vision</span> into Digital <span className="text-indigo-600">Reality</span>
               </h2>
               <div className="w-20 h-1.5 bg-teal-500 rounded-full" />

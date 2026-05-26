@@ -1,4 +1,4 @@
-import React, { useState, useEffect, memo } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence, Variants, useScroll, useTransform } from 'framer-motion';
 import {
   FaPython, FaJava, FaHtml5, FaCss3Alt, FaGitAlt,
@@ -7,29 +7,17 @@ import {
   SiMysql, SiJavascript,
 } from 'react-icons/si';
 
-const Icon = memo(({ icon: IconComp, title, color }: any) => (
-  <motion.div
-    className="relative group p-4 rounded-2xl bg-white/5 backdrop-blur-sm border border-white/5 hover:border-white/20 transition-all duration-300"
-    whileHover={{ y: -5, scale: 1.1 }}
-  >
-    <IconComp
-      title={title}
-      className={`text-gray-400 group-hover:text-white transition-colors duration-300`}
-    />
-  </motion.div>
-));
+const roles = [
+  'Full Stack Engineer',
+  'Java Specialist',
+  'Spring Boot Developer',
+  'React & Frontend Expert'
+];
 
 const HeroSection: React.FC = () => {
   const { scrollY } = useScroll();
   const y1 = useTransform(scrollY, [0, 500], [0, 200]);
   const y2 = useTransform(scrollY, [0, 500], [0, -150]);
-
-  const roles = [
-    'Full Stack Engineer',
-    'Java Specialist',
-    'Spring Boot Developer',
-    'React & Frontend Expert'
-  ];
 
   const [displayText, setDisplayText] = useState('');
   const [roleIndex, setRoleIndex] = useState(0);
@@ -61,7 +49,7 @@ const HeroSection: React.FC = () => {
       }
     }, speed);
     return () => clearTimeout(timer);
-  }, [displayText, isDeleting, roleIndex, roles, speed, isMobile]);
+  }, [displayText, isDeleting, roleIndex, speed, isMobile]);
 
   const techIcons = [
     { icon: FaPython, title: "Python" },

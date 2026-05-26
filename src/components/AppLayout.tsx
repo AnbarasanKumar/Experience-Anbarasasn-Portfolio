@@ -1,17 +1,18 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import Navigation from './Navigation';
 import HeroSection from './HeroSection';
 import AboutSection from './AboutSection';
 import SkillsSection from './SkillsSection';
-import Experience from './Experience'; 
-import ProjectsSection from './ProjectsSection';
-import MethodologySection from './MethodologySection';
-import ServicesSection from './ServicesSection';
-import TestimonialsSection from './TestimonialsSection';
-import ValuesSection from './ValuesSection';
-import ContactSection from './ContactSection';
-import Footer from './Footer';
-import FloatingWhatsAppButton from './FloatingWhatsAppButton';
+
+const Experience = lazy(() => import('./Experience'));
+const ProjectsSection = lazy(() => import('./ProjectsSection'));
+const MethodologySection = lazy(() => import('./MethodologySection'));
+const ServicesSection = lazy(() => import('./ServicesSection'));
+const TestimonialsSection = lazy(() => import('./TestimonialsSection'));
+const ValuesSection = lazy(() => import('./ValuesSection'));
+const ContactSection = lazy(() => import('./ContactSection'));
+const Footer = lazy(() => import('./Footer'));
+const FloatingWhatsAppButton = lazy(() => import('./FloatingWhatsAppButton'));
 
 import { motion, useScroll, useSpring } from 'framer-motion';
 
@@ -29,7 +30,7 @@ const AppLayout: React.FC = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1.2 }}
-      className="min-h-screen relative overflow-x-hidden bg-[#f8fafc]"
+      className="min-h-screen relative overflow-x-hidden bg-[#f8fafc] dark:bg-slate-950 text-slate-900 dark:text-slate-50"
     >
       <div className="fixed inset-0 z-[-1] opacity-5 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/white-diamond.png')]" />
       <motion.div
@@ -48,34 +49,38 @@ const AppLayout: React.FC = () => {
         <section aria-labelledby="skills-heading">
           <SkillsSection />
         </section>
-        <section aria-labelledby="experience-heading">
-          <Experience /> 
-        </section>
-        <section aria-labelledby="methodology-heading">
-          <MethodologySection />
-        </section>
-        <section aria-labelledby="services-heading">
-          <ServicesSection />
-        </section>
-        <section aria-labelledby="values-heading">
-          <ValuesSection />
-        </section>
-        <section aria-labelledby="projects-heading">
-          <ProjectsSection />
-        </section>
-        <section aria-labelledby="testimonials-heading">
-          <TestimonialsSection />
-        </section>
-        <section aria-labelledby="contact-heading">
-          <ContactSection />
-        </section>
+        <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center">Loading...</div>}>
+          <section aria-labelledby="experience-heading">
+            <Experience /> 
+          </section>
+          <section aria-labelledby="methodology-heading">
+            <MethodologySection />
+          </section>
+          <section aria-labelledby="services-heading">
+            <ServicesSection />
+          </section>
+          <section aria-labelledby="values-heading">
+            <ValuesSection />
+          </section>
+          <section aria-labelledby="projects-heading">
+            <ProjectsSection />
+          </section>
+          <section aria-labelledby="testimonials-heading">
+            <TestimonialsSection />
+          </section>
+          <section aria-labelledby="contact-heading">
+            <ContactSection />
+          </section>
+        </Suspense>
       </main>
-      <Footer />
+      <Suspense fallback={null}>
+        <Footer />
 
-      <FloatingWhatsAppButton
-        phoneNumber="+919787638123"
-        message="Hi Anbarasan — I saw your portfolio and would like to connect!"
-      />
+        <FloatingWhatsAppButton
+          phoneNumber="+919787638123"
+          message="Hi Anbarasan — I saw your portfolio and would like to connect!"
+        />
+      </Suspense>
     </motion.div>
   );
 };
