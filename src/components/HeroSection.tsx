@@ -226,40 +226,31 @@ const HeroSection: React.FC = () => {
                   key={i}
                   initial={{ opacity: 0 }}
                   animate={{ 
-                    opacity: [0, 0.8, 0],
-                    x: [orb.x, orb.x + 20, orb.x],
-                    y: [orb.y, orb.y - 30, orb.y],
-                    scale: [0.8, 1.1, 0.8]
+                    opacity: [0.2, 0.8, 0.2]
                   }}
                   transition={{ 
-                    duration: 5 + i, 
+                    duration: 4 + i, 
                     repeat: Infinity, 
                     delay: orb.delay,
                     ease: "easeInOut" 
                   }}
-                  className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 p-3 bg-white/10 backdrop-blur-md rounded-xl border border-white/20 text-teal-500 shadow-xl ${orb.size}`}
+                  style={{
+                    transform: `translate(-50%, -50%) translate(${orb.x}px, ${orb.y}px)`
+                  }}
+                  className={`absolute left-1/2 top-1/2 p-3 bg-white/10 backdrop-blur-md rounded-xl border border-white/20 text-teal-500 shadow-xl ${orb.size}`}
                 >
                   {orb.icon}
                 </motion.div>
               ))}
             </div>
 
-            <motion.div
-              animate={{ 
-                y: [0, -30, 0],
-                rotate: [0, 2, 0]
-              }}
-              transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-              className="relative group"
-            >
+            <div className="relative group">
               <div className="absolute inset-0 bg-gradient-to-tr from-indigo-500/40 to-teal-500/40 rounded-[3rem] blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
               <div className="absolute -inset-1 bg-gradient-to-tr from-indigo-500 to-teal-500 rounded-[3rem] opacity-20 blur group-hover:opacity-40 transition duration-1000" />
               
               {/* Thinking Halo Effect */}
-              <motion.div 
-                animate={{ scale: [1, 1.1, 1], opacity: [0.1, 0.3, 0.1] }}
-                transition={{ duration: 4, repeat: Infinity }}
-                className="absolute -top-10 left-1/2 -translate-x-1/2 w-40 h-40 bg-teal-400/20 blur-[60px] rounded-full pointer-events-none"
+              <div 
+                className="absolute -top-10 left-1/2 -translate-x-1/2 w-40 h-40 bg-teal-400/20 blur-[60px] rounded-full pointer-events-none opacity-25"
               />
 
               <img 
@@ -298,7 +289,7 @@ const HeroSection: React.FC = () => {
 
                 </motion.div>
               </div>
-            </motion.div>
+            </div>
           </div>
 
         </motion.div>
@@ -317,8 +308,8 @@ const HeroSection: React.FC = () => {
       {/* Scroll Down Indicator */}
       <motion.div
         initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: [0, 12, 0] }}
-        transition={{ delay: 2, duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 2, duration: 0.8 }}
         onClick={() => {
           const el = document.getElementById('about');
           if (el) el.scrollIntoView({ behavior: 'smooth' });

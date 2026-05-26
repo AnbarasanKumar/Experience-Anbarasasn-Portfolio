@@ -42,16 +42,8 @@ const AboutSection: React.FC = () => {
     <section id="about" className="py-16 md:py-20 bg-gradient-to-br from-indigo-50 via-violet-50/60 to-indigo-100/40 relative overflow-hidden flex items-center justify-center">
       {/* Background decoration */}
       <div className="absolute inset-0 pointer-events-none">
-        <motion.div 
-          animate={{ x: [0, 100, 0], y: [0, 50, 0] }}
-          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute top-0 right-0 w-[600px] h-[600px] bg-indigo-500/5 blur-[120px] rounded-full"
-        />
-        <motion.div 
-          animate={{ x: [0, -100, 0], y: [0, -50, 0] }}
-          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-          className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-teal-500/5 blur-[120px] rounded-full"
-        />
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-indigo-500/5 blur-[120px] rounded-full" />
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-teal-500/5 blur-[120px] rounded-full" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
@@ -72,16 +64,6 @@ const AboutSection: React.FC = () => {
                   opacity: 1, 
                   y: 0, 
                   transition: { type: "spring", stiffness: 100 } 
-                }
-              }}
-              animate={{
-                y: [0, -10, 0],
-              }}
-              transition={{
-                y: {
-                  duration: 3 + idx,
-                  repeat: Infinity,
-                  ease: "easeInOut"
                 }
               }}
               whileHover={{ 

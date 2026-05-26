@@ -38,16 +38,8 @@ const ValuesSection: React.FC = () => {
     <section id="values" className="py-16 md:py-20 bg-gradient-to-br from-slate-50 via-white to-slate-50 relative overflow-hidden">
       {/* Background Decorative Elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <motion.div 
-          animate={{ rotate: 360 }}
-          transition={{ duration: 50, repeat: Infinity, ease: "linear" }}
-          className="absolute -top-1/2 -right-1/4 w-[800px] h-[800px] bg-indigo-500/5 blur-[120px] rounded-full"
-        />
-        <motion.div 
-          animate={{ rotate: -360 }}
-          transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-          className="absolute -bottom-1/2 -left-1/4 w-[800px] h-[800px] bg-teal-500/5 blur-[120px] rounded-full"
-        />
+        <div className="absolute -top-1/2 -right-1/4 w-[800px] h-[800px] bg-indigo-500/5 blur-[120px] rounded-full" />
+        <div className="absolute -bottom-1/2 -left-1/4 w-[800px] h-[800px] bg-teal-500/5 blur-[120px] rounded-full" />
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">

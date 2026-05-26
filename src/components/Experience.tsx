@@ -188,14 +188,6 @@ const Experience: React.FC = () => {
                     hidden: { opacity: 0, x: -30 },
                     visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } }
                   }}
-                  animate={{ y: [0, -10, 0] }}
-                  transition={{
-                    y: {
-                      duration: 4 + idx * 1.5,
-                      repeat: Infinity,
-                      ease: "easeInOut"
-                    }
-                  }}
                   whileHover={{ 
                     y: -14,
                     scale: 1.01,
@@ -266,14 +258,6 @@ const Experience: React.FC = () => {
                   <motion.div 
                     key={idx}
                     variants={itemVariants}
-                    animate={{ y: [0, -6, 0] }}
-                    transition={{
-                      y: {
-                        duration: 4 + idx * 1.5,
-                        repeat: Infinity,
-                        ease: "easeInOut"
-                      }
-                    }}
                     whileHover={{ scale: 1.02, x: 6 }}
                     className="relative"
                   >
@@ -301,14 +285,6 @@ const Experience: React.FC = () => {
                   <motion.div 
                     key={idx}
                     variants={itemVariants}
-                    animate={{ y: [0, -6, 0] }}
-                    transition={{
-                      y: {
-                        duration: 4 + idx * 1.5,
-                        repeat: Infinity,
-                        ease: "easeInOut"
-                      }
-                    }}
                     whileHover={{ scale: 1.02, x: 6 }}
                     className="relative"
                   >
@@ -336,14 +312,6 @@ const Experience: React.FC = () => {
                   <motion.div 
                     key={idx}
                     variants={itemVariants}
-                    animate={{ y: [0, -6, 0] }}
-                    transition={{
-                      y: {
-                        duration: 4 + idx * 1.5,
-                        repeat: Infinity,
-                        ease: "easeInOut"
-                      }
-                    }}
                     whileHover={{ scale: 1.02, x: 6 }}
                     className="relative"
                   >

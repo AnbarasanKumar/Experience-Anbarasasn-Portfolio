@@ -63,16 +63,8 @@ const ContactSection: React.FC = () => {
     >
       {/* Dynamic Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.div 
-          animate={{ scale: [1, 1.2, 1], x: [0, 50, 0], y: [0, 30, 0] }}
-          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -top-[10%] -left-[10%] w-[50%] h-[50%] bg-indigo-500/10 blur-[120px] rounded-full"
-        />
-        <motion.div 
-          animate={{ scale: [1, 1.3, 1], x: [0, -40, 0], y: [0, -20, 0] }}
-          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -bottom-[10%] -right-[10%] w-[50%] h-[50%] bg-teal-500/10 blur-[120px] rounded-full"
-        />
+        <div className="absolute -top-[10%] -left-[10%] w-[50%] h-[50%] bg-indigo-500/10 blur-[120px] rounded-full" />
+        <div className="absolute -bottom-[10%] -right-[10%] w-[50%] h-[50%] bg-teal-500/10 blur-[120px] rounded-full" />
       </div>
 
       <div className="max-w-4xl mx-auto px-6 relative z-10 w-full">
@@ -122,9 +114,6 @@ const ContactSection: React.FC = () => {
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.6 }}
               onSubmit={onSubmit}
-              style={{ 
-                animation: "float-form 6s ease-in-out infinite"
-              }}
               className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white p-6 md:p-8 rounded-3xl border border-slate-200 shadow-xl"
             >
               <div className="space-y-6">

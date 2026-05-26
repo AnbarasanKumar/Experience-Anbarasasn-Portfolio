@@ -78,16 +78,6 @@ const SkillsSection: React.FC = () => {
                 hidden: { opacity: 0, y: 40, scale: 0.98 },
                 visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.7, ease: "easeOut" } }
               }}
-              animate={{
-                y: [0, -12, 0],
-              }}
-              transition={{
-                y: {
-                  duration: 4 + idx,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }
-              }}
               whileHover={{ 
                 y: -15, 
                 scale: 1.03,

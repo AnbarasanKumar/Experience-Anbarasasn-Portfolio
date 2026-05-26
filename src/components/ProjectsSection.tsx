@@ -87,16 +87,6 @@ const ProjectsSection: React.FC = () => {
                 hidden: { opacity: 0, y: 50, scale: 0.95 },
                 visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.7, ease: "easeOut" } }
               }}
-              animate={{
-                y: [0, -15, 0],
-              }}
-              transition={{
-                y: {
-                  duration: 5 + index,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }
-              }}
               whileHover={{ 
                 y: -20, 
                 scale: 1.02,
