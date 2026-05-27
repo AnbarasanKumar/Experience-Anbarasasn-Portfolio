@@ -52,7 +52,7 @@ const ContactSection: React.FC = () => {
         email: formValues.email,
         phone: formValues.phone,
         subject: `🚀 New Inquiry | ${formValues.subject} — Anbarasan Kumar Portfolio`,
-        message: formValues.message,
+        message: `Hello Anbarasan,\n\nA new form has been submitted on your website. Details below:\n\n${formValues.message}\n\n---\nSent from your Portfolio Contact Form`,
         from_name: formValues.name,
         replyto: formValues.email,
         botcheck: "",
