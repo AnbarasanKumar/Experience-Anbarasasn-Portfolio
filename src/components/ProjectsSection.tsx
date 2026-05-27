@@ -12,8 +12,8 @@ interface Project {
 }
 
 const ProjectsSection: React.FC = () => {
-  const [activeFilter, setActiveFilter] = useState<'All' | 'Full Stack' | 'Backend'>('All');
-  const filters: ('All' | 'Full Stack' | 'Backend')[] = ['All', 'Full Stack', 'Backend'];
+  const [activeFilter, setActiveFilter] = useState<'All' | 'Full Stack'>('All');
+  const filters: ('All' | 'Full Stack')[] = ['All', 'Full Stack'];
 
   const projects: Project[] = [
     {
