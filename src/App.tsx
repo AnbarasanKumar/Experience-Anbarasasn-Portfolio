@@ -6,8 +6,27 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "@/components/theme-provider";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import { useDynamicTitle } from "./hooks/useDynamicTitle";
 
 const queryClient = new QueryClient();
+
+const AppContent = () => {
+  useDynamicTitle();
+  return (
+    <BrowserRouter
+      basename="/"
+      future={{
+        v7_startTransition: true,
+        v7_relativeSplatPath: true,
+      }}
+    >
+      <Routes>
+        <Route path="/" element={<Index />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
+  );
+};
 
 const App = () => (
   <ThemeProvider defaultTheme="system">
@@ -15,19 +34,7 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        {/* FIXED: Added future flags to resolve console warnings */}
-        <BrowserRouter 
-          basename="/"
-          future={{
-            v7_startTransition: true,
-            v7_relativeSplatPath: true,
-          }}
-        >
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
+        <AppContent />
       </TooltipProvider>
     </QueryClientProvider>
   </ThemeProvider>
