@@ -39,7 +39,7 @@ const AboutSection: React.FC = () => {
   };
 
   return (
-    <section id="about" className="py-16 md:py-20 bg-gradient-to-br from-indigo-50 via-violet-50/60 to-indigo-100/40 relative overflow-hidden flex items-center justify-center">
+    <section id="about" className="py-16 md:py-20 bg-gradient-to-br from-indigo-50 via-violet-50/60 to-indigo-100/40 dark:from-slate-950 dark:via-indigo-950/20 dark:to-slate-900/30 relative overflow-hidden flex items-center justify-center">
       {/* Background decoration */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-indigo-500/5 blur-[120px] rounded-full" />
@@ -71,7 +71,7 @@ const AboutSection: React.FC = () => {
                 rotate: idx % 2 === 0 ? 1 : -1,
                 boxShadow: "0 25px 50px -12px rgba(20, 184, 166, 0.25)"
               }}
-              className="bg-white p-6 rounded-3xl border border-slate-200 text-center shadow-lg group hover:border-teal-500/50 transition-all duration-500 relative overflow-hidden"
+              className="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200 dark:border-slate-800 text-center shadow-lg group hover:border-teal-500/50 dark:hover:border-teal-500/50 transition-all duration-500 relative overflow-hidden"
             >
               {/* Card Glow Effect */}
               <div className="absolute -inset-1 bg-gradient-to-r from-teal-500 to-indigo-600 rounded-[2.5rem] opacity-0 group-hover:opacity-10 blur transition duration-500" />
@@ -80,7 +80,7 @@ const AboutSection: React.FC = () => {
                 <h3 className="text-4xl font-black bg-clip-text text-transparent bg-gradient-to-r from-teal-600 to-indigo-600 mb-2">
                   <CountUp end={parseInt(stat.value)} suffix={stat.value.replace(/\d+/g, "")} enableScrollSpy />
                 </h3>
-                <p className="text-slate-500 font-black tracking-[0.1em] uppercase text-[10px] whitespace-nowrap">{stat.label}</p>
+                <p className="text-slate-500 dark:text-slate-400 font-black tracking-[0.1em] uppercase text-[10px] whitespace-nowrap">{stat.label}</p>
               </div>
             </motion.div>
           ))}
@@ -96,15 +96,15 @@ const AboutSection: React.FC = () => {
             className="space-y-10"
           >
             <div className="space-y-4">
-              <h2 id="about-heading" className="text-4xl md:text-5xl font-bold text-slate-900">
+              <h2 id="about-heading" className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-100">
                 Transforming <span className="text-teal-600">Vision</span> into Digital <span className="text-indigo-600">Reality</span>
               </h2>
               <div className="w-20 h-1.5 bg-teal-500 rounded-full" />
             </div>
 
-            <div className="space-y-6 text-slate-600 text-lg leading-relaxed">
+            <div className="space-y-6 text-slate-600 dark:text-slate-300 text-lg leading-relaxed">
               <p>
-                As a specialized Full Stack Engineer, I bridge the gap between complex backend architectures and intuitive user interfaces. My journey is defined by a passion for solving enterprise-scale challenges using <span className="text-slate-900 font-semibold">Java, Spring Boot, and React</span>.
+                As a specialized Full Stack Engineer, I bridge the gap between complex backend architectures and intuitive user interfaces. My journey is defined by a passion for solving enterprise-scale challenges using <span className="text-slate-900 dark:text-slate-100 font-semibold">Java, Spring Boot, and React</span>.
               </p>
               <p>
                 My approach goes beyond development; I engineer resilient, high-performance systems designed to scale seamlessly. From building robust e-commerce architectures to developing intelligent AI-driven tools, I ensure every solution is secure, efficient, and crafted with technical precision.
@@ -117,7 +117,7 @@ const AboutSection: React.FC = () => {
                 target="_blank"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-3 bg-white border border-slate-200 hover:border-slate-300 px-10 py-4 rounded-2xl font-bold text-slate-900 transition-all shadow-md hover:shadow-lg"
+                className="inline-flex items-center gap-3 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 px-10 py-4 rounded-2xl font-bold text-slate-900 dark:text-slate-100 transition-all shadow-md hover:shadow-lg"
               >
                 <FaEye className="text-teal-600" /> View Credentials
               </motion.a>
@@ -143,18 +143,18 @@ const AboutSection: React.FC = () => {
                   visible: { opacity: 1, x: 0, transition: { duration: 0.8, ease: "easeOut" } }
                 }}
                 whileHover={{ y: -8, scale: 1.02 }}
-                className="bg-white p-6 rounded-3xl border border-slate-200 space-y-4 shadow-lg hover:border-teal-500/30 transition-all duration-500 will-change-transform"
+                className="bg-white dark:bg-slate-900 p-6 rounded-3xl border border-slate-200 dark:border-slate-800 space-y-4 shadow-lg hover:border-teal-500/30 dark:hover:border-teal-500/30 transition-all duration-500 will-change-transform"
               >
                 <div className="space-y-2">
                   <h4 className="text-xl font-bold text-teal-600">{item.title}</h4>
-                  <p className="text-slate-500 text-sm leading-relaxed">{item.description}</p>
+                  <p className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">{item.description}</p>
                 </div>
                 <div className="grid grid-cols-3 gap-3">
                   {item.images.map((img, i) => (
                     <motion.div 
                       key={i}
                       whileHover={{ scale: 1.15, rotate: i % 2 === 0 ? 3 : -3, zIndex: 20 }}
-                      className="h-24 rounded-xl overflow-hidden shadow-md border border-slate-100 relative will-change-transform"
+                      className="h-24 rounded-xl overflow-hidden shadow-md border border-slate-100 dark:border-slate-800 relative will-change-transform"
                     >
                       <img 
                         src={img} 

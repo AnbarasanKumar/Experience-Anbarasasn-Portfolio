@@ -50,7 +50,7 @@ const SkillsSection: React.FC = () => {
   };
 
   return (
-    <section id="skills" className="py-16 md:py-20 bg-gradient-to-br from-teal-50 via-cyan-50/80 to-emerald-50/50 relative overflow-hidden">
+    <section id="skills" className="py-16 md:py-20 bg-gradient-to-br from-teal-50 via-cyan-50/80 to-emerald-50/50 dark:from-slate-950 dark:via-slate-900/50 dark:to-slate-950 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -83,17 +83,17 @@ const SkillsSection: React.FC = () => {
                 scale: 1.03,
                 boxShadow: "0 25px 50px -12px rgba(20, 184, 166, 0.25)"
               }}
-              className="bg-white p-7 rounded-3xl border border-slate-200 shadow-lg hover:border-teal-500/40 transition-all duration-500 group relative overflow-hidden"
+              className="bg-white dark:bg-slate-900 p-7 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-lg hover:border-teal-500/40 dark:hover:border-teal-500/40 transition-all duration-500 group relative overflow-hidden"
             >
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-teal-500/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-              <h3 className="text-xl font-extrabold text-slate-900 mb-10 group-hover:text-teal-600 transition-colors duration-300 tracking-[0.2em] uppercase text-xs">
+              <h3 className="text-xl font-extrabold text-slate-900 dark:text-slate-100 mb-10 group-hover:text-teal-600 transition-colors duration-300 tracking-[0.2em] uppercase text-xs">
                 {cat.category}
               </h3>
               <div className="space-y-10">
                 {cat.skills.map((skill, sIdx) => (
                   <div key={sIdx} className="space-y-4">
                     <div className="flex justify-between text-sm font-bold">
-                      <span className="text-slate-600 tracking-wide">{skill.name}</span>
+                      <span className="text-slate-600 dark:text-slate-300 tracking-wide">{skill.name}</span>
                       <motion.span 
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
@@ -102,7 +102,7 @@ const SkillsSection: React.FC = () => {
                         {skill.level}%
                       </motion.span>
                     </div>
-                    <div className="w-full bg-slate-100 rounded-full h-2.5 overflow-hidden border border-slate-200 shadow-inner">
+                    <div className="w-full bg-slate-100 dark:bg-slate-800 rounded-full h-2.5 overflow-hidden border border-slate-200 dark:border-slate-700 shadow-inner">
                       <motion.div
                         initial={{ width: 0 }}
                         whileInView={{ width: `${skill.level}%` }}

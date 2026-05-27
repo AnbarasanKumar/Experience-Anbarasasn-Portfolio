@@ -84,7 +84,7 @@ const HeroSection: React.FC = () => {
   };
 
   return (
-    <section id="hero" className="min-h-screen bg-gradient-to-br from-white via-indigo-50/40 to-teal-50/30 flex flex-col justify-center pt-28 pb-12 md:pt-36 md:pb-20 px-6 relative overflow-hidden">
+    <section id="hero" className="min-h-screen bg-gradient-to-br from-white via-indigo-50/40 to-teal-50/30 dark:from-slate-950 dark:via-slate-900/40 dark:to-slate-950 flex flex-col justify-center pt-28 pb-12 md:pt-36 md:pb-20 px-6 relative overflow-hidden">
       {/* Animated Background Mesh - Optimized */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <motion.div 
@@ -119,13 +119,13 @@ const HeroSection: React.FC = () => {
             <motion.h1 
               variants={itemVariants}
               id="hero-heading" 
-              className="text-5xl md:text-8xl font-extrabold tracking-tight leading-tight text-slate-900"
+              className="text-5xl md:text-8xl font-extrabold tracking-tight leading-tight text-slate-900 dark:text-slate-100"
             >
               Anbarasan <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-teal-500 to-indigo-600 bg-[length:200%_auto] animate-gradient-x">Kumar</span>
             </motion.h1>
             
             <motion.div variants={itemVariants} className="h-12 flex items-center">
-              <p className="text-2xl md:text-4xl text-slate-600 font-medium">
+              <p className="text-2xl md:text-4xl text-slate-600 dark:text-slate-300 font-medium">
                 {displayText}
                 <motion.span 
                   animate={{ opacity: [1, 0] }}
@@ -138,9 +138,9 @@ const HeroSection: React.FC = () => {
 
           <motion.p 
             variants={itemVariants}
-            className="text-lg md:text-2xl text-slate-500 leading-relaxed max-w-2xl font-light"
+            className="text-lg md:text-2xl text-slate-500 dark:text-slate-400 leading-relaxed max-w-2xl font-light"
           >
-            Engineering enterprise-grade systems like <span className="text-slate-900 font-semibold">Hostel Management, Course Registration, and E-commerce platforms</span>. Specializing in scalable Java architectures and robust full-stack digital solutions.
+            Engineering enterprise-grade systems like <span className="text-slate-900 dark:text-slate-100 font-semibold">Hostel Management, Course Registration, and E-commerce platforms</span>. Specializing in scalable Java architectures and robust full-stack digital solutions.
           </motion.p>
 
           <motion.div variants={itemVariants} className="flex flex-wrap gap-6">
@@ -180,7 +180,7 @@ const HeroSection: React.FC = () => {
                   <motion.div 
                     key={i} 
                     whileHover={{ scale: 1.1, backgroundColor: "rgba(0,0,0,0.05)" }}
-                    className="text-3xl md:text-4xl text-slate-400 hover:text-slate-900 transition-all duration-300 bg-slate-100 p-3 md:p-4 rounded-2xl border border-slate-200 cursor-pointer shadow-sm"
+                    className="text-3xl md:text-4xl text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-all duration-300 bg-slate-100 dark:bg-slate-900 p-3 md:p-4 rounded-2xl border border-slate-200 dark:border-slate-800 cursor-pointer shadow-sm"
                   >
                     <t.icon />
                   </motion.div>
@@ -267,7 +267,7 @@ const HeroSection: React.FC = () => {
                     
                     <div className="flex flex-wrap justify-center gap-3 pt-4">
                       {['Java', 'Spring Boot', 'React', 'Cloud'].map((skill) => (
-                        <span key={skill} className="px-4 py-2 bg-white/40 backdrop-blur-md rounded-xl text-[10px] font-black text-slate-800 uppercase tracking-widest border border-white/50 shadow-sm">
+                        <span key={skill} className="px-4 py-2 bg-white/40 dark:bg-slate-900/40 backdrop-blur-md rounded-xl text-[10px] font-black text-slate-800 dark:text-slate-200 uppercase tracking-widest border border-white/50 dark:border-slate-800 shadow-sm">
                           {skill}
                         </span>
                       ))}
