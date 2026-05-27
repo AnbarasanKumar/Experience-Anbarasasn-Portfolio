@@ -30,7 +30,7 @@ const ProjectsSection: React.FC = () => {
       image: 'https://cdn.slidesharecdn.com/ss_thumbnails/onlinecourseregistrationsystemdevelopmentsoftwareengineeringprojectpresentation-170505033339-thumbnail.jpg?width=560&fit=bounds',
       technologies: ['Java', 'Spring Boot', 'MySQL', 'REST API', 'JavaScript'],
       githubUrl: 'https://github.com/AnbarasanKumar/Course-Registration-System.git',
-      category: 'Backend'
+      category: 'Full Stack'
     },
     {
       title: 'Automated Hostel Management System',
