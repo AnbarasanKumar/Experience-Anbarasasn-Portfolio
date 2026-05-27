@@ -51,7 +51,7 @@ const ContactSection: React.FC = () => {
         name: formValues.name,
         email: formValues.email,
         phone: formValues.phone,
-        subject: `[Portfolio Contact] ${formValues.subject}`,
+        subject: `🚀 New Inquiry | ${formValues.subject} — Anbarasan Kumar Portfolio`,
         message: formValues.message,
         from_name: formValues.name,
         replyto: formValues.email,
