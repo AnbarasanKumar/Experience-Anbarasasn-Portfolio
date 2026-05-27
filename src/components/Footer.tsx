@@ -197,7 +197,6 @@ const Footer: React.FC = () => {
           <div className="flex gap-8 text-xs font-bold uppercase tracking-widest text-slate-400">
             <span className="hover:text-teal-600 cursor-default transition-colors">React</span>
             <span className="hover:text-indigo-600 cursor-default transition-colors">Spring Boot</span>
-            <span className="hover:text-teal-600 cursor-default transition-colors">Tailwind CSS</span>
           </div>
         </div>
       </div>
