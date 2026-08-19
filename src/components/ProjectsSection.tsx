@@ -38,6 +38,7 @@ const ProjectsSection: React.FC = () => {
       image: 'https://images.unsplash.com/photo-1555854877-bab0e564b8d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
       technologies: ['React', 'Java', 'MySQL', 'Spring Boot', 'Cloud Deployment'],
       githubUrl: 'https://github.com/AnbarasanKumar/hostel-management.git',
+      liveUrl: 'https://www.brindhavanamhostels.com/',
       category: 'Full Stack'
     }
   ];
@@ -50,7 +51,7 @@ const ProjectsSection: React.FC = () => {
     <section id="projects" className="py-16 md:py-20 bg-gradient-to-br from-blue-50 via-sky-50/80 to-indigo-50/50 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500/5 blur-[120px] rounded-full pointer-events-none" />
-      
+
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -131,7 +132,7 @@ const ProjectsSection: React.FC = () => {
                       />
                     </div>
                   </div>
-                  
+
                   <div className="p-7 pb-0">
                     <h3 className="text-2xl font-extrabold text-slate-900 mb-4 group-hover:text-teal-600 transition-colors duration-300">{project.title}</h3>
                     <p className="text-slate-600 mb-8 leading-relaxed line-clamp-4 group-hover:text-slate-700 transition-colors duration-300 text-sm">
@@ -151,7 +152,7 @@ const ProjectsSection: React.FC = () => {
                       </span>
                     ))}
                   </div>
-                  
+
                   <div className="flex gap-4">
                     <motion.a
                       href={project.githubUrl}
