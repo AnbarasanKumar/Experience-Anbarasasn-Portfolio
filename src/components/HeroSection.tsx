@@ -9,9 +9,9 @@ import {
 
 const roles = [
   'Full Stack Engineer',
-  'Java Specialist',
+  'Java  Developer',
   'Spring Boot Developer',
-  'React & Frontend Expert'
+  'React & Frontend Developer',
 ];
 
 const HeroSection: React.FC = () => {
