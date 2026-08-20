@@ -1,17 +1,17 @@
-import { useEffect, useRef } from 'react';
+ import { useEffect, useRef } from 'react';
 
 const suggestionTitles = [
-  '👨‍💻 Anbarasan Kumar | Full Stack Engineer',
-  '☕ Java Specialist | Spring Boot Expert',
-  '⚛️  React & Frontend Developer',
-  '🚀 Building Scalable Systems',
-  '🌟 Open to Opportunities!',
-  '💡 Anbarasan Kumar | Portfolio',
+  '`Anbarasan Kumar | Full Stack Engineer',
+  'Java Developer | Spring Boot Developer',
+  'React & Frontend Developer',
+  'Building Scalable Systems',
+  'Open to Opportunities!',
+  'Anbarasan Kumar | Portfolio',
 ];
 
 const CYCLE_INTERVAL = 3000; // 3 seconds per title
-const AWAY_TITLE = '👋 Come back! | Anbarasan Kumar';
-const DEFAULT_TITLE = '👨‍💻 Anbarasan Kumar | Full Stack Engineer';
+const AWAY_TITLE = 'Come back! | Anbarasan Kumar';
+const DEFAULT_TITLE = 'Anbarasan Kumar | Full Stack Engineer';
 
 /**
  * useDynamicTitle
