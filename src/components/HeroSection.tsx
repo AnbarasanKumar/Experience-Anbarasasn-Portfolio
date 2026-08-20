@@ -169,7 +169,7 @@ const HeroSection: React.FC = () => {
           </motion.div>
 
           <motion.div variants={itemVariants} className="pt-12 space-y-6">
-            <p className="text-xs uppercase tracking-[0.3em] text-slate-400 font-bold">Tech Stack Expertise</p>
+            <p className="text-xs uppercase tracking-[0.3em] text-slate-400 font-bold">Tech Stack</p>
             <div className="overflow-hidden relative w-full h-20 group">
               <motion.div
                 className="absolute flex gap-4 md:gap-8"
