@@ -26,13 +26,9 @@ const AppLayout: React.FC = () => {
   });
 
   return (
-    <motion.div 
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 1.2 }}
+    <motion.div
       className="min-h-screen relative overflow-x-hidden bg-[#f8fafc] dark:bg-slate-950 text-slate-900 dark:text-slate-50"
     >
-      <div className="fixed inset-0 z-[-1] opacity-5 pointer-events-none bg-[url('https://www.transparenttextures.com/patterns/white-diamond.png')]" />
       <motion.div
         className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-teal-500 via-indigo-500 to-teal-500 z-[100] origin-left"
         style={{ scaleX }}

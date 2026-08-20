@@ -244,6 +244,9 @@ const HeroSection: React.FC = () => {
               <img 
                 src="Anbarasan-image.png" 
                 alt="Anbarasan Kumar"
+                width="450"
+                height="450"
+                fetchPriority="high"
                 className="w-72 h-72 md:w-[450px] md:h-[450px] object-cover rounded-[3rem] border-2 border-white shadow-2xl relative z-10 transition-transform duration-700 group-hover:scale-[1.02]"
               />
               {/* Professional Role Overlay */}
